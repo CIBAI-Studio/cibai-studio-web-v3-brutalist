@@ -1,0 +1,328 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const serviceOptions = [
+ 'Diseño Web',
+ 'Webapp / SaaS',
+ 'Automatizaciones + IA',
+ 'Redes Sociales',
+ 'SEO',
+ 'Copywriting',
+ 'Otro',
+];
+
+const sourceOptions = [
+ 'Google',
+ 'Redes Sociales',
+ 'Recomendación',
+ 'Otro',
+];
+
+const contactPageSchema = {
+"@context":"https://schema.org",
+"@type":"ContactPage",
+"name":"Contacto — CIBAI Studio",
+"url":"https://cibai.studio/contacto",
+"description":"Contacta con CIBAI Studio para empezar tu proyecto digital. Primera consulta gratuita. Respondemos en menos de 24 horas.",
+"mainEntity": {
+"@type":"Organization",
+"name":"CIBAI Studio",
+"url":"https://cibai.studio",
+"contactPoint": {
+"@type":"ContactPoint",
+"contactType":"customer service",
+"url":"https://cibai.studio/contacto",
+"availableLanguage": ["Spanish","Catalan"]
+ }
+ }
+};
+
+const breadcrumbSchema = {
+"@context":"https://schema.org",
+"@type":"BreadcrumbList",
+"itemListElement": [
+ {"@type":"ListItem","position": 1,"name":"Inicio","item":"https://cibai.studio"},
+ {"@type":"ListItem","position": 2,"name":"Contacto","item":"https://cibai.studio/contacto"}
+ ]
+};
+---
+
+<Layout
+ title="Contacto — Cuéntanos tu Proyecto"
+ description="Contacta con CIBAI Studio para empezar tu proyecto digital. Primera consulta gratuita. Respondemos en menos de 24 horas. Diseño web, desarrollo e IA en Barcelona."
+>
+ <script type="application/ld+json"set:html={JSON.stringify(contactPageSchema)} />
+ <script type="application/ld+json"set:html={JSON.stringify(breadcrumbSchema)} />
+
+ <section class="bg-[#000] py-24">
+ <div class="mx-auto max-w-[1400px] px-6">
+ <div class="grid grid-cols-1 gap-16 lg:grid-cols-[1fr_1.8fr]">
+
+ <!-- Left: info -->
+ <div class="page-fade-in space-y-10">
+ <div>
+ <p class="font-mono text-xs font-medium uppercase tracking-widest text-red-500/60">Contacto</p>
+ <h1 class="mt-4 font-display text-4xl font-bold leading-tight tracking-[-0.03em] text-[rgba(255,255,255,0.92)] md:text-5xl">
+ Cuéntanos tu proyecto.
+ </h1>
+ <p class="mt-4 text-[rgba(255,255,255,0.55)]">
+ Sin compromisos. Sin presión. Solo una conversación sobre cómo podemos ayudarte a crecer digitalmente.
+ </p>
+ </div>
+
+ <!-- Datos de contacto -->
+ <div class="space-y-5">
+ <div class="flex items-start gap-3">
+ <span class="mt-0.5 font-mono text-xs text-red-500">→</span>
+ <div>
+ <p class="text-xs font-mono uppercase tracking-wider text-[rgba(255,255,255,0.25)]">Email</p>
+ <a href="mailto:hola@cibai.studio"class="text-[rgba(255,255,255,0.92)] transition-colors hover:text-red-500">
+ hola@cibai.studio
+ </a>
+ </div>
+ </div>
+ <div class="flex items-start gap-3">
+ <span class="mt-0.5 font-mono text-xs text-red-500">→</span>
+ <div>
+ <p class="text-xs font-mono uppercase tracking-wider text-[rgba(255,255,255,0.25)]">Ubicación</p>
+ <p class="text-[rgba(255,255,255,0.92)]">Barcelona, España</p>
+ <p class="text-xs text-[rgba(255,255,255,0.25)]">Trabajamos con clientes en toda España y Latinoamérica</p>
+ </div>
+ </div>
+ <div class="flex items-start gap-3">
+ <span class="mt-0.5 font-mono text-xs text-red-500">→</span>
+ <div>
+ <p class="text-xs font-mono uppercase tracking-wider text-[rgba(255,255,255,0.25)]">Horario</p>
+ <p class="text-[rgba(255,255,255,0.92)]">Lunes a viernes · 9:00 – 18:00 h</p>
+ </div>
+ </div>
+ </div>
+
+ <!-- Status -->
+ <div class="border border-[rgba(255,255,255,0.18)] bg-[#0D0D0D] p-6">
+ <div class="flex items-center gap-3">
+ <span class="relative flex h-2 w-2">
+ <span class="absolute inline-flex h-full w-full animate-ping bg-red-500 opacity-60"></span>
+ <span class="relative inline-flex h-2 w-2 bg-red-500"></span>
+ </span>
+ <p class="text-sm font-medium text-[rgba(255,255,255,0.92)]">Disponibles para nuevos proyectos</p>
+ </div>
+ <p class="mt-3 text-xs text-[rgba(255,255,255,0.25)]">Respondemos en menos de 24 horas en días laborables.</p>
+ </div>
+ </div>
+
+ <!-- Right: formulario -->
+ <div class="page-fade-in delay-150">
+ <form
+ id="contact-form"
+ name="contacto"
+ method="POST"
+ class="space-y-6"
+ novalidate
+ >
+ <!-- Nombre + Email -->
+ <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+ <div class="space-y-2">
+ <label for="nombre"class="block text-sm font-medium text-[rgba(255,255,255,0.92)]">
+ Nombre completo <span class="text-cyan-500"aria-hidden="true">*</span>
+ </label>
+ <input
+ id="nombre"
+ name="nombre"
+ type="text"
+ required
+ autocomplete="name"
+ class="form-input w-full border border-[rgba(255,255,255,0.18)] bg-[#0D0D0D] px-4 py-3 text-sm text-[rgba(255,255,255,0.92)] placeholder:text-[rgba(255,255,255,0.10)] focus:border-red-500/60 focus:outline-none focus:ring-1 focus:ring-red-500/30 transition-colors"
+ placeholder="Tu nombre o el de tu empresa"
+ />
+ </div>
+ <div class="space-y-2">
+ <label for="email"class="block text-sm font-medium text-[rgba(255,255,255,0.92)]">
+ Correo electrónico <span class="text-cyan-500"aria-hidden="true">*</span>
+ </label>
+ <input
+ id="email"
+ name="email"
+ type="email"
+ required
+ autocomplete="email"
+ class="form-input w-full border border-[rgba(255,255,255,0.18)] bg-[#0D0D0D] px-4 py-3 text-sm text-[rgba(255,255,255,0.92)] placeholder:text-[rgba(255,255,255,0.10)] focus:border-red-500/60 focus:outline-none focus:ring-1 focus:ring-red-500/30 transition-colors"
+ placeholder="tu@empresa.com"
+ />
+ <p class="mt-1.5 text-xs text-[rgba(255,255,255,0.25)]">Sin spam, prometido.</p>
+ </div>
+ </div>
+
+ <!-- Teléfono -->
+ <div class="space-y-2">
+ <label for="telefono"class="block text-sm font-medium text-[rgba(255,255,255,0.92)]">
+ Teléfono <span class="text-[rgba(255,255,255,0.25)] text-xs">(opcional)</span>
+ </label>
+ <input
+ id="telefono"
+ name="telefono"
+ type="tel"
+ autocomplete="tel"
+ class="form-input w-full border border-[rgba(255,255,255,0.18)] bg-[#0D0D0D] px-4 py-3 text-sm text-[rgba(255,255,255,0.92)] placeholder:text-[rgba(255,255,255,0.10)] focus:border-red-500/60 focus:outline-none focus:ring-1 focus:ring-red-500/30 transition-colors"
+ placeholder="+34 600 000 000"
+ />
+ </div>
+
+ <!-- Servicio -->
+ <fieldset class="space-y-3">
+ <legend class="text-sm font-medium text-[rgba(255,255,255,0.92)]">¿En qué podemos ayudarte?</legend>
+ <div class="flex flex-wrap gap-2">
+ {serviceOptions.map((opt) => (
+ <label class="service-tag cursor-pointer">
+ <input type="checkbox"name="servicio"value={opt} class="sr-only peer"/>
+ <span class="inline-block border border-[rgba(255,255,255,0.18)] bg-[#0D0D0D] px-4 py-1.5 text-xs font-medium text-[rgba(255,255,255,0.55)] transition-all duration-200 peer-checked:border-red-500/60 peer-checked:bg-red-500/10 peer-checked:text-red-500">
+ {opt}
+ </span>
+ </label>
+ ))}
+ </div>
+ </fieldset>
+
+ <!-- Mensaje -->
+ <div class="space-y-2">
+ <label for="mensaje"class="block text-sm font-medium text-[rgba(255,255,255,0.92)]">
+ Cuéntanos tu proyecto
+ </label>
+ <textarea
+ id="mensaje"
+ name="mensaje"
+ rows={5}
+ class="form-input w-full resize-none border border-[rgba(255,255,255,0.18)] bg-[#0D0D0D] px-4 py-3 text-sm text-[rgba(255,255,255,0.92)] placeholder:text-[rgba(255,255,255,0.10)] focus:border-red-500/60 focus:outline-none focus:ring-1 focus:ring-red-500/30 transition-colors"
+ placeholder="Cuéntanos brevemente qué necesitas, dónde estás ahora y a dónde quieres llegar. No hace falta que sea perfecto: ya lo trabajamos juntos."
+ ></textarea>
+ </div>
+
+ <!-- Cómo nos conociste -->
+ <div class="space-y-2">
+ <label for="origen"class="block text-sm font-medium text-[rgba(255,255,255,0.92)]">
+ ¿Cómo nos has conocido?
+ </label>
+ <select
+ id="origen"
+ name="origen"
+ class="form-input w-full border border-[rgba(255,255,255,0.18)] bg-[#0D0D0D] px-4 py-3 text-sm text-[rgba(255,255,255,0.92)] focus:border-red-500/60 focus:outline-none focus:ring-1 focus:ring-red-500/30 transition-colors"
+ >
+ <option value=""disabled selected>Selecciona una opción</option>
+ {sourceOptions.map((opt) => (
+ <option value={opt}>{opt}</option>
+ ))}
+ </select>
+ </div>
+
+ <!-- Honeypot anti-spam (hidden from real users) -->
+ <div class="absolute -left-[9999px]"aria-hidden="true">
+ <input type="text"name="website"tabindex="-1"autocomplete="off"/>
+ </div>
+
+ <!-- Submit -->
+ <button
+ type="submit"
+ id="submit-btn"
+ class="group w-full bg-red-500 px-8 py-4 text-base font-semibold text-bg transition-all duration-300 hover:shadow-[0_0_24px_rgb(255_45_0_/_0.35)] active:scale-[0.98]"
+ >
+ <span class="submit-text inline-flex items-center justify-center gap-2">
+ Enviar mi consulta
+ <span class="font-mono transition-transform duration-200 group-hover:translate-x-1">→</span>
+ </span>
+ <span class="submit-loading hidden items-center justify-center gap-2">
+ <span class="h-4 w-4 animate-spin border-2 border-bg/30 border-t-bg"></span>
+ Enviando...
+ </span>
+ </button>
+
+ <!-- Trust builder bajo el botón -->
+ <p class="text-center text-xs text-[rgba(255,255,255,0.25)]">Respondemos en menos de 24h laborables</p>
+
+ <!-- Mensaje de éxito/error -->
+ <div id="form-success"class="hidden border border-success/30 bg-success/10 p-4 text-sm text-success">
+ ¡Perfecto! Ya tenemos tu consulta. Nos ponemos en contacto antes de 24h.
+ </div>
+ <div id="form-error"class="hidden border border-error/30 bg-error/10 p-4 text-sm text-error">
+ Algo falló en nuestro lado. Inténtalo de nuevo o escríbenos a hola@cibai.studio
+ </div>
+ </form>
+ </div>
+ </div>
+ </div>
+ </section>
+</Layout>
+
+<style>
+ .page-fade-in {
+ opacity: 0;
+ transform: translateY(20px);
+ animation: pageIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+ }
+ .delay-150 { animation-delay: 0.15s; }
+ @keyframes pageIn {
+ to { opacity: 1; transform: translateY(0); }
+ }
+
+ /* Input styles via global tokens */
+ select option {
+ background-color: var(--color-surface);
+ color: var(--color-text);
+ }
+</style>
+
+<script>
+ const form = document.getElementById('contact-form') as HTMLFormElement | null;
+ const btn = document.getElementById('submit-btn') as HTMLButtonElement | null;
+ const submitText = btn?.querySelector('.submit-text');
+ const submitLoading = btn?.querySelector('.submit-loading');
+ const successMsg = document.getElementById('form-success');
+ const errorMsg = document.getElementById('form-error');
+
+ form?.addEventListener('submit', async (e) => {
+ e.preventDefault();
+
+ /* Validación básica client-side */
+ const nombre = (form.elements.namedItem('nombre') as HTMLInputElement).value.trim();
+ const email = (form.elements.namedItem('email') as HTMLInputElement).value.trim();
+ if (!nombre || !email) return;
+
+ /* Estado: loading */
+ if (btn) btn.disabled = true;
+ submitText?.classList.add('hidden');
+ submitLoading?.classList.remove('hidden');
+ submitLoading?.classList.add('flex');
+ successMsg?.classList.add('hidden');
+ errorMsg?.classList.add('hidden');
+
+ try {
+ const formData = new FormData(form);
+ const payload: Record<string, unknown> = Object.fromEntries(formData.entries());
+ // Checkboxes múltiples: recoger todos los valores
+ payload.servicio = formData.getAll('servicio');
+ const res = await fetch('/api/contact', {
+ method: 'POST',
+ body: JSON.stringify(payload),
+ headers: { 'Content-Type': 'application/json' },
+ });
+
+ if (!res.ok) {
+ const data = await res.json().catch(() => ({}));
+ const msg = data?.error || 'Algo falló. Inténtalo de nuevo.';
+ errorMsg!.textContent = msg;
+ errorMsg?.classList.remove('hidden');
+ return;
+ }
+
+ /* Estado: éxito */
+ form.reset();
+ successMsg?.classList.remove('hidden');
+ } catch {
+ errorMsg?.classList.remove('hidden');
+ } finally {
+ if (btn) btn.disabled = false;
+ submitText?.classList.remove('hidden');
+ submitLoading?.classList.add('hidden');
+ submitLoading?.classList.remove('flex');
+ }
+ });
+</script>

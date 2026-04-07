@@ -1,0 +1,218 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Button from '../../../components/Button.astro';
+
+const serviceSchema = {
+"@context":"https://schema.org",
+"@type":"Service",
+"name":"Desarrollo de Webapps y SaaS",
+"provider": {"@type":"Organization","name":"CIBAI Studio","url":"https://cibai.studio"},
+"description":"Desarrollo de aplicaciones web y productos SaaS escalables. De la idea al lanzamiento con acompañamiento total. React, Next.js, arquitecturas modernas.",
+"url":"https://cibai.studio/servicios/desarrollo-web-saas",
+"areaServed":"España",
+"serviceType":"Desarrollo de Webapps y SaaS"
+};
+
+const breadcrumbSchema = {
+"@context":"https://schema.org",
+"@type":"BreadcrumbList",
+"itemListElement": [
+ {"@type":"ListItem","position": 1,"name":"Inicio","item":"https://cibai.studio"},
+ {"@type":"ListItem","position": 2,"name":"Servicios","item":"https://cibai.studio/servicios"},
+ {"@type":"ListItem","position": 3,"name":"Desarrollo de Webapps y SaaS","item":"https://cibai.studio/servicios/desarrollo-web-saas"}
+ ]
+};
+
+const faqSchema = {
+"@context":"https://schema.org",
+"@type":"FAQPage",
+"mainEntity": [
+ {
+"@type":"Question",
+"name":"¿Cuánto cuesta desarrollar una webapp o producto SaaS?",
+"acceptedAnswer": {"@type":"Answer","text":"Los proyectos SaaS varían mucho en alcance. Trabajamos con presupuestos desde proyectos MVP hasta plataformas enterprise. Lo más importante es entender el alcance real: agenda una consulta gratuita y te damos una propuesta concreta."}
+ },
+ {
+"@type":"Question",
+"name":"¿Cuánto tiempo tarda en desarrollarse una webapp?",
+"acceptedAnswer": {"@type":"Answer","text":"Un MVP funcional puede estar listo en 6-10 semanas. Un producto completo con todas las funcionalidades puede requerir varios meses. Trabajamos en sprints con entregas intermedias para que veas progreso desde la primera semana."}
+ },
+ {
+"@type":"Question",
+"name":"¿Podéis escalar la aplicación cuando mi base de usuarios crezca?",
+"acceptedAnswer": {"@type":"Answer","text":"Sí. Diseñamos las arquitecturas desde el inicio pensando en la escalabilidad. Usamos infraestructura cloud, bases de datos optimizadas y patrones de diseño que permiten crecer sin refactorizaciones costosas."}
+ }
+ ]
+};
+
+const benefits = [
+ 'Arquitecturas modernas y escalables (React, Next.js, Node, etc.)',
+ 'UX/UI diseñado para retención, activación y monetización',
+ 'Metodología ágil con entregables regulares y feedback continuo',
+ 'Integración con APIs de pago, autenticación, notificaciones y más',
+ 'De la idea al lanzamiento con acompañamiento total',
+];
+
+const process = [
+ { num: '01', title: 'Discovery', body: 'Analizamos tu idea, mercado y usuarios objetivo para definir el alcance y la arquitectura óptima del producto.' },
+ { num: '02', title: 'Diseño UX', body: 'Creamos los flujos de usuario, wireframes y prototipo interactivo antes de escribir una línea de código.' },
+ { num: '03', title: 'Arquitectura', body: 'Definimos el stack tecnológico, la estructura de datos y la infraestructura cloud pensando en la escalabilidad.' },
+ { num: '04', title: 'Desarrollo', body: 'Construimos el producto en sprints con demos semanales y feedback continuo. Tú ves el progreso desde el día uno.' },
+ { num: '05', title: 'QA y Testing', body: 'Realizamos pruebas exhaustivas de funcionalidad, rendimiento, seguridad y compatibilidad antes del lanzamiento.' },
+ { num: '06', title: 'Lanzamiento', body: 'Desplegamos el producto, configuramos el monitoreo y te acompañamos en las primeras semanas críticas de vida.' },
+];
+---
+
+<Layout
+ title="Desarrollo de Webapps y SaaS a Medida"
+ description="Desarrollo de aplicaciones web y SaaS escalables. De la idea al lanzamiento con acompañamiento total. React, Next.js y arquitecturas modernas."
+>
+ <script type="application/ld+json"set:html={JSON.stringify(serviceSchema)} />
+ <script type="application/ld+json"set:html={JSON.stringify(breadcrumbSchema)} />
+ <script type="application/ld+json"set:html={JSON.stringify(faqSchema)} />
+
+ <!-- Hero -->
+ <section class="border-b border-[rgba(255,255,255,0.18)] bg-[#000] pt-24 pb-16">
+ <div class="mx-auto max-w-[1400px] px-6">
+ <div class="page-fade-in max-w-3xl">
+ <nav class="mb-6 flex items-center gap-2 font-mono text-xs text-[rgba(255,255,255,0.25)]">
+ <a href="/"class="hover:text-[rgba(255,255,255,0.92)] transition-colors">Inicio</a>
+ <span>/</span>
+ <a href="/servicios"class="hover:text-[rgba(255,255,255,0.92)] transition-colors">Servicios</a>
+ <span>/</span>
+ <span class="text-red-500">Desarrollo Web y SaaS</span>
+ </nav>
+ <p class="mb-4 font-mono text-xs font-medium uppercase tracking-widest text-red-500/60">Servicio</p>
+ <h1 class="font-display text-5xl font-bold leading-[1.05] tracking-[-0.03em] text-[rgba(255,255,255,0.92)] md:text-6xl">
+ De la idea al producto digital — sin límites técnicos.
+ </h1>
+ <p class="mt-6 max-w-xl text-lg leading-relaxed text-[rgba(255,255,255,0.55)]">
+ Desarrollamos aplicaciones web y productos SaaS escalables que resuelven problemas reales. Tanto si tienes una idea en una servilleta como si ya tienes un MVP, transformamos tu visión en un producto digital que funciona, crece y genera negocio desde el primer día.
+ </p>
+ <div class="mt-8 flex flex-wrap gap-4">
+ <Button href="/contacto"variant="primary"arrow>
+ Construye tu producto digital
+ </Button>
+ <Button href="/servicios"variant="ghost">
+ Ver todos los servicios
+ </Button>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- Beneficios -->
+ <section class="border-b border-[rgba(255,255,255,0.18)] bg-[#0D0D0D] py-20">
+ <div class="mx-auto max-w-[1400px] px-6">
+ <div class="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_1fr]">
+ <div>
+ <p class="mb-4 font-mono text-xs font-medium uppercase tracking-widest text-red-500/60">Qué incluye</p>
+ <h2 class="font-display text-3xl font-bold tracking-tight text-[rgba(255,255,255,0.92)] md:text-4xl">
+ Desarrollo de producto digital, completo y orientado al negocio.
+ </h2>
+ <p class="mt-4 text-[rgba(255,255,255,0.55)] leading-relaxed">
+ No entregamos solo código. Entregamos un producto que tus usuarios quieren usar y tu negocio puede monetizar.
+ </p>
+ </div>
+ <ul class="space-y-4">
+ {benefits.map((b) => (
+ <li class="flex items-start gap-4">
+ <span class="mt-0.5 shrink-0 font-mono text-sm text-red-500">✦</span>
+ <span class="text-[rgba(255,255,255,0.55)]">{b}</span>
+ </li>
+ ))}
+ </ul>
+ </div>
+ </div>
+ </section>
+
+ <!-- Proceso -->
+ <section class="border-b border-[rgba(255,255,255,0.18)] bg-[#000] py-20">
+ <div class="mx-auto max-w-[1400px] px-6">
+ <div class="mb-12">
+ <p class="mb-4 font-mono text-xs font-medium uppercase tracking-widest text-red-500/60">Cómo trabajamos</p>
+ <h2 class="font-display text-3xl font-bold tracking-tight text-[rgba(255,255,255,0.92)] md:text-4xl">
+ Del concepto al lanzamiento — con método y transparencia.
+ </h2>
+ </div>
+ <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+ {process.map((step) => (
+ <div class="process-step space-y-3 border-t border-[rgba(255,255,255,0.18)] pt-6">
+ <span class="font-mono text-xs text-red-500/60">{step.num}</span>
+ <h3 class="font-display text-base font-bold text-[rgba(255,255,255,0.92)]">{step.title}</h3>
+ <p class="text-sm leading-relaxed text-[rgba(255,255,255,0.55)]">{step.body}</p>
+ </div>
+ ))}
+ </div>
+ </div>
+ </section>
+
+ <!-- FAQ -->
+ <section class="border-b border-[rgba(255,255,255,0.18)] bg-[#0D0D0D] py-20">
+ <div class="mx-auto max-w-3xl px-6">
+ <p class="mb-4 font-mono text-xs font-medium uppercase tracking-widest text-red-500/60">FAQ</p>
+ <h2 class="mb-10 font-display text-3xl font-bold tracking-tight text-[rgba(255,255,255,0.92)] md:text-4xl">
+ Preguntas frecuentes
+ </h2>
+ <div class="space-y-8">
+ <div class="border-t border-[rgba(255,255,255,0.18)] pt-6">
+ <h3 class="font-display text-base font-bold text-[rgba(255,255,255,0.92)]">¿Cuánto cuesta desarrollar una webapp o producto SaaS?</h3>
+ <p class="mt-3 text-sm leading-relaxed text-[rgba(255,255,255,0.55)]">Los proyectos SaaS varían mucho en alcance. Trabajamos con presupuestos desde proyectos MVP hasta plataformas enterprise. Lo más importante es entender el alcance real: agenda una consulta gratuita y te damos una propuesta concreta.</p>
+ </div>
+ <div class="border-t border-[rgba(255,255,255,0.18)] pt-6">
+ <h3 class="font-display text-base font-bold text-[rgba(255,255,255,0.92)]">¿Cuánto tiempo tarda en desarrollarse una webapp?</h3>
+ <p class="mt-3 text-sm leading-relaxed text-[rgba(255,255,255,0.55)]">Un MVP funcional puede estar listo en 6-10 semanas. Un producto completo con todas las funcionalidades puede requerir varios meses. Trabajamos en sprints con entregas intermedias para que veas progreso desde la primera semana.</p>
+ </div>
+ <div class="border-t border-[rgba(255,255,255,0.18)] pt-6">
+ <h3 class="font-display text-base font-bold text-[rgba(255,255,255,0.92)]">¿Podéis escalar la aplicación cuando mi base de usuarios crezca?</h3>
+ <p class="mt-3 text-sm leading-relaxed text-[rgba(255,255,255,0.55)]">Sí. Diseñamos las arquitecturas desde el inicio pensando en la escalabilidad. Usamos infraestructura cloud, bases de datos optimizadas y patrones de diseño que permiten crecer sin refactorizaciones costosas.</p>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- CTA -->
+ <section class="bg-[#000] py-24">
+ <div class="mx-auto max-w-[1400px] px-6">
+ <div class="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
+ <div class="max-w-xl">
+ <p class="font-mono text-xs font-medium uppercase tracking-widest text-red-500/60">¿Tienes un proyecto?</p>
+ <h2 class="mt-3 font-display text-3xl font-bold tracking-tight text-[rgba(255,255,255,0.92)] md:text-4xl">
+ Hablemos de tu producto digital.
+ </h2>
+ <p class="mt-4 text-[rgba(255,255,255,0.55)]">
+ Primera consulta gratuita. Cuéntanos tu idea y te damos una propuesta concreta sin compromiso.
+ </p>
+ </div>
+ <Button href="/contacto"variant="primary"size="lg"arrow>
+ Construye tu producto digital
+ </Button>
+ </div>
+ </div>
+ </section>
+</Layout>
+
+<style>
+ .page-fade-in {
+ opacity: 0;
+ transform: translateY(20px);
+ animation: pageIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+ }
+
+ .process-step {
+ opacity: 0;
+ transform: translateY(12px);
+ animation: pageIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+ }
+
+ .process-step:nth-child(1) { animation-delay: 0.10s; }
+ .process-step:nth-child(2) { animation-delay: 0.15s; }
+ .process-step:nth-child(3) { animation-delay: 0.20s; }
+ .process-step:nth-child(4) { animation-delay: 0.25s; }
+ .process-step:nth-child(5) { animation-delay: 0.30s; }
+ .process-step:nth-child(6) { animation-delay: 0.35s; }
+
+ @keyframes pageIn {
+ to { opacity: 1; transform: translateY(0); }
+ }
+</style>

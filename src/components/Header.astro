@@ -1,0 +1,131 @@
+---
+import { getLangFromUrl, useTranslations, getLocalizedPath } from '../i18n/utils';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+import type { Lang } from '../i18n/ui';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+type TKey = Parameters<ReturnType<typeof useTranslations>>[0];
+
+const navLinks: { key: TKey; href: string; num: string }[] = [
+  { key: 'nav.home',     href: '/',              num: '01' },
+  { key: 'nav.services', href: '/servicios',     num: '02' },
+  { key: 'nav.about',    href: '/sobre-nosotros', num: '03' },
+  { key: 'nav.contact',  href: '/contacto',      num: '04' },
+];
+---
+
+<header class="sticky top-0 z-50 border-b border-[rgba(255,255,255,0.18)] bg-[#000000]/95 backdrop-blur-sm">
+  <nav class="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-4">
+
+    <!-- Logo — Brutalist -->
+    <a
+      href={getLocalizedPath('/', lang)}
+      class="group flex items-center gap-1 font-display text-lg font-bold tracking-tight uppercase"
+      aria-label="CIBAI Studio — Inicio"
+    >
+      <span class="text-[rgba(255,255,255,0.92)] transition-colors duration-150 group-hover:text-red-500">CIBAI</span>
+      <span class="text-red-500 font-mono text-sm">//</span>
+      <span class="text-[rgba(255,255,255,0.55)] transition-colors duration-150 group-hover:text-[rgba(255,255,255,0.92)]">STUDIO</span>
+    </a>
+
+    <!-- Desktop nav -->
+    <ul class="hidden items-center gap-8 text-sm font-mono uppercase tracking-wider md:flex">
+      {navLinks.map(({ key, href, num }) => (
+        <li>
+          <a
+            href={getLocalizedPath(href, lang)}
+            class="group relative flex items-center gap-2 text-[rgba(255,255,255,0.55)] transition-colors duration-150 hover:text-[rgba(255,255,255,0.92)]"
+          >
+            <span class="text-red-500/40 text-[10px]">{num}</span>
+            <span class="relative">
+              {t(key)}
+              <span class="absolute -bottom-1 left-0 h-px w-0 bg-red-500 transition-all duration-300 group-hover:w-full"></span>
+            </span>
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <!-- Right cluster -->
+    <div class="flex items-center gap-4">
+      <LanguageSwitcher />
+
+      <!-- CTA — desktop (brutalist border style) -->
+      <a
+        href={getLocalizedPath('/contacto', lang)}
+        class="hidden sm:inline-flex items-center gap-2 border border-cyan-500/30 bg-transparent px-5 py-2 text-sm font-mono uppercase tracking-wider text-cyan-500 transition-all duration-150 hover:border-cyan-500 hover:bg-cyan-500/5 hover:shadow-[0_0_16px_rgba(0,255,209,0.15)]"
+      >
+        <span class="text-red-500 text-xs">&#9656;</span>
+        {t('hero.cta')}
+      </a>
+
+      <!-- Hamburger — mobile -->
+      <button
+        id="mobile-menu-btn"
+        aria-label="Abrir menú"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        class="flex flex-col gap-[5px] p-2 md:hidden"
+      >
+        <span class="hamburger-line block h-px w-5 bg-[rgba(255,255,255,0.92)] transition-all duration-300 origin-center"></span>
+        <span class="hamburger-line block h-px w-5 bg-[rgba(255,255,255,0.92)] transition-all duration-300"></span>
+        <span class="hamburger-line block h-px w-3 bg-red-500 transition-all duration-300 origin-center"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div
+    id="mobile-menu"
+    class="hidden border-t border-[rgba(255,255,255,0.06)] bg-[#0D0D0D] md:hidden"
+    aria-hidden="true"
+  >
+    <ul class="mx-auto max-w-[1400px] space-y-1 px-6 py-4">
+      {navLinks.map(({ key, href, num }) => (
+        <li>
+          <a
+            href={getLocalizedPath(href, lang)}
+            class="flex items-center gap-3 px-3 py-3 text-sm font-mono uppercase tracking-wider text-[rgba(255,255,255,0.55)] transition-colors hover:bg-[#1A1A1A] hover:text-[rgba(255,255,255,0.92)]"
+          >
+            <span class="text-red-500/50 text-xs">{num}</span>
+            {t(key)}
+          </a>
+        </li>
+      ))}
+    </ul>
+    <div class="border-t border-[rgba(255,255,255,0.06)] px-6 py-4">
+      <a
+        href={getLocalizedPath('/contacto', lang)}
+        class="flex w-full items-center justify-center gap-2 border border-cyan-500/30 py-3 text-sm font-mono uppercase tracking-wider text-cyan-500"
+      >
+        <span class="text-red-500 text-xs">&#9656;</span>
+        {t('hero.cta')}
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  const lines = btn?.querySelectorAll<HTMLElement>('.hamburger-line');
+
+  btn?.addEventListener('click', () => {
+    const isOpen = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!isOpen));
+    menu?.classList.toggle('hidden');
+    menu?.setAttribute('aria-hidden', String(isOpen));
+
+    if (!isOpen && lines) {
+      lines[0].classList.add('translate-y-[6px]', 'rotate-45');
+      lines[1].classList.add('opacity-0', 'scale-x-0');
+      lines[2].classList.add('-translate-y-[6px]', '-rotate-45', '!w-5');
+    } else if (lines) {
+      lines[0].classList.remove('translate-y-[6px]', 'rotate-45');
+      lines[1].classList.remove('opacity-0', 'scale-x-0');
+      lines[2].classList.remove('-translate-y-[6px]', '-rotate-45', '!w-5');
+    }
+  });
+</script>

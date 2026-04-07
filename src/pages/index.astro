@@ -1,0 +1,334 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Button from '../components/Button.astro';
+import { useTranslations } from '../i18n/utils';
+
+const t = useTranslations('es');
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "CIBAI Studio",
+  "url": "https://cibai.studio",
+  "logo": "https://cibai.studio/logo.svg",
+  "description": "Agencia de diseño web, desarrollo de aplicaciones e inteligencia artificial para empresas en España.",
+  "foundingLocation": {
+    "@type": "Place",
+    "addressCountry": "ES"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/company/cibai-studio",
+    "https://twitter.com/cibai_studio",
+    "https://instagram.com/cibai.studio"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "customer service",
+    "url": "https://cibai.studio/contacto",
+    "availableLanguage": ["Spanish", "Catalan"]
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "España"
+  },
+  "serviceType": [
+    "Diseño web profesional",
+    "Desarrollo de aplicaciones web",
+    "Automatización con inteligencia artificial",
+    "Gestión de redes sociales",
+    "SEO y marketing digital",
+    "Copywriting"
+  ]
+};
+
+const services = [
+  {
+    num: '01',
+    title: 'Diseño Web Profesional',
+    description: 'Webs diseñadas desde la psicología del usuario, la arquitectura de conversión y la identidad de marca.',
+    accent: 'red',
+    capabilities: ['UI/UX Design', 'Responsive', 'Accesibilidad'],
+  },
+  {
+    num: '02',
+    title: 'Webapps y Desarrollo SaaS',
+    description: 'Aplicaciones web escalables que resuelven problemas reales y generan negocio desde el primer día.',
+    accent: 'cyan',
+    capabilities: ['React/Next.js', 'Node.js', 'PostgreSQL'],
+  },
+  {
+    num: '03',
+    title: 'Automatizaciones e IA',
+    description: 'Reducimos costes operativos y eliminamos tareas repetitivas con automatización e inteligencia artificial.',
+    accent: 'red',
+    capabilities: ['Claude AI', 'N8N', 'APIs'],
+  },
+  {
+    num: '04',
+    title: 'SEO y Copywriting',
+    description: 'Posicionamiento orgánico y textos que convierten visitantes en clientes con método y datos.',
+    accent: 'cyan',
+    capabilities: ['On-page SEO', 'Keywords', 'Analytics'],
+  },
+];
+
+const processSteps = [
+  { num: '01', title: 'Descubrimiento', body: 'Escuchamos tu negocio, objetivos y retos.' },
+  { num: '02', title: 'Estrategia', body: 'Plan con KPIs, hitos y plazos concretos.' },
+  { num: '03', title: 'Creación', body: 'Sprints ágiles con entregas y feedback continuo.' },
+  { num: '04', title: 'Lanzamiento', body: 'Deploy controlado, verificaciones y puesta en marcha.' },
+];
+---
+
+<Layout
+  title="Diseño Web, Desarrollo e IA en Barcelona"
+  description="CIBAI Studio — Agencia de diseño web, desarrollo de aplicaciones e inteligencia artificial para empresas en España. Transformamos tu presencia digital en tu motor de crecimiento."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+
+  <!-- Hero -->
+  <Hero
+    eyebrow={t('hero.eyebrow')}
+    title={t('hero.title')}
+    subtitle={t('hero.subtitle')}
+    ctaLabel={t('hero.cta')}
+    ctaHref="/contacto"
+    ctaSecLabel={t('hero.cta.sec')}
+    ctaSecHref="/servicios"
+    tagline={t('hero.tagline')}
+    lang="es"
+  />
+
+  <!-- Servicios destacados -->
+  <section class="border-t border-[rgba(255,255,255,0.18)] bg-[#000] py-24">
+    <div class="mx-auto max-w-[1400px] px-6">
+      <div class="section-fade mb-16 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+        <div class="max-w-2xl">
+          <div class="flex items-center gap-4 mb-6">
+            <span class="font-mono text-[10px] uppercase tracking-[0.2em] text-red-500">[02]</span>
+            <span class="h-px w-12 bg-red-500"></span>
+          </div>
+          <h2 class="font-display text-3xl font-bold tracking-tight md:text-4xl">
+            {t('services.title')}
+          </h2>
+        </div>
+        <Button href="/servicios" variant="ghost" size="sm" arrow>
+          Ver todos los servicios
+        </Button>
+      </div>
+
+      <div class="grid grid-cols-1 gap-px sm:grid-cols-2 bg-[rgba(255,255,255,0.06)]">
+        {services.map((service) => (
+          <a href="/servicios" class="service-card group bg-[#0D0D0D] p-8 transition-all duration-150 hover:bg-[#1A1A1A] relative overflow-hidden">
+            <!-- Left accent border that grows on hover -->
+            <div class:list={[
+              'absolute left-0 top-0 w-[2px] h-0 transition-all duration-500 group-hover:h-full',
+              service.accent === 'red' ? 'bg-red-500' : 'bg-cyan-500',
+            ]}></div>
+
+            <div class="flex items-start justify-between mb-6">
+              <span class="font-mono text-[10px] uppercase tracking-[0.2em] text-[rgba(255,255,255,0.10)]">[{service.num}]</span>
+              <div class="flex gap-1">
+                {service.capabilities.map((cap) => (
+                  <span class:list={[
+                    'font-mono text-[8px] uppercase tracking-widest px-2 py-0.5 border',
+                    service.accent === 'red'
+                      ? 'text-red-500/60 border-red-500/20'
+                      : 'text-cyan-500/60 border-cyan-500/20',
+                  ]}>
+                    {cap}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <h3 class="font-display text-lg font-bold uppercase">{service.title}</h3>
+            <p class="mt-3 text-sm leading-relaxed text-[rgba(255,255,255,0.55)]">{service.description}</p>
+
+            <!-- Bottom accent line -->
+            <div class:list={[
+              'mt-6 h-px w-0 transition-all duration-500 group-hover:w-full',
+              service.accent === 'red' ? 'bg-red-500/30' : 'bg-cyan-500/30',
+            ]}></div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio preview -->
+  <section class="border-t border-[rgba(255,255,255,0.18)] bg-[#0D0D0D] py-24">
+    <div class="mx-auto max-w-[1400px] px-6">
+      <div class="section-fade flex flex-col items-start justify-between gap-8 md:flex-row md:items-end">
+        <div class="max-w-xl">
+          <div class="flex items-center gap-4 mb-6">
+            <span class="font-mono text-[10px] uppercase tracking-[0.2em] text-red-500">[03]</span>
+            <span class="h-px w-12 bg-red-500"></span>
+          </div>
+          <h2 class="font-display text-3xl font-bold tracking-tight md:text-4xl">
+            {t('portfolio.title')}
+          </h2>
+          <p class="mt-4 text-[rgba(255,255,255,0.55)]">
+            {t('portfolio.subtitle')}
+          </p>
+        </div>
+      </div>
+
+      <!-- Portfolio grid -->
+      <div class="mt-12 grid grid-cols-1 gap-px md:grid-cols-3 bg-[rgba(255,255,255,0.06)]">
+        {[
+          { title: 'E-commerce Premium', category: 'Diseño Web + SEO', accent: 'red' },
+          { title: 'SaaS Dashboard', category: 'Webapp + Automatización', accent: 'cyan' },
+          { title: 'Plataforma Educativa', category: 'Desarrollo Full-Stack', accent: 'red' },
+        ].map((project) => (
+          <div class="portfolio-card group bg-[#000] transition-all duration-150 hover:bg-[#0D0D0D] overflow-hidden">
+            <div class="aspect-[16/10] w-full bg-[#0D0D0D] relative overflow-hidden">
+              <div class:list={[
+                'absolute inset-0 opacity-[0.04]',
+                project.accent === 'red'
+                  ? 'bg-[radial-gradient(circle_at_30%_50%,#FF2D00,transparent_70%)]'
+                  : 'bg-[radial-gradient(circle_at_70%_50%,#00FFD1,transparent_70%)]',
+              ]}></div>
+              <!-- Grid pattern inside card -->
+              <div class="absolute inset-0 opacity-[0.02]" style="background-image: linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px); background-size: 40px 40px;"></div>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div class="border border-[rgba(255,255,255,0.18)] bg-[#000] px-6 py-3 font-mono text-[10px] uppercase tracking-widest text-[rgba(255,255,255,0.25)] transition-transform duration-300 group-hover:scale-105">
+                  <span class="text-red-500">$</span> {project.title.toLowerCase().replace(/\s+/g, '-')}
+                </div>
+              </div>
+            </div>
+            <div class="p-6">
+              <p class="font-mono text-[10px] uppercase tracking-widest text-[rgba(255,255,255,0.25)]">{project.category}</p>
+              <h3 class="mt-2 font-display text-base font-bold uppercase">{project.title}</h3>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-10 text-center">
+        <p class="mb-6 text-[rgba(255,255,255,0.55)]">{t('portfolio.closing')}</p>
+        <Button href="/contacto" variant="secondary" arrow>
+          {t('portfolio.cta')}
+        </Button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sobre nosotros preview -->
+  <section class="border-t border-[rgba(255,255,255,0.18)] bg-[#000] py-24">
+    <div class="mx-auto max-w-[1400px] px-6">
+      <div class="section-fade grid grid-cols-1 gap-16 lg:grid-cols-[1fr_1.2fr]">
+        <div>
+          <div class="flex items-center gap-4 mb-6">
+            <span class="font-mono text-[10px] uppercase tracking-[0.2em] text-red-500">[04]</span>
+            <span class="h-px w-12 bg-red-500"></span>
+          </div>
+          <h2 class="font-display text-3xl font-bold tracking-tight md:text-4xl">
+            {t('about.title')}
+          </h2>
+          <div class="mt-8">
+            <Button href="/sobre-nosotros" variant="ghost" arrow>
+              Conoce al equipo
+            </Button>
+          </div>
+        </div>
+        <div class="space-y-5 text-[rgba(255,255,255,0.55)]">
+          <p class="text-lg leading-relaxed text-[rgba(255,255,255,0.92)]">
+            Fundamos CIBAI Studio en Barcelona con una convicción clara: que el diseño de alto impacto, el desarrollo robusto y el marketing digital inteligente no deberían ser un privilegio.
+          </p>
+          <p class="leading-relaxed">
+            Reunimos un equipo multidisciplinar de diseñadores, desarrolladores y expertos en IA, todos con un criterio común: excelencia técnica y pasión genuina por los resultados de nuestros clientes.
+          </p>
+          <blockquote class="border-l-2 border-red-500 pl-5">
+            <p class="text-base italic leading-relaxed text-[rgba(255,255,255,0.55)]">
+              "No somos consultores que te dicen qué hacer. Somos el equipo que lo hace contigo."
+            </p>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Proceso -->
+  <section class="border-t border-[rgba(255,255,255,0.18)] bg-[#0D0D0D] py-24">
+    <div class="mx-auto max-w-[1400px] px-6">
+      <div class="section-fade mb-12 max-w-2xl">
+        <div class="flex items-center gap-4 mb-6">
+          <span class="font-mono text-[10px] uppercase tracking-[0.2em] text-red-500">[05]</span>
+          <span class="h-px w-12 bg-red-500"></span>
+        </div>
+        <h2 class="font-display text-3xl font-bold tracking-tight md:text-4xl">
+          {t('process.title')}
+        </h2>
+        <p class="mt-4 text-[rgba(255,255,255,0.55)]">
+          {t('process.subtitle')}
+        </p>
+      </div>
+      <div class="grid grid-cols-1 gap-px sm:grid-cols-2 lg:grid-cols-4 bg-[rgba(255,255,255,0.06)]">
+        {processSteps.map((step, i) => (
+          <div class="process-step bg-[#000] p-6 relative group">
+            <!-- Top accent -->
+            <div class:list={[
+              'h-px w-0 mb-6 transition-all duration-700 group-hover:w-full',
+              i % 2 === 0 ? 'bg-red-500' : 'bg-cyan-500',
+            ]}></div>
+            <span class="font-mono text-[10px] uppercase tracking-[0.2em] text-red-500/60">[{step.num}]</span>
+            <h3 class="mt-3 font-display text-base font-bold uppercase">{step.title}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-[rgba(255,255,255,0.55)]">{step.body}</p>
+          </div>
+        ))}
+      </div>
+      <div class="mt-12">
+        <Button href="/contacto" variant="secondary" arrow>
+          {t('process.cta')}
+        </Button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA final -->
+  <section class="border-t border-[rgba(255,255,255,0.18)] bg-[#000] py-24">
+    <div class="mx-auto max-w-[1400px] px-6">
+      <div class="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
+        <div class="max-w-xl">
+          <div class="flex items-center gap-4 mb-6">
+            <span class="font-mono text-[10px] uppercase tracking-[0.2em] text-red-500">[06]</span>
+            <span class="h-px w-12 bg-red-500"></span>
+          </div>
+          <h2 class="mt-3 font-display text-3xl font-bold tracking-tight md:text-4xl">
+            Hablemos de lo que necesitas.
+          </h2>
+          <p class="mt-4 text-[rgba(255,255,255,0.55)]">
+            Primera consulta gratuita. Sin compromisos. Solo una conversación honesta sobre cómo podemos ayudarte a crecer.
+          </p>
+        </div>
+        <Button href="/contacto" variant="primary" size="lg" arrow>
+          Cuéntanos tu proyecto
+        </Button>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .section-fade {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: sectionIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .service-card, .portfolio-card, .process-step {
+    opacity: 0;
+    transform: translateY(12px);
+    animation: sectionIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .service-card:nth-child(1), .portfolio-card:nth-child(1), .process-step:nth-child(1) { animation-delay: 0.10s; }
+  .service-card:nth-child(2), .portfolio-card:nth-child(2), .process-step:nth-child(2) { animation-delay: 0.16s; }
+  .service-card:nth-child(3), .portfolio-card:nth-child(3), .process-step:nth-child(3) { animation-delay: 0.22s; }
+  .service-card:nth-child(4), .portfolio-card:nth-child(4), .process-step:nth-child(4) { animation-delay: 0.28s; }
+
+  @keyframes sectionIn {
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>

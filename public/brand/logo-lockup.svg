@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 100" width="420" height="100">
+  <defs>
+    <linearGradient id="lineGrad" x1="50" y1="10" x2="50" y2="70" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#00F0FF"/>
+      <stop offset="100%" stop-color="#FF0099"/>
+    </linearGradient>
+  <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+    <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur1"/>
+    <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur2"/>
+    <feMerge>
+      <feMergeNode in="blur2"/>
+      <feMergeNode in="blur1"/>
+      <feMergeNode in="SourceGraphic"/>
+    </feMerge>
+  </filter>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700;400');
+      .brand { font-family: 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif; }
+    </style>
+  </defs>
+  <rect width="420" height="100" fill="#050508"/>
+  <!-- Icon -->
+  <g filter="url(#glow)">
+    <line x1="50" y1="10" x2="15" y2="70" stroke="url(#lineGrad)" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="50" y1="10" x2="85" y2="70" stroke="url(#lineGrad)" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="15" y1="70" x2="85" y2="70" stroke="#FF0099" stroke-width="2.5" stroke-linecap="round"/>
+    <circle cx="50" cy="10" r="5.5" fill="#00F0FF"/>
+    <circle cx="15" cy="70" r="5.5" fill="#FF0099"/>
+    <circle cx="85" cy="70" r="5.5" fill="#FF0099"/>
+  </g>
+  <!-- Divider -->
+  <line x1="112" y1="22" x2="112" y2="78" stroke="#1E1E2E" stroke-width="1"/>
+  <!-- Wordmark -->
+  <text x="128" y="56" class="brand" font-size="36" font-weight="700" fill="#FFFFFF" letter-spacing="-1">CIBAI</text>
+  <text x="130" y="76" class="brand" font-size="14" font-weight="400" fill="#00F0FF" letter-spacing="5.5">STUDIO</text>
+</svg>

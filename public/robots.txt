@@ -1,0 +1,12 @@
+# robots.txt — CIBAI Studio
+# https://cibai.studio
+
+User-agent: *
+Allow: /
+
+# Evitar indexación de rutas de desarrollo/assets compilados
+Disallow: /api/
+Disallow: /_astro/
+
+# Sitemap
+Sitemap: https://cibai.studio/sitemap-index.xml

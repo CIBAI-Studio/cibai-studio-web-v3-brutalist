@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#050508"/>
+      <stop offset="100%" style="stop-color:#0D0D14"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00F0FF"/>
+      <stop offset="100%" style="stop-color:#FF0099"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Grid pattern -->
+  <g opacity="0.06" stroke="#00F0FF" stroke-width="0.5">
+    <line x1="0" y1="0" x2="0" y2="630" transform="translate(60,0)"/>
+    <line x1="0" y1="0" x2="0" y2="630" transform="translate(120,0)"/>
+    <line x1="0" y1="0" x2="0" y2="630" transform="translate(180,0)"/>
+    <line x1="0" y1="0" x2="0" y2="630" transform="translate(240,0)"/>
+    <line x1="0" y1="0" x2="0" y2="630" transform="translate(300,0)"/>
+    <line x1="0" y1="0" x2="0" y2="630" transform="translate(360,0)"/>
+    <line x1="0" y1="0" x2="0" y2="630" transform="translate(420,0)"/>
+    <line x1="0" y1="0" x2="0" y2="630" transform="translate(480,0)"/>
+    <line x1="0" y1="0" x2="0" y2="630" transform="translate(540,0)"/>
+    <line x1="0" y1="0" x2="0" y2="630" transform="translate(600,0)"/>
+    <line x1="0" y1="0" x2="0" y2="630" transform="translate(660,0)"/>
+    <line x1="0" y1="0" x2="0" y2="630" transform="translate(720,0)"/>
+    <line x1="0" y1="0" x2="0" y2="630" transform="translate(780,0)"/>
+    <line x1="0" y1="0" x2="0" y2="630" transform="translate(840,0)"/>
+    <line x1="0" y1="0" x2="0" y2="630" transform="translate(900,0)"/>
+    <line x1="0" y1="0" x2="0" y2="630" transform="translate(960,0)"/>
+    <line x1="0" y1="0" x2="0" y2="630" transform="translate(1020,0)"/>
+    <line x1="0" y1="0" x2="0" y2="630" transform="translate(1080,0)"/>
+    <line x1="0" y1="0" x2="0" y2="630" transform="translate(1140,0)"/>
+    <line x1="0" y1="0" x2="1200" y2="0" transform="translate(0,60)"/>
+    <line x1="0" y1="0" x2="1200" y2="0" transform="translate(0,120)"/>
+    <line x1="0" y1="0" x2="1200" y2="0" transform="translate(0,180)"/>
+    <line x1="0" y1="0" x2="1200" y2="0" transform="translate(0,240)"/>
+    <line x1="0" y1="0" x2="1200" y2="0" transform="translate(0,300)"/>
+    <line x1="0" y1="0" x2="1200" y2="0" transform="translate(0,360)"/>
+    <line x1="0" y1="0" x2="1200" y2="0" transform="translate(0,420)"/>
+    <line x1="0" y1="0" x2="1200" y2="0" transform="translate(0,480)"/>
+    <line x1="0" y1="0" x2="1200" y2="0" transform="translate(0,540)"/>
+  </g>
+
+  <!-- Cyan glow top-left -->
+  <circle cx="200" cy="150" r="200" fill="#00F0FF" opacity="0.04"/>
+
+  <!-- Magenta glow bottom-right -->
+  <circle cx="1000" cy="480" r="200" fill="#FF0099" opacity="0.04"/>
+
+  <!-- Gradient accent line -->
+  <rect x="100" y="280" width="200" height="2" fill="url(#accent)" filter="url(#glow)" opacity="0.8"/>
+
+  <!-- Company name -->
+  <text x="100" y="340" font-family="'Space Grotesk', system-ui, sans-serif" font-weight="700" font-size="72" fill="#F0F0FF" letter-spacing="-0.04em">CIBAI</text>
+  <text x="415" y="340" font-family="'Space Grotesk', system-ui, sans-serif" font-weight="300" font-size="72" fill="#9090B0" letter-spacing="-0.02em">Studio</text>
+
+  <!-- Tagline -->
+  <text x="100" y="390" font-family="'Inter', system-ui, sans-serif" font-weight="400" font-size="24" fill="#9090B0">Desarrollo web · Automatización · Inteligencia artificial</text>
+
+  <!-- Gradient accent line bottom -->
+  <rect x="100" y="420" width="200" height="2" fill="url(#accent)" filter="url(#glow)" opacity="0.8"/>
+
+  <!-- Terminal cursor element -->
+  <rect x="100" y="470" width="3" height="24" fill="#00F0FF" opacity="0.9">
+    <animate attributeName="opacity" values="0.9;0;0.9" dur="1s" repeatCount="indefinite"/>
+  </rect>
+  <text x="115" y="490" font-family="'JetBrains Mono', monospace" font-weight="400" font-size="16" fill="#606080">cibai.studio</text>
+
+  <!-- Border frame -->
+  <rect x="40" y="40" width="1120" height="550" rx="8" fill="none" stroke="url(#accent)" stroke-width="1" opacity="0.15"/>
+</svg>

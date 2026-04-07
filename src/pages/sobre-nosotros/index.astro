@@ -1,0 +1,238 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Button from '../../components/Button.astro';
+
+const values = [
+ {
+ title: 'Resultados primero',
+ body: 'Todo lo que diseñamos, desarrollamos o redactamos tiene que mover métricas de negocio. La estética al servicio de la conversión.',
+ accent: 'cyan',
+ },
+ {
+ title: 'Transparencia radical',
+ body: 'Sin jerga técnica innecesaria, sin letra pequeña, sin sorpresas en la factura. Contigo en cada paso del proceso con comunicación clara y honesta.',
+ accent: 'magenta',
+ },
+ {
+ title: 'Innovación práctica',
+ body: 'Adoptamos lo mejor de la tecnología cuando tiene sentido real para tu negocio, no porque esté de moda. La IA y las últimas herramientas: solo cuando añaden valor medible.',
+ accent: 'cyan',
+ },
+ {
+ title: 'Colaboración real',
+ body: 'Somos una extensión de tu equipo, no un proveedor externo que te manda archivos por email. Tu éxito es nuestro éxito, y lo sentimos así.',
+ accent: 'magenta',
+ },
+];
+
+const processSteps = [
+ { num: '01', title: 'Descubrimiento', body: 'Empezamos escuchándote de verdad. Una reunión donde entendemos tu negocio, tus objetivos, tu audiencia y los retos que quieres resolver.' },
+ { num: '02', title: 'Estrategia', body: 'Antes de diseñar un pixel, diseñamos la estrategia. Objetivos SMART, KPIs definidos y plan de trabajo con hitos y plazos concretos.' },
+ { num: '03', title: 'Creación', body: 'Trabajamos en sprints ágiles con entregas regulares de avances para que estés siempre al tanto. Tu feedback es parte integral del proceso.' },
+ { num: '04', title: 'Revisión', body: 'Iteramos contigo hasta que el resultado no solo cumpla tus expectativas, sino que las supere. Rondas de revisión estructuradas en cada fase clave.' },
+ { num: '05', title: 'Lanzamiento', body: 'Ejecutamos el lanzamiento con un proceso controlado: verificaciones técnicas, pruebas de rendimiento y puesta en marcha sin imprevistos.' },
+ { num: '06', title: 'Crecimiento', body: 'El lanzamiento es el principio, no el final. Monitorizamos el rendimiento, analizamos los datos y optimizamos continuamente.' },
+];
+
+const aboutPageSchema = {
+"@context":"https://schema.org",
+"@type":"AboutPage",
+"name":"Sobre Nosotros — CIBAI Studio",
+"url":"https://cibai.studio/sobre-nosotros",
+"description":"Conoce a CIBAI Studio: el equipo de diseño web, desarrollo e IA que trabaja como una extensión de tu empresa. Fundados en Barcelona, trabajamos con clientes en toda España.",
+"mainEntity": {
+"@type":"Organization",
+"name":"CIBAI Studio",
+"url":"https://cibai.studio",
+"logo":"https://cibai.studio/logo.svg",
+"foundingLocation": {
+"@type":"Place",
+"name":"Barcelona",
+"addressCountry":"ES"
+ },
+"description":"Agencia de diseño web, desarrollo de aplicaciones e inteligencia artificial para empresas en España.",
+"areaServed": {"@type":"Country","name":"España"},
+"sameAs": [
+"https://www.linkedin.com/company/cibai-studio",
+"https://twitter.com/cibai_studio",
+"https://instagram.com/cibai.studio"
+ ]
+ }
+};
+
+const breadcrumbSchema = {
+"@context":"https://schema.org",
+"@type":"BreadcrumbList",
+"itemListElement": [
+ {"@type":"ListItem","position": 1,"name":"Inicio","item":"https://cibai.studio"},
+ {"@type":"ListItem","position": 2,"name":"Sobre Nosotros","item":"https://cibai.studio/sobre-nosotros"}
+ ]
+};
+---
+
+<Layout
+ title="Sobre Nosotros — Equipo Digital en Barcelona"
+ description="Conoce a CIBAI Studio: el equipo de diseño web, desarrollo e IA que trabaja como una extensión de tu empresa. Fundados en Barcelona, trabajamos con clientes en toda España."
+>
+ <script type="application/ld+json"set:html={JSON.stringify(aboutPageSchema)} />
+ <script type="application/ld+json"set:html={JSON.stringify(breadcrumbSchema)} />
+
+ <!-- Header de sección -->
+ <section class="border-b border-[rgba(255,255,255,0.18)] bg-[#000] pt-24 pb-16">
+ <div class="mx-auto max-w-[1400px] px-6">
+ <div class="page-fade-in max-w-3xl">
+ <p class="mb-4 font-mono text-xs font-medium uppercase tracking-widest text-red-500/60">Sobre nosotros</p>
+ <h1 class="font-display text-5xl font-bold leading-[1.05] tracking-[-0.03em] text-[rgba(255,255,255,0.92)] md:text-6xl">
+ No somos una agencia más.<br class="hidden md:block"/> Somos tu equipo digital.
+ </h1>
+ </div>
+ </div>
+ </section>
+
+ <!-- Historia -->
+ <section class="bg-[#000] py-20">
+ <div class="mx-auto max-w-[1400px] px-6">
+ <div class="grid grid-cols-1 gap-16 lg:grid-cols-[1fr_1.4fr]">
+
+ <!-- Left: label -->
+ <div class="page-fade-in">
+ <p class="font-mono text-xs font-medium uppercase tracking-widest text-red-500/60">Nuestra historia</p>
+ <div class="mt-8 hidden lg:block">
+ <div class="neon-line-dual w-full"></div>
+ <div class="mt-8 space-y-4 font-mono text-sm text-[rgba(255,255,255,0.25)]">
+ <p><span class="text-red-500">❯</span> Fundados en Barcelona</p>
+ <p><span class="text-red-500">❯</span> Equipo multidisciplinar</p>
+ <p><span class="text-red-500">❯</span> Diseño · Desarrollo · IA</p>
+ <p><span class="text-red-500">❯</span> Clientes en España y LATAM</p>
+ </div>
+ </div>
+ </div>
+
+ <!-- Right: copy -->
+ <div class="space-y-6 text-[rgba(255,255,255,0.55)] page-fade-in delay-100">
+ <p class="text-lg font-medium leading-relaxed text-[rgba(255,255,255,0.92)]">
+ Cuando fundamos CIBAI Studio, nos encontramos con algo que nos llamó la atención: las mejores herramientas digitales estaban reservadas casi exclusivamente para las grandes corporaciones con presupuestos millonarios.
+ </p>
+ <p class="leading-relaxed">
+ Las pymes, los emprendedores y las empresas que más necesitan crecer digitalmente para sobrevivir y prosperar eran las que menos acceso tenían a equipos de verdad capaces.
+ </p>
+ <p class="leading-relaxed">
+ Fundamos CIBAI Studio en Barcelona con una convicción clara: que el diseño de alto impacto, el desarrollo robusto y el marketing digital inteligente no deberían ser un privilegio. Deberían ser una herramienta al alcance de cualquier empresa con ambición de crecer.
+ </p>
+ <p class="leading-relaxed">
+ Reunimos un equipo multidisciplinar de diseñadores, desarrolladores, especialistas en marketing digital y expertos en inteligencia artificial, todos con un criterio de selección común: excelencia técnica y pasión genuina por los resultados de nuestros clientes.
+ </p>
+ <blockquote class="border-l-2 border-red-500 pl-5 text-[rgba(255,255,255,0.55)]">
+ <p class="text-base italic leading-relaxed">
+"No somos consultores que te dicen qué hacer. Somos el equipo que lo hace contigo, desde el briefing hasta los resultados, con total transparencia y alineados 100% con tus objetivos."
+ </p>
+ </blockquote>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- Misión -->
+ <section class="border-y border-[rgba(255,255,255,0.18)] bg-[#0D0D0D] py-20">
+ <div class="mx-auto max-w-[1400px] px-6">
+ <div class="page-fade-in max-w-3xl">
+ <p class="font-mono text-xs font-medium uppercase tracking-widest text-red-500/60">Misión</p>
+ <p class="mt-6 font-display text-2xl font-bold leading-snug text-[rgba(255,255,255,0.92)] md:text-3xl">
+ Empoderar a empresas y emprendedores con tecnología y creatividad de primer nivel para transformar su presencia digital en su motor de crecimiento más potente.
+ </p>
+ </div>
+ </div>
+ </section>
+
+ <!-- Valores -->
+ <section class="bg-[#000] py-20">
+ <div class="mx-auto max-w-[1400px] px-6">
+ <div class="page-fade-in mb-12">
+ <p class="font-mono text-xs font-medium uppercase tracking-widest text-red-500/60">Valores</p>
+ <h2 class="mt-3 font-display text-3xl font-bold tracking-tight text-[rgba(255,255,255,0.92)] md:text-4xl">
+ Lo que nos guía cada día.
+ </h2>
+ </div>
+ <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+ {values.map((v) => (
+ <div class="value-card border border-[rgba(255,255,255,0.18)] bg-[#0D0D0D] p-8 transition-colors duration-300 hover:border-red-500/30">
+ <div class:list={[
+ 'mb-4 h-px w-12',
+ v.accent === 'cyan' ? 'neon-line-cyan' : 'neon-line-magenta',
+ ]}></div>
+ <h3 class="font-display text-lg font-bold text-[rgba(255,255,255,0.92)]">{v.title}</h3>
+ <p class="mt-3 text-sm leading-relaxed text-[rgba(255,255,255,0.55)]">{v.body}</p>
+ </div>
+ ))}
+ </div>
+ </div>
+ </section>
+
+ <!-- Proceso -->
+ <section class="border-t border-[rgba(255,255,255,0.18)] bg-[#0D0D0D] py-20">
+ <div class="mx-auto max-w-[1400px] px-6">
+ <div class="page-fade-in mb-12 max-w-2xl">
+ <p class="font-mono text-xs font-medium uppercase tracking-widest text-red-500/60">Cómo trabajamos</p>
+ <h2 class="mt-3 font-display text-3xl font-bold tracking-tight text-[rgba(255,255,255,0.92)] md:text-4xl">
+ Del briefing a la entrega — sin sorpresas.
+ </h2>
+ <p class="mt-4 text-[rgba(255,255,255,0.55)]">
+ Nuestro proceso es completamente transparente, con hitos claros y orientado a resultados desde el día uno.
+ </p>
+ </div>
+ <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+ {processSteps.map((step) => (
+ <div class="process-step space-y-3 border-t border-[rgba(255,255,255,0.18)] pt-6">
+ <span class="font-mono text-xs text-red-500/60">{step.num}</span>
+ <h3 class="font-display text-base font-bold text-[rgba(255,255,255,0.92)]">{step.title}</h3>
+ <p class="text-sm leading-relaxed text-[rgba(255,255,255,0.55)]">{step.body}</p>
+ </div>
+ ))}
+ </div>
+ </div>
+ </section>
+
+ <!-- CTA final -->
+ <section class="border-t border-[rgba(255,255,255,0.18)] bg-[#000] py-24">
+ <div class="mx-auto max-w-[1400px] px-6">
+ <div class="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
+ <div class="max-w-xl">
+ <h2 class="font-display text-3xl font-bold tracking-tight text-[rgba(255,255,255,0.92)] md:text-4xl">
+ ¿Trabajamos juntos?
+ </h2>
+ <p class="mt-4 text-[rgba(255,255,255,0.55)]">
+ Cuéntanos tu proyecto. Primera consulta gratuita, sin compromisos.
+ </p>
+ </div>
+ <Button href="/contacto"variant="primary"size="lg"arrow>
+ Cuéntanos tu proyecto
+ </Button>
+ </div>
+ </div>
+ </section>
+</Layout>
+
+<style>
+ .page-fade-in {
+ opacity: 0;
+ transform: translateY(20px);
+ animation: pageIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+ }
+ .delay-100 { animation-delay: 0.1s; }
+
+ .value-card, .process-step {
+ opacity: 0;
+ transform: translateY(12px);
+ animation: pageIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+ }
+ .value-card:nth-child(1), .process-step:nth-child(1) { animation-delay: 0.10s; }
+ .value-card:nth-child(2), .process-step:nth-child(2) { animation-delay: 0.16s; }
+ .value-card:nth-child(3), .process-step:nth-child(3) { animation-delay: 0.22s; }
+ .value-card:nth-child(4), .process-step:nth-child(4) { animation-delay: 0.28s; }
+ .process-step:nth-child(5) { animation-delay: 0.34s; }
+ .process-step:nth-child(6) { animation-delay: 0.40s; }
+
+ @keyframes pageIn {
+ to { opacity: 1; transform: translateY(0); }
+ }
+</style>

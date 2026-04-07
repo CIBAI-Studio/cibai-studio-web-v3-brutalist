@@ -1,0 +1,228 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Button from '../../components/Button.astro';
+
+const blogSchema = {
+"@context":"https://schema.org",
+"@type":"Blog",
+"name":"Blog CIBAI Studio",
+"url":"https://cibai.studio/blog",
+"description":"Artículos sobre diseño web, desarrollo de aplicaciones, automatización con IA y estrategia digital para empresas.",
+"publisher": {
+"@type":"Organization",
+"name":"CIBAI Studio",
+"url":"https://cibai.studio",
+"logo":"https://cibai.studio/logo.svg"
+ }
+};
+
+const breadcrumbSchema = {
+"@context":"https://schema.org",
+"@type":"BreadcrumbList",
+"itemListElement": [
+ {"@type":"ListItem","position": 1,"name":"Inicio","item":"https://cibai.studio"},
+ {"@type":"ListItem","position": 2,"name":"Blog","item":"https://cibai.studio/blog"}
+ ]
+};
+
+// TODO: Estos artículos se actualizarán con el copy real de CIBA-21 cuando estén disponibles
+const articles = [
+ {
+ slug: 'agentes-ia-para-empresas',
+ title: 'Agentes IA para empresas: qué son, cómo funcionan y por qué tu competencia ya los está usando',
+ excerpt: 'La inteligencia artificial ha dejado de ser un concepto futurista. Descubre cómo los agentes de IA están transformando la operativa empresarial y qué puedes automatizar hoy mismo.',
+ category: 'Inteligencia Artificial',
+ date: 'TODO: Fecha de publicación',
+ readTime: '8 min',
+ accent: 'cyan',
+ featured: true,
+ },
+ {
+ slug: 'diseno-web-que-convierte',
+ title: 'Diseño web que convierte: los 7 elementos que separan una web mediocre de una máquina de ventas',
+ excerpt: 'No toda web bonita convierte. Analizamos los principios de diseño orientado a conversión que marcan la diferencia entre una presencia digital que atrae y una que genera clientes.',
+ category: 'Diseño Web',
+ date: 'TODO: Fecha de publicación',
+ readTime: '6 min',
+ accent: 'magenta',
+ featured: false,
+ },
+ {
+ slug: 'seo-tecnico-para-empresas',
+ title: 'SEO técnico en 2025: la guía definitiva para posicionar tu web cuando tu competencia no sabe ni qué es un canonical',
+ excerpt: 'El SEO técnico es el cimiento invisible de todo buen posicionamiento. Esta guía te explica qué es, por qué importa y qué errores técnicos están saboteando tu visibilidad hoy mismo.',
+ category: 'SEO',
+ date: 'TODO: Fecha de publicación',
+ readTime: '10 min',
+ accent: 'cyan',
+ featured: false,
+ },
+];
+
+const categories = ['Todos', 'Inteligencia Artificial', 'Diseño Web', 'SEO', 'Automatización', 'Estrategia Digital'];
+---
+
+<Layout
+ title="Blog — Diseño Web, IA y Estrategia Digital"
+ description="Artículos sobre diseño web, desarrollo de aplicaciones, automatización con inteligencia artificial y estrategia digital. Conocimiento práctico para hacer crecer tu negocio."
+>
+ <script type="application/ld+json"set:html={JSON.stringify(blogSchema)} />
+ <script type="application/ld+json"set:html={JSON.stringify(breadcrumbSchema)} />
+
+ <!-- Hero de sección -->
+ <section class="border-b border-[rgba(255,255,255,0.18)] bg-[#000] pt-24 pb-16">
+ <div class="mx-auto max-w-[1400px] px-6">
+ <div class="page-fade-in max-w-3xl">
+ <p class="mb-4 font-mono text-xs font-medium uppercase tracking-widest text-red-500/60">Blog</p>
+ <h1 class="font-display text-5xl font-bold leading-[1.05] tracking-[-0.03em] text-[rgba(255,255,255,0.92)] md:text-6xl">
+ Conocimiento que<br class="hidden md:block"/> mueve negocios.
+ </h1>
+ <p class="mt-6 max-w-xl text-lg leading-relaxed text-[rgba(255,255,255,0.55)]">
+ Publicamos lo que sabemos porque creemos que compartir conocimiento es la mejor forma de demostrar experiencia. Sin humo, sin genéricos: solo estrategia aplicada.
+ </p>
+ </div>
+ </div>
+ </section>
+
+ <!-- Artículo destacado -->
+ {articles.filter(a => a.featured).map((article) => (
+ <section class="border-b border-[rgba(255,255,255,0.18)] bg-[#0D0D0D] py-16">
+ <div class="mx-auto max-w-[1400px] px-6">
+ <p class="mb-6 font-mono text-xs font-medium uppercase tracking-widest text-red-500/60">Artículo destacado</p>
+ <a href={`/blog/${article.slug}`} class="featured-article group grid grid-cols-1 gap-8 lg:grid-cols-[1fr_1.2fr] items-center">
+ <!-- Imagen placeholder -->
+ <div class="aspect-[16/9] overflow-hidden border border-[rgba(255,255,255,0.18)] bg-[#000] relative">
+ <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(0,240,255,0.08),transparent_70%)]"></div>
+ <div class="absolute inset-0 flex items-center justify-center">
+ <div class="border border-[rgba(255,255,255,0.18)] bg-[#0D0D0D] px-6 py-3 font-mono text-xs text-[rgba(255,255,255,0.25)] group-hover:scale-105 transition-transform duration-300">
+ <span class="text-red-500">❯</span> {article.slug}
+ </div>
+ </div>
+ </div>
+ <!-- Contenido -->
+ <div class="space-y-5">
+ <div class="flex items-center gap-3">
+ <span class="bg-red-500/10 px-3 py-1 font-mono text-xs text-red-500">{article.category}</span>
+ <span class="font-mono text-xs text-[rgba(255,255,255,0.25)]">{article.readTime} de lectura</span>
+ </div>
+ <h2 class="font-display text-2xl font-bold leading-tight tracking-tight text-[rgba(255,255,255,0.92)] group-hover:text-red-500/90 transition-colors md:text-3xl">
+ {article.title}
+ </h2>
+ <p class="leading-relaxed text-[rgba(255,255,255,0.55)]">
+ {article.excerpt}
+ </p>
+ <div class="flex items-center gap-2 font-mono text-sm text-red-500">
+ Leer artículo
+ <span class="transition-transform duration-200 group-hover:translate-x-1">→</span>
+ </div>
+ </div>
+ </a>
+ </div>
+ </section>
+ ))}
+
+ <!-- Grid de artículos -->
+ <section class="bg-[#000] py-16">
+ <div class="mx-auto max-w-[1400px] px-6">
+ <div class="mb-10 flex items-center gap-3 overflow-x-auto pb-2">
+ {categories.map((cat, i) => (
+ <button class:list={[
+ 'shrink-0 border px-4 py-2 font-mono text-xs transition-all duration-200',
+ i === 0
+ ? 'border-red-500 bg-red-500/10 text-red-500'
+ : 'border-[rgba(255,255,255,0.18)] text-[rgba(255,255,255,0.25)] hover:border-red-500/40 hover:text-[rgba(255,255,255,0.92)]',
+ ]}>
+ {cat}
+ </button>
+ ))}
+ </div>
+
+ <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+ {articles.filter(a => !a.featured).map((article, i) => (
+ <a
+ href={`/blog/${article.slug}`}
+ class="article-card group overflow-hidden border border-[rgba(255,255,255,0.18)] bg-[#0D0D0D] transition-all duration-300 hover:border-red-500/30 hover:shadow-md"
+ style={`animation-delay: ${0.10 + i * 0.08}s`}
+ >
+ <!-- Imagen placeholder -->
+ <div class="aspect-[16/9] w-full bg-[#000] relative overflow-hidden">
+ <div class:list={[
+ 'absolute inset-0',
+ article.accent === 'cyan'
+ ? 'bg-[radial-gradient(circle_at_30%_50%,rgba(0,240,255,0.06),transparent_70%)]'
+ : 'bg-[radial-gradient(circle_at_70%_50%,rgba(255,0,153,0.06),transparent_70%)]',
+ ]}></div>
+ <div class="absolute inset-0 flex items-center justify-center">
+ <div class="border border-[rgba(255,255,255,0.18)] bg-[#0D0D0D] px-4 py-2 font-mono text-[10px] text-[rgba(255,255,255,0.25)] transition-transform duration-300 group-hover:scale-105">
+ <span class:list={[article.accent === 'cyan' ? 'text-red-500' : 'text-cyan-500']}>❯</span> {article.slug}
+ </div>
+ </div>
+ </div>
+ <!-- Contenido -->
+ <div class="p-6 space-y-3">
+ <div class="flex items-center gap-3">
+ <span class:list={[
+ ' px-2.5 py-0.5 font-mono text-[10px] uppercase tracking-wider',
+ article.accent === 'cyan' ? 'bg-red-500/10 text-red-500' : 'bg-red-500-secondary/10 text-cyan-500',
+ ]}>{article.category}</span>
+ <span class="font-mono text-xs text-[rgba(255,255,255,0.25)]">{article.readTime}</span>
+ </div>
+ <h2 class="font-display text-base font-bold leading-snug text-[rgba(255,255,255,0.92)] group-hover:text-red-500/90 transition-colors">
+ {article.title}
+ </h2>
+ <p class="text-sm leading-relaxed text-[rgba(255,255,255,0.55)] line-clamp-3">
+ {article.excerpt}
+ </p>
+ <div class="flex items-center gap-1.5 pt-1 font-mono text-xs text-red-500/70 group-hover:text-red-500 transition-colors">
+ Leer más <span class="transition-transform duration-200 group-hover:translate-x-0.5">→</span>
+ </div>
+ </div>
+ </a>
+ ))}
+ </div>
+ </div>
+ </section>
+
+ <!-- Newsletter CTA -->
+ <section class="border-t border-[rgba(255,255,255,0.18)] bg-[#0D0D0D] py-24">
+ <div class="mx-auto max-w-[1400px] px-6">
+ <div class="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
+ <div class="max-w-xl">
+ <p class="font-mono text-xs font-medium uppercase tracking-widest text-red-500/60">¿Tienes un proyecto?</p>
+ <h2 class="mt-3 font-display text-3xl font-bold tracking-tight text-[rgba(255,255,255,0.92)] md:text-4xl">
+ Hablemos de lo que necesitas.
+ </h2>
+ <p class="mt-4 text-[rgba(255,255,255,0.55)]">
+ Primera consulta gratuita. Sin compromisos. Solo una conversación honesta sobre cómo podemos ayudarte a crecer.
+ </p>
+ </div>
+ <Button href="/contacto"variant="primary"size="lg"arrow>
+ Cuéntanos tu proyecto
+ </Button>
+ </div>
+ </div>
+ </section>
+</Layout>
+
+<style>
+ .page-fade-in {
+ opacity: 0;
+ transform: translateY(20px);
+ animation: pageIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+ }
+
+ .featured-article, .article-card {
+ opacity: 0;
+ transform: translateY(16px);
+ animation: pageIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+ }
+
+ .featured-article { animation-delay: 0.12s; }
+ .article-card:nth-child(1) { animation-delay: 0.10s; }
+ .article-card:nth-child(2) { animation-delay: 0.18s; }
+ .article-card:nth-child(3) { animation-delay: 0.26s; }
+
+ @keyframes pageIn {
+ to { opacity: 1; transform: translateY(0); }
+ }
+</style>

@@ -1,0 +1,178 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+---
+
+<Layout
+ title="Política de Cookies — CIBAI Studio"
+ description="Política de cookies de CIBAI Studio. Informació sobre els tipus de cookies utilitzades i com gestionar-les."
+ noIndex={true}
+>
+ <section class="bg-[#000] pt-24 pb-24">
+ <div class="mx-auto max-w-3xl px-6">
+ <div class="page-fade-in">
+ <p class="mb-4 font-mono text-xs font-medium uppercase tracking-widest text-red-500/60">Legal</p>
+ <h1 class="font-display text-4xl font-bold tracking-tight text-[rgba(255,255,255,0.92)] md:text-5xl">
+ Política de Cookies
+ </h1>
+ <p class="mt-4 font-mono text-xs text-[rgba(255,255,255,0.25)]">Darrera actualització: TODO: Inserir data</p>
+ </div>
+
+ <div class="legal-content mt-12 space-y-10">
+
+ <section>
+ <h2>Què són les cookies?</h2>
+ <p>Les cookies són petits fitxers de text que s'emmagatzemen al teu dispositiu (ordinador, tauleta o smartphone) quan visites un lloc web. Serveixen per recordar les teves preferències, analitzar l'ús del lloc i, en alguns casos, mostrar publicitat rellevant.</p>
+ </section>
+
+ <section>
+ <h2>Tipus de cookies que utilitzem</h2>
+ <div class="overflow-x-auto">
+ <table>
+ <thead>
+ <tr>
+ <th>Tipus</th>
+ <th>Descripció</th>
+ <th>Consentiment</th>
+ <th>Durada</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td><strong>Tècniques / necessàries</strong></td>
+ <td>Imprescindibles per al funcionament bàsic del Lloc Web.</td>
+ <td>No</td>
+ <td>Sessió / fins a 1 any</td>
+ </tr>
+ <tr>
+ <td><strong>Analítiques</strong></td>
+ <td>Analitzen el comportament dels usuaris per millorar el rendiment (Google Analytics o equivalent).</td>
+ <td>Sí</td>
+ <td>Fins a 2 anys</td>
+ </tr>
+ <tr>
+ <td><strong>Personalització</strong></td>
+ <td>Recorden les teves preferències de navegació (idioma, regió, etc.).</td>
+ <td>Sí</td>
+ <td>Fins a 1 any</td>
+ </tr>
+ <tr>
+ <td><strong>Màrqueting / publicitat</strong></td>
+ <td>Permeten mostrar publicitat personalitzada i mesurar l'efectivitat de les campanyes.</td>
+ <td>Sí</td>
+ <td>Fins a 1 any</td>
+ </tr>
+ </tbody>
+ </table>
+ </div>
+ </section>
+
+ <section>
+ <h2>Cookies de tercers</h2>
+ <p>El Lloc Web pot incorporar funcionalitats de tercers que instal·len les seves pròpies cookies, com ara:</p>
+ <ul>
+ <li><strong>Google Analytics</strong> — anàlisi de trànsit</li>
+ <li><strong>Google Ads / Meta Pixel</strong> — remarketing i mesura de campanyes</li>
+ <li><strong>Widgets de xarxes socials</strong> — LinkedIn, Instagram, etc.</li>
+ </ul>
+ <p>Aquests tercers són responsables de les seves pròpies cookies. Et recomanem consultar les seves polítiques de privacitat.</p>
+ </section>
+
+ <section>
+ <h2>Gestió i configuració de cookies</h2>
+ <p>En accedir al Lloc Web per primera vegada, apareixerà un panell de gestió de cookies on podràs:</p>
+ <ul>
+ <li><strong>Acceptar totes</strong> les cookies.</li>
+ <li><strong>Rebutjar</strong> les cookies no necessàries.</li>
+ <li><strong>Personalitzar</strong> la teva selecció per categoria.</li>
+ </ul>
+ <p>Pots modificar la teva elecció en qualsevol moment accedint al panell de cookies des de l'enllaç al peu de pàgina del Lloc Web.</p>
+ <p>També pots gestionar o eliminar les cookies directament des de la configuració del teu navegador. Tingues en compte que deshabilitar determinades cookies pot afectar el correcte funcionament d'algunes funcionalitats del Lloc Web.</p>
+ </section>
+
+ <section>
+ <h2>Actualitzacions d'aquesta política</h2>
+ <p>CIBAI Studio es reserva el dret a actualitzar la present Política de Cookies per adaptar-la a canvis legislatius o tecnològics. La versió vigent sempre estarà disponible en aquesta pàgina.</p>
+ <p>Per a qualsevol consulta relacionada amb l'ús de cookies: <a href="mailto:hola@cibai.studio">hola@cibai.studio</a></p>
+ </section>
+
+ </div>
+ </div>
+ </section>
+</Layout>
+
+<style>
+ .page-fade-in {
+ opacity: 0;
+ transform: translateY(20px);
+ animation: pageIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+ }
+
+ @keyframes pageIn {
+ to { opacity: 1; transform: translateY(0); }
+ }
+
+ .legal-content h2 {
+ font-family: var(--font-display, sans-serif);
+ font-size: 1.25rem;
+ font-weight: 700;
+ color: var(--color-text);
+ margin-bottom: 0.75rem;
+ padding-bottom: 0.5rem;
+ border-bottom: 1px solid var(--color-border, rgba(255,255,255,0.1));
+ }
+
+ .legal-content p {
+ color: var(--color-text-secondary);
+ line-height: 1.75;
+ margin-bottom: 0.75rem;
+ }
+
+ .legal-content ul {
+ list-style: none;
+ padding: 0;
+ color: var(--color-text-secondary);
+ line-height: 1.75;
+ margin-bottom: 0.75rem;
+ }
+
+ .legal-content ul li {
+ padding: 0.25rem 0 0.25rem 1rem;
+ border-left: 2px solid rgba(0,240,255,0.3);
+ margin-bottom: 0.5rem;
+ }
+
+ .legal-content a {
+ color: var(--color-accent);
+ text-decoration: underline;
+ text-underline-offset: 3px;
+ }
+
+ .legal-content strong {
+ color: var(--color-text);
+ }
+
+ .legal-content table {
+ width: 100%;
+ border-collapse: collapse;
+ font-size: 0.8125rem;
+ color: var(--color-text-secondary);
+ }
+
+ .legal-content th {
+ text-align: left;
+ padding: 0.6rem 0.75rem;
+ background: rgba(255,255,255,0.03);
+ color: var(--color-text);
+ font-family: var(--font-mono, monospace);
+ font-size: 0.7rem;
+ text-transform: uppercase;
+ letter-spacing: 0.05em;
+ border-bottom: 1px solid rgba(255,255,255,0.1);
+ }
+
+ .legal-content td {
+ padding: 0.6rem 0.75rem;
+ border-bottom: 1px solid rgba(255,255,255,0.05);
+ vertical-align: top;
+ }
+</style>

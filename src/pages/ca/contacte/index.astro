@@ -1,0 +1,260 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+const serviceOptions = [
+ 'Disseny Web',
+ 'Webapp / SaaS',
+ 'Automatitzacions + IA',
+ 'Xarxes Socials',
+ 'SEO',
+ 'Copywriting',
+ 'Altre',
+];
+
+const sourceOptions = [
+ 'Google',
+ 'Xarxes Socials',
+ 'Recomanació',
+ 'Altre',
+];
+
+const contactPageSchema = {
+"@context":"https://schema.org",
+"@type":"ContactPage",
+"name":"Contacte — CIBAI Studio",
+"url":"https://cibai.studio/ca/contacte",
+"description":"Contacta amb CIBAI Studio per iniciar el teu projecte digital. Primera consulta gratuïta. Responem en menys de 24 hores.",
+"mainEntity": {
+"@type":"Organization",
+"name":"CIBAI Studio",
+"url":"https://cibai.studio",
+"contactPoint": {
+"@type":"ContactPoint",
+"contactType":"customer service",
+"url":"https://cibai.studio/ca/contacte",
+"availableLanguage": ["Spanish","Catalan"]
+ }
+ }
+};
+
+const breadcrumbSchema = {
+"@context":"https://schema.org",
+"@type":"BreadcrumbList",
+"itemListElement": [
+ {"@type":"ListItem","position": 1,"name":"Inici","item":"https://cibai.studio/ca"},
+ {"@type":"ListItem","position": 2,"name":"Contacte","item":"https://cibai.studio/ca/contacte"}
+ ]
+};
+---
+
+<Layout
+ title="Contacte — Explica'ns el teu Projecte"
+ description="Contacta amb CIBAI Studio per iniciar el teu projecte digital. Primera consulta gratuïta. Responem en menys de 24 hores. Disseny web, desenvolupament i IA a Barcelona."
+>
+ <script type="application/ld+json"set:html={JSON.stringify(contactPageSchema)} />
+ <script type="application/ld+json"set:html={JSON.stringify(breadcrumbSchema)} />
+
+ <section class="bg-[#000] py-24">
+ <div class="mx-auto max-w-[1400px] px-6">
+ <div class="grid grid-cols-1 gap-16 lg:grid-cols-[1fr_1.8fr]">
+
+ <!-- Left: info -->
+ <div class="page-fade-in space-y-10">
+ <div>
+ <p class="font-mono text-xs font-medium uppercase tracking-widest text-red-500/60">Contacte</p>
+ <h1 class="mt-4 font-display text-4xl font-bold leading-tight tracking-[-0.03em] text-[rgba(255,255,255,0.92)] md:text-5xl">
+ Explica'ns el teu projecte.
+ </h1>
+ <p class="mt-4 text-[rgba(255,255,255,0.55)]">
+ Sense compromisos. Sense pressió. Només una conversa sobre com podem ajudar-te a créixer digitalment.
+ </p>
+ </div>
+ <div class="space-y-5">
+ <div class="flex items-start gap-3">
+ <span class="mt-0.5 font-mono text-xs text-red-500">→</span>
+ <div>
+ <p class="text-xs font-mono uppercase tracking-wider text-[rgba(255,255,255,0.25)]">Email</p>
+ <a href="mailto:hola@cibai.studio"class="text-[rgba(255,255,255,0.92)] transition-colors hover:text-red-500">hola@cibai.studio</a>
+ </div>
+ </div>
+ <div class="flex items-start gap-3">
+ <span class="mt-0.5 font-mono text-xs text-red-500">→</span>
+ <div>
+ <p class="text-xs font-mono uppercase tracking-wider text-[rgba(255,255,255,0.25)]">Ubicació</p>
+ <p class="text-[rgba(255,255,255,0.92)]">Barcelona, Catalunya</p>
+ <p class="text-xs text-[rgba(255,255,255,0.25)]">Treballem amb clients a tot Espanya i Llatinoamèrica</p>
+ </div>
+ </div>
+ <div class="flex items-start gap-3">
+ <span class="mt-0.5 font-mono text-xs text-red-500">→</span>
+ <div>
+ <p class="text-xs font-mono uppercase tracking-wider text-[rgba(255,255,255,0.25)]">Horari</p>
+ <p class="text-[rgba(255,255,255,0.92)]">Dilluns a divendres · 9:00 – 18:00 h</p>
+ </div>
+ </div>
+ </div>
+ <div class="border border-[rgba(255,255,255,0.18)] bg-[#0D0D0D] p-6">
+ <div class="flex items-center gap-3">
+ <span class="relative flex h-2 w-2">
+ <span class="absolute inline-flex h-full w-full animate-ping bg-red-500 opacity-60"></span>
+ <span class="relative inline-flex h-2 w-2 bg-red-500"></span>
+ </span>
+ <p class="text-sm font-medium text-[rgba(255,255,255,0.92)]">Disponibles per a nous projectes</p>
+ </div>
+ <p class="mt-3 text-xs text-[rgba(255,255,255,0.25)]">Responem en menys de 24 hores en dies laborables.</p>
+ </div>
+ </div>
+
+ <!-- Right: formulari -->
+ <div class="page-fade-in delay-150">
+ <form id="contact-form"name="contacte"method="POST"class="space-y-6"novalidate>
+ <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+ <div class="space-y-2">
+ <label for="nom"class="block text-sm font-medium text-[rgba(255,255,255,0.92)]">
+ Nom complet <span class="text-cyan-500"aria-hidden="true">*</span>
+ </label>
+ <input id="nom"name="nom"type="text"required autocomplete="name"
+ class="form-input w-full border border-[rgba(255,255,255,0.18)] bg-[#0D0D0D] px-4 py-3 text-sm text-[rgba(255,255,255,0.92)] placeholder:text-[rgba(255,255,255,0.10)] focus:border-red-500/60 focus:outline-none focus:ring-1 focus:ring-red-500/30 transition-colors"
+ placeholder="El teu nom o el de la teva empresa"/>
+ </div>
+ <div class="space-y-2">
+ <label for="email"class="block text-sm font-medium text-[rgba(255,255,255,0.92)]">
+ Correu electrònic <span class="text-cyan-500"aria-hidden="true">*</span>
+ </label>
+ <input id="email"name="email"type="email"required autocomplete="email"
+ class="form-input w-full border border-[rgba(255,255,255,0.18)] bg-[#0D0D0D] px-4 py-3 text-sm text-[rgba(255,255,255,0.92)] placeholder:text-[rgba(255,255,255,0.10)] focus:border-red-500/60 focus:outline-none focus:ring-1 focus:ring-red-500/30 transition-colors"
+ placeholder="tu@empresa.com"/>
+ <p class="mt-1.5 text-xs text-[rgba(255,255,255,0.25)]">Sense spam, promès.</p>
+ </div>
+ </div>
+
+ <div class="space-y-2">
+ <label for="telefon"class="block text-sm font-medium text-[rgba(255,255,255,0.92)]">
+ Telèfon <span class="text-[rgba(255,255,255,0.25)] text-xs">(opcional)</span>
+ </label>
+ <input id="telefon"name="telefon"type="tel"autocomplete="tel"
+ class="form-input w-full border border-[rgba(255,255,255,0.18)] bg-[#0D0D0D] px-4 py-3 text-sm text-[rgba(255,255,255,0.92)] placeholder:text-[rgba(255,255,255,0.10)] focus:border-red-500/60 focus:outline-none focus:ring-1 focus:ring-red-500/30 transition-colors"
+ placeholder="+34 600 000 000"/>
+ </div>
+
+ <fieldset class="space-y-3">
+ <legend class="text-sm font-medium text-[rgba(255,255,255,0.92)]">En què podem ajudar-te?</legend>
+ <div class="flex flex-wrap gap-2">
+ {serviceOptions.map((opt) => (
+ <label class="service-tag cursor-pointer">
+ <input type="checkbox"name="servei"value={opt} class="sr-only peer"/>
+ <span class="inline-block border border-[rgba(255,255,255,0.18)] bg-[#0D0D0D] px-4 py-1.5 text-xs font-medium text-[rgba(255,255,255,0.55)] transition-all duration-200 peer-checked:border-red-500/60 peer-checked:bg-red-500/10 peer-checked:text-red-500">
+ {opt}
+ </span>
+ </label>
+ ))}
+ </div>
+ </fieldset>
+
+ <div class="space-y-2">
+ <label for="missatge"class="block text-sm font-medium text-[rgba(255,255,255,0.92)]">Explica'ns el teu projecte</label>
+ <textarea id="missatge"name="missatge"rows={5}
+ class="form-input w-full resize-none border border-[rgba(255,255,255,0.18)] bg-[#0D0D0D] px-4 py-3 text-sm text-[rgba(255,255,255,0.92)] placeholder:text-[rgba(255,255,255,0.10)] focus:border-red-500/60 focus:outline-none focus:ring-1 focus:ring-red-500/30 transition-colors"
+ placeholder="Explica'ns breument el que necessites, on ets ara i on vols arribar. No cal que sigui perfecte: ja ho treballem junts."></textarea>
+ </div>
+
+ <div class="space-y-2">
+ <label for="origen"class="block text-sm font-medium text-[rgba(255,255,255,0.92)]">Com ens has conegut?</label>
+ <select id="origen"name="origen"
+ class="form-input w-full border border-[rgba(255,255,255,0.18)] bg-[#0D0D0D] px-4 py-3 text-sm text-[rgba(255,255,255,0.92)] focus:border-red-500/60 focus:outline-none focus:ring-1 focus:ring-red-500/30 transition-colors">
+ <option value=""disabled selected>Selecciona una opció</option>
+ {sourceOptions.map((opt) => (<option value={opt}>{opt}</option>))}
+ </select>
+ </div>
+
+ <!-- Honeypot anti-spam (ocult per a humans, visible per a bots) -->
+ <div aria-hidden="true"style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden">
+ <input name="website"type="text"tabindex="-1"autocomplete="off"/>
+ </div>
+
+ <button type="submit"id="submit-btn"
+ class="group w-full bg-red-500 px-8 py-4 text-base font-semibold text-bg transition-all duration-300 hover:shadow-[0_0_24px_rgb(255_45_0_/_0.35)] active:scale-[0.98]">
+ <span class="submit-text inline-flex items-center justify-center gap-2">
+ Enviar la meva consulta
+ <span class="font-mono transition-transform duration-200 group-hover:translate-x-1">→</span>
+ </span>
+ <span class="submit-loading hidden items-center justify-center gap-2">
+ <span class="h-4 w-4 animate-spin border-2 border-bg/30 border-t-bg"></span>
+ Enviant...
+ </span>
+ </button>
+
+ <!-- Trust builder sota el botó -->
+ <p class="text-center text-xs text-[rgba(255,255,255,0.25)]">Responem en menys de 24h laborables</p>
+
+ <div id="form-success"class="hidden border border-success/30 bg-success/10 p-4 text-sm text-success">
+ Perfecte! Ja tenim la teva consulta. Ens posem en contacte en menys de 24h.
+ </div>
+ <div id="form-error"class="hidden border border-error/30 bg-error/10 p-4 text-sm text-error">
+ Alguna cosa ha fallat del nostre costat. Torna-ho a intentar o escriu-nos a hola@cibai.studio
+ </div>
+ </form>
+ </div>
+ </div>
+ </div>
+ </section>
+</Layout>
+
+<style>
+ .page-fade-in { opacity: 0; transform: translateY(20px); animation: pageIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+ .delay-150 { animation-delay: 0.15s; }
+ @keyframes pageIn { to { opacity: 1; transform: translateY(0); } }
+ select option { background-color: var(--color-surface); color: var(--color-text); }
+</style>
+
+<script>
+ const form = document.getElementById('contact-form') as HTMLFormElement | null;
+ const btn = document.getElementById('submit-btn') as HTMLButtonElement | null;
+ const submitText = btn?.querySelector('.submit-text');
+ const submitLoading = btn?.querySelector('.submit-loading');
+ const successMsg = document.getElementById('form-success');
+ const errorMsg = document.getElementById('form-error');
+
+ form?.addEventListener('submit', async (e) => {
+ e.preventDefault();
+ const nom = (form.elements.namedItem('nom') as HTMLInputElement).value.trim();
+ const email = (form.elements.namedItem('email') as HTMLInputElement).value.trim();
+ if (!nom || !email) return;
+ if (btn) btn.disabled = true;
+ submitText?.classList.add('hidden');
+ submitLoading?.classList.remove('hidden');
+ submitLoading?.classList.add('flex');
+ successMsg?.classList.add('hidden');
+ errorMsg?.classList.add('hidden');
+ try {
+ const formData = new FormData(form);
+ const payload: Record<string, unknown> = Object.fromEntries(formData.entries());
+ // Checkboxes múltiples + idioma
+ payload.servei = formData.getAll('servei');
+ payload.lang = 'ca';
+ const res = await fetch('/api/contact', {
+ method: 'POST',
+ body: JSON.stringify(payload),
+ headers: { 'Content-Type': 'application/json' },
+ });
+
+ if (!res.ok) {
+ const data = await res.json().catch(() => ({}));
+ const msg = data?.error || 'Alguna cosa ha fallat. Torna-ho a intentar.';
+ errorMsg!.textContent = msg;
+ errorMsg?.classList.remove('hidden');
+ return;
+ }
+
+ form.reset();
+ successMsg?.classList.remove('hidden');
+ } catch {
+ errorMsg?.classList.remove('hidden');
+ } finally {
+ if (btn) btn.disabled = false;
+ submitText?.classList.remove('hidden');
+ submitLoading?.classList.add('hidden');
+ submitLoading?.classList.remove('flex');
+ }
+ });
+</script>

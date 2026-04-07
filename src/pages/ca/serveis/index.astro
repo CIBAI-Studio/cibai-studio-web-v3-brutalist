@@ -1,0 +1,249 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Button from '../../../components/Button.astro';
+
+const services = [
+ {
+ num: '01',
+ title: 'Disseny web que parla per la teva marca — i converteix visites en clients.',
+ category: 'Disseny Web Professional',
+ description: 'Creem webs que no només són boniques: estan dissenyades des de la psicologia de l\'usuari, l\'arquitectura de conversió i la identitat de marca. La teva web és el teu venedor més eficient: treballa 24 hores al dia, 7 dies a la setmana, sense vacances ni excuses.',
+ benefits: [
+ 'Disseny 100% a mida, únic per a la teva marca',
+ 'Optimitzada per a conversió i experiència d\'usuari (UX)',
+ 'Responsive, ràpida i amb Core Web Vitals optimitzats',
+ 'Integració nativa amb eines d\'analítica i CRM',
+ 'SEO tècnic integrat des del primer dia',
+ ],
+ cta: 'Vull la meva web a mida',
+ accent: 'cyan',
+ },
+ {
+ num: '02',
+ title: 'De la idea al producte digital — sense límits tècnics.',
+ category: 'Webapps i Desenvolupament SaaS',
+ description: 'Desenvolupem aplicacions web i productes SaaS escalables que resolen problemes reals. Tant si tens una idea en un tovalló com si ja tens un MVP, transformem la teva visió en un producte digital que funciona, creix i genera negoci des del primer dia.',
+ benefits: [
+ 'Arquitectures modernes i escalables (React, Next.js, Node, etc.)',
+ 'UX/UI dissenyat per a retenció, activació i monetització',
+ 'Metodologia àgil amb lliurables regulars i feedback continu',
+ 'Integració amb APIs de pagament, autenticació, notificacions i més',
+ 'De la idea al llançament amb acompanyament total',
+ ],
+ cta: 'Construeix el teu producte digital',
+ accent: 'magenta',
+ },
+ {
+ num: '03',
+ title: 'Automatitza el que et roba temps — escala el que et dona diners.',
+ category: 'Automatitzacions i Intel·ligència Artificial',
+ description: 'Cada hora que el teu equip dedica a tasques repetitives és una hora que no dedica a créixer. Implementem automatitzacions de processos i IA aplicada al teu negoci per reduir costos operatius, eliminar errors manuals i alliberar el teu equip per al que realment importa.',
+ benefits: [
+ 'Automatització de fluxos de treball, correus, informes i processos repetitius',
+ 'Integració d\'IA en atenció al client, vendes i màrqueting',
+ 'Reducció de temps operatius de fins al 70%',
+ 'Solucions personalitzades sense necessitat de coneixements tècnics',
+ 'ROI mesurable des del primer mes',
+ ],
+ cta: 'Automatitza el teu negoci ara',
+ accent: 'cyan',
+ },
+ {
+ num: '04',
+ title: 'La teva marca, present i rellevant on són els teus clients.',
+ category: 'Gestió de Xarxes Socials',
+ description: 'Les xarxes socials no són un aparador: són el primer contacte del teu client amb la teva marca. Gestionem la teva presència digital amb estratègia, creativitat i dades, creant contingut que connecta emocionalment i genera mètriques que importen al teu negoci.',
+ benefits: [
+ 'Estratègia de contingut personalitzada per plataforma i audiència',
+ 'Disseny gràfic i copywriting orientat a engagement i conversió',
+ 'Gestió de comunitat i atenció al client digital',
+ 'Calendari editorial + producció de contingut mensual',
+ 'Informes mensuals amb KPIs alineats als teus objectius de negoci',
+ ],
+ cta: 'Porta les teves xarxes al següent nivell',
+ accent: 'magenta',
+ },
+ {
+ num: '05',
+ title: 'Apareix primer quan el teu client cerca exactament el que tu ofereixes.',
+ category: 'SEO',
+ description: 'El 93% de les experiències en línia comencen amb una cerca. Hi ets quan el teu client et busca? Fem SEO tècnic, de continguts i local per posicionar la teva web de manera orgànica, sostenible i mesurable. No prometem màgia: prometem mètode, constància i resultats.',
+ benefits: [
+ 'Auditoria SEO tècnica, on-page i de continguts',
+ 'Estratègia de paraules clau alineada amb la intenció de cerca real',
+ 'Optimització de velocitat, estructura i experiència d\'usuari',
+ 'Link building ètic i d\'alt impacte',
+ 'Informes de posicionament mensuals amb seguiment de KPIs',
+ ],
+ cta: 'Vull aparèixer a Google',
+ accent: 'cyan',
+ },
+ {
+ num: '06',
+ title: 'Paraules que venen — sense sonar a venedor.',
+ category: 'Copywriting i Contingut',
+ description: 'Les paraules equivocades poden arruïnar el millor disseny. Les paraules correctes converteixen un visitant curiós en un client convençut. Redactem textos basats en neuromarketing i psicologia del consumidor que connecten amb la teva audiència i la guien cap a l\'acció.',
+ benefits: [
+ 'Copy basat en neuromarketing i psicologia de la persuasió',
+ 'Textos optimitzats per a SEO i conversió simultàniament',
+ 'Landing pages, correus, anuncis, webs i guions de vídeo',
+ 'A/B testing per maximitzar el rendiment de cada peça',
+ 'Veu de marca consistent a tots els canals i formats',
+ ],
+ cta: 'Vull textos que converteixin',
+ accent: 'magenta',
+ },
+];
+
+const serviceListingSchema = {
+"@context":"https://schema.org",
+"@type":"Service",
+"name":"Serveis Digitals per a Empreses",
+"provider": {
+"@type":"Organization",
+"name":"CIBAI Studio",
+"url":"https://cibai.studio"
+ },
+"description":"Disseny web professional, desenvolupament de webapps i SaaS, automatitzacions amb IA, gestió de xarxes socials, SEO i copywriting per a empreses a Espanya.",
+"url":"https://cibai.studio/ca/serveis",
+"areaServed":"España",
+"hasOfferCatalog": {
+"@type":"OfferCatalog",
+"name":"Serveis CIBAI Studio",
+"itemListElement": [
+ {"@type":"Offer","itemOffered": {"@type":"Service","name":"Disseny Web Professional","url":"https://cibai.studio/ca/serveis/disseny-web"} },
+ {"@type":"Offer","itemOffered": {"@type":"Service","name":"Webapps i Desenvolupament SaaS","url":"https://cibai.studio/ca/serveis/desenvolupament-web-saas"} },
+ {"@type":"Offer","itemOffered": {"@type":"Service","name":"Automatitzacions i Intel·ligència Artificial","url":"https://cibai.studio/ca/serveis/automatitzacio-ia"} },
+ {"@type":"Offer","itemOffered": {"@type":"Service","name":"Gestió de Xarxes Socials","url":"https://cibai.studio/ca/serveis/gestio-xarxes-socials"} },
+ {"@type":"Offer","itemOffered": {"@type":"Service","name":"SEO i Màrqueting Digital","url":"https://cibai.studio/ca/serveis/seo-marqueting-digital"} },
+ {"@type":"Offer","itemOffered": {"@type":"Service","name":"Copywriting i Contingut","url":"https://cibai.studio/ca/serveis/copywriting"} }
+ ]
+ }
+};
+
+const breadcrumbSchema = {
+"@context":"https://schema.org",
+"@type":"BreadcrumbList",
+"itemListElement": [
+ {"@type":"ListItem","position": 1,"name":"Inici","item":"https://cibai.studio/ca"},
+ {"@type":"ListItem","position": 2,"name":"Serveis","item":"https://cibai.studio/ca/serveis"}
+ ]
+};
+---
+
+<Layout
+ title="Serveis de Disseny Web, Desenvolupament i IA"
+ description="Disseny web professional, desenvolupament de webapps i SaaS, automatitzacions amb IA, gestió de xarxes socials, SEO i copywriting per a empreses a Espanya. CIBAI Studio, Barcelona."
+>
+ <script type="application/ld+json"set:html={JSON.stringify(serviceListingSchema)} />
+ <script type="application/ld+json"set:html={JSON.stringify(breadcrumbSchema)} />
+
+ <section class="border-b border-[rgba(255,255,255,0.18)] bg-[#000] pt-24 pb-16">
+ <div class="mx-auto max-w-[1400px] px-6">
+ <div class="page-fade-in max-w-3xl">
+ <p class="mb-4 font-mono text-xs font-medium uppercase tracking-widest text-red-500/60">Serveis</p>
+ <h1 class="font-display text-5xl font-bold leading-[1.05] tracking-[-0.03em] text-[rgba(255,255,255,0.92)] md:text-6xl">
+ El que fem —<br class="hidden md:block"/> i per què importa per al teu negoci
+ </h1>
+ <p class="mt-6 max-w-xl text-lg leading-relaxed text-[rgba(255,255,255,0.55)]">
+ Cada servei està dissenyat amb un únic objectiu: que la teva presència digital treballi per tu, fins i tot quan tu no hi ets.
+ </p>
+ </div>
+ </div>
+ </section>
+
+ <section class="bg-[#000] py-4">
+ <div class="mx-auto max-w-[1400px] px-6">
+ {services.map((service, i) => (
+ <article
+ class:list={[
+ 'service-item group grid grid-cols-1 gap-8 border-b border-[rgba(255,255,255,0.18)] py-16 lg:grid-cols-[200px_1fr] lg:gap-16',
+ i === 0 ? 'border-t' : '',
+ ]}
+ >
+ <div class="flex flex-row items-start justify-between gap-4 lg:flex-col lg:justify-between">
+ <div>
+ <span class="block font-mono text-4xl font-bold text-border/50 transition-colors duration-300 group-hover:text-red-500/25">
+ {service.num}
+ </span>
+ <p class="mt-2 font-mono text-xs font-medium uppercase tracking-widest text-[rgba(255,255,255,0.25)]">
+ {service.category}
+ </p>
+ </div>
+ <div class="shrink-0 lg:hidden">
+ <Button href="/ca/contacte"variant="secondary"size="sm"arrow>
+ {service.cta}
+ </Button>
+ </div>
+ </div>
+
+ <div class="space-y-6">
+ <h2 class="font-display text-2xl font-bold leading-tight tracking-tight text-[rgba(255,255,255,0.92)] md:text-3xl">
+ {service.title}
+ </h2>
+ <p class="leading-relaxed text-[rgba(255,255,255,0.55)]">
+ {service.description}
+ </p>
+ <ul class="space-y-2.5">
+ {service.benefits.map((b) => (
+ <li class="flex items-start gap-3 text-sm text-[rgba(255,255,255,0.55)]">
+ <span class:list={[
+ 'mt-0.5 shrink-0 font-mono text-xs',
+ service.accent === 'cyan' ? 'text-red-500' : 'text-cyan-500',
+ ]}>✦</span>
+ {b}
+ </li>
+ ))}
+ </ul>
+ <div class="hidden lg:block pt-2">
+ <Button href="/ca/contacte"variant="secondary"arrow>
+ {service.cta}
+ </Button>
+ </div>
+ </div>
+ </article>
+ ))}
+ </div>
+ </section>
+
+ <section class="border-t border-[rgba(255,255,255,0.18)] bg-[#0D0D0D] py-24">
+ <div class="mx-auto max-w-[1400px] px-6">
+ <div class="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
+ <div class="max-w-xl">
+ <p class="font-mono text-xs font-medium uppercase tracking-widest text-red-500/60">Tens un projecte?</p>
+ <h2 class="mt-3 font-display text-3xl font-bold tracking-tight text-[rgba(255,255,255,0.92)] md:text-4xl">
+ Parlem del que necessites.
+ </h2>
+ <p class="mt-4 text-[rgba(255,255,255,0.55)]">
+ Primera consulta gratuïta. Sense compromisos. Només una conversa honesta sobre com podem ajudar-te a créixer.
+ </p>
+ </div>
+ <Button href="/ca/contacte"variant="primary"size="lg"arrow>
+ Explica'ns el teu projecte
+ </Button>
+ </div>
+ </div>
+ </section>
+</Layout>
+
+<style>
+ .page-fade-in {
+ opacity: 0;
+ transform: translateY(20px);
+ animation: pageIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+ }
+ .service-item {
+ opacity: 0;
+ transform: translateY(16px);
+ animation: pageIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+ }
+ .service-item:nth-child(1) { animation-delay: 0.10s; }
+ .service-item:nth-child(2) { animation-delay: 0.15s; }
+ .service-item:nth-child(3) { animation-delay: 0.20s; }
+ .service-item:nth-child(4) { animation-delay: 0.25s; }
+ .service-item:nth-child(5) { animation-delay: 0.30s; }
+ .service-item:nth-child(6) { animation-delay: 0.35s; }
+ @keyframes pageIn {
+ to { opacity: 1; transform: translateY(0); }
+ }
+</style>

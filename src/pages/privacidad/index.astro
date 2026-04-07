@@ -1,0 +1,187 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout
+ title="Política de Privacidad — CIBAI Studio"
+ description="Política de privacidad de CIBAI Studio. Información sobre el tratamiento de datos personales conforme al RGPD y la LOPD."
+ noIndex={true}
+>
+ <section class="bg-[#000] pt-24 pb-24">
+ <div class="mx-auto max-w-3xl px-6">
+ <div class="page-fade-in">
+ <p class="mb-4 font-mono text-xs font-medium uppercase tracking-widest text-red-500/60">Legal</p>
+ <h1 class="font-display text-4xl font-bold tracking-tight text-[rgba(255,255,255,0.92)] md:text-5xl">
+ Política de Privacidad
+ </h1>
+ <p class="mt-4 font-mono text-xs text-[rgba(255,255,255,0.25)]">Última actualización: TODO: Insertar fecha</p>
+ </div>
+
+ <div class="legal-content mt-12 space-y-10">
+
+ <section>
+ <h2>Responsable del tratamiento</h2>
+ <ul>
+ <li><strong>Responsable:</strong> CIBAI Studio, S.L.</li>
+ <li><strong>Dirección:</strong> TODO: Insertar dirección, Barcelona, España</li>
+ <li><strong>Correo electrónico:</strong> <a href="mailto:hola@cibai.studio">hola@cibai.studio</a></li>
+ <li><strong>Sitio web:</strong> www.cibai.studio</li>
+ </ul>
+ </section>
+
+ <section>
+ <h2>Datos personales que recopilamos</h2>
+ <p>CIBAI Studio recopila datos personales únicamente cuando el usuario los proporciona voluntariamente a través de los formularios disponibles en el Sitio Web. Los datos que pueden recopilarse incluyen:</p>
+ <ul>
+ <li>Nombre y apellidos</li>
+ <li>Dirección de correo electrónico</li>
+ <li>Número de teléfono (cuando se proporciona voluntariamente)</li>
+ <li>Información sobre el proyecto o consulta incluida en el mensaje libre</li>
+ </ul>
+ <p>No se recopilan datos especialmente protegidos ni datos de menores de 14 años.</p>
+ </section>
+
+ <section>
+ <h2>Finalidad y base jurídica del tratamiento</h2>
+ <p>Los datos personales facilitados serán tratados con las siguientes finalidades y bases jurídicas:</p>
+ <div class="overflow-x-auto">
+ <table>
+ <thead>
+ <tr>
+ <th>Finalidad</th>
+ <th>Base jurídica</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td>Gestión y respuesta a consultas e información sobre servicios</td>
+ <td>Interés legítimo del responsable (art. 6.1.f RGPD)</td>
+ </tr>
+ <tr>
+ <td>Envío de comunicaciones comerciales sobre servicios de CIBAI Studio</td>
+ <td>Consentimiento del interesado (art. 6.1.a RGPD)</td>
+ </tr>
+ <tr>
+ <td>Cumplimiento de obligaciones legales</td>
+ <td>Obligación legal (art. 6.1.c RGPD)</td>
+ </tr>
+ </tbody>
+ </table>
+ </div>
+ </section>
+
+ <section>
+ <h2>Conservación de los datos</h2>
+ <p>Los datos personales se conservarán durante el tiempo estrictamente necesario para atender la solicitud formulada y, en caso de establecerse una relación comercial, durante toda la vigencia de dicha relación más los plazos de prescripción legales aplicables.</p>
+ </section>
+
+ <section>
+ <h2>Derechos del interesado</h2>
+ <p>El usuario puede ejercer en cualquier momento los siguientes derechos sobre sus datos personales, dirigiéndose por escrito a <a href="mailto:hola@cibai.studio">hola@cibai.studio</a>:</p>
+ <ul>
+ <li><strong>Acceso:</strong> Conocer qué datos personales trata CIBAI Studio sobre usted.</li>
+ <li><strong>Rectificación:</strong> Solicitar la corrección de datos inexactos o incompletos.</li>
+ <li><strong>Supresión ("derecho al olvido"):</strong> Solicitar la eliminación de sus datos cuando ya no sean necesarios.</li>
+ <li><strong>Oposición:</strong> Oponerse al tratamiento de sus datos en determinadas circunstancias.</li>
+ <li><strong>Limitación del tratamiento:</strong> Solicitar la restricción del tratamiento en ciertos casos.</li>
+ <li><strong>Portabilidad:</strong> Recibir sus datos en un formato estructurado y de uso común.</li>
+ </ul>
+ <p>Asimismo, el interesado tiene derecho a presentar una reclamación ante la Agencia Española de Protección de Datos (AEPD) a través de <a href="https://www.aepd.es"target="_blank"rel="noopener noreferrer">www.aepd.es</a>.</p>
+ </section>
+
+ <section>
+ <h2>Comunicación de datos a terceros</h2>
+ <p>Los datos personales no serán comunicados a terceros, salvo en los siguientes supuestos:</p>
+ <ul>
+ <li>Cuando exista obligación legal.</li>
+ <li>A proveedores de servicios (encargados del tratamiento) que actúen en nombre de CIBAI Studio y cuenten con las garantías adecuadas conforme al RGPD (por ejemplo, proveedores de alojamiento web, herramientas de email marketing).</li>
+ </ul>
+ <p>En caso de transferencias internacionales de datos, se garantizará el cumplimiento de las salvaguardas previstas en el RGPD.</p>
+ </section>
+
+ <section>
+ <h2>Seguridad</h2>
+ <p>CIBAI Studio aplica las medidas técnicas y organizativas apropiadas para garantizar un nivel de seguridad adecuado al riesgo, conforme al artículo 32 del RGPD.</p>
+ </section>
+
+ </div>
+ </div>
+ </section>
+</Layout>
+
+<style>
+ .page-fade-in {
+ opacity: 0;
+ transform: translateY(20px);
+ animation: pageIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+ }
+
+ @keyframes pageIn {
+ to { opacity: 1; transform: translateY(0); }
+ }
+
+ .legal-content h2 {
+ font-family: var(--font-display, sans-serif);
+ font-size: 1.25rem;
+ font-weight: 700;
+ color: var(--color-text);
+ margin-bottom: 0.75rem;
+ padding-bottom: 0.5rem;
+ border-bottom: 1px solid var(--color-border, rgba(255,255,255,0.1));
+ }
+
+ .legal-content p {
+ color: var(--color-text-secondary);
+ line-height: 1.75;
+ margin-bottom: 0.75rem;
+ }
+
+ .legal-content ul {
+ list-style: none;
+ padding: 0;
+ color: var(--color-text-secondary);
+ line-height: 1.75;
+ margin-bottom: 0.75rem;
+ }
+
+ .legal-content ul li {
+ padding: 0.25rem 0 0.25rem 1rem;
+ border-left: 2px solid rgba(0,240,255,0.3);
+ margin-bottom: 0.5rem;
+ }
+
+ .legal-content a {
+ color: var(--color-accent);
+ text-decoration: underline;
+ text-underline-offset: 3px;
+ }
+
+ .legal-content strong {
+ color: var(--color-text);
+ }
+
+ .legal-content table {
+ width: 100%;
+ border-collapse: collapse;
+ font-size: 0.875rem;
+ color: var(--color-text-secondary);
+ }
+
+ .legal-content th {
+ text-align: left;
+ padding: 0.75rem 1rem;
+ background: rgba(255,255,255,0.03);
+ color: var(--color-text);
+ font-family: var(--font-mono, monospace);
+ font-size: 0.75rem;
+ text-transform: uppercase;
+ letter-spacing: 0.05em;
+ border-bottom: 1px solid rgba(255,255,255,0.1);
+ }
+
+ .legal-content td {
+ padding: 0.75rem 1rem;
+ border-bottom: 1px solid rgba(255,255,255,0.05);
+ vertical-align: top;
+ }
+</style>

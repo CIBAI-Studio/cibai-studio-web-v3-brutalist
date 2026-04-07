@@ -1,0 +1,50 @@
+---
+interface Props {
+  href?: string;
+  variant?: 'primary' | 'secondary' | 'ghost';
+  size?: 'sm' | 'md' | 'lg';
+  arrow?: boolean;
+  class?: string;
+  [key: string]: unknown;
+}
+
+const {
+  href,
+  variant = 'primary',
+  size = 'md',
+  arrow = false,
+  class: extraClass = '',
+  ...rest
+} = Astro.props;
+
+const Tag = href ? 'a' : 'button';
+
+const base =
+  'group inline-flex items-center gap-2 font-mono uppercase tracking-wider font-medium transition-all duration-150 active:scale-[0.97] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-red-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#000]';
+
+const variants: Record<string, string> = {
+  primary:
+    'bg-red-500 text-[#000] hover:bg-red-400 hover:shadow-[0_0_24px_rgba(255,45,0,0.35)]',
+  secondary:
+    'border border-cyan-500/30 bg-transparent text-cyan-500 hover:border-cyan-500 hover:bg-cyan-500/5 hover:shadow-[0_0_16px_rgba(0,255,209,0.18)]',
+  ghost:
+    'border border-[rgba(255,255,255,0.18)] text-[rgba(255,255,255,0.55)] hover:border-[rgba(255,255,255,0.35)] hover:text-[rgba(255,255,255,0.92)]',
+};
+
+const sizes: Record<string, string> = {
+  sm: 'px-4 py-2 text-[10px]',
+  md: 'px-6 py-3 text-xs',
+  lg: 'px-8 py-4 text-sm',
+};
+
+const classes = [base, variants[variant], sizes[size], extraClass]
+  .filter(Boolean)
+  .join(' ');
+---
+
+<Tag href={href} class={classes} {...rest}>
+  <slot />
+  {arrow && (
+    <span class="transition-transform duration-200 group-hover:translate-x-1">&#8594;</span>
+  )}
+</Tag>

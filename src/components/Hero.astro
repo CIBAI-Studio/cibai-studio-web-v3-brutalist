@@ -1,0 +1,220 @@
+---
+interface Props {
+  title: string;
+  subtitle: string;
+  ctaLabel: string;
+  ctaHref: string;
+  ctaSecLabel?: string;
+  ctaSecHref?: string;
+  eyebrow?: string;
+  tagline?: string;
+  lang?: string;
+}
+
+const {
+  title,
+  subtitle,
+  ctaLabel,
+  ctaHref,
+  ctaSecLabel,
+  ctaSecHref,
+  eyebrow,
+  tagline,
+  lang = 'es',
+} = Astro.props;
+
+const techStack = ['NEXT.JS', 'ASTRO', 'REACT', 'NODE', 'TAILWIND', 'PYTHON', 'SUPABASE', 'CLAUDE AI', 'N8N', 'VERCEL'];
+---
+
+<section
+  class="relative flex min-h-[100dvh] items-center overflow-hidden bg-[#000]"
+  aria-label={lang === 'ca' ? "Secció principal" : "Sección principal"}
+>
+  <!-- Background grid — 80x80 cyan -->
+  <div
+    class="pointer-events-none absolute inset-0 opacity-[0.03]"
+    style="background-image: linear-gradient(rgba(0,255,209,1) 1px, transparent 1px), linear-gradient(90deg, rgba(0,255,209,1) 1px, transparent 1px); background-size: 80px 80px;"
+    aria-hidden="true"
+  ></div>
+
+  <!-- Noise texture overlay -->
+  <div
+    class="pointer-events-none absolute inset-0 opacity-[0.015]"
+    style="background: url('data:image/svg+xml,%3Csvg viewBox=%220 0 256 256%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22n%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.9%22 numOctaves=%224%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n)%22/%3E%3C/svg%3E'); background-size: 200px;"
+    aria-hidden="true"
+  ></div>
+
+  <div class="relative mx-auto grid w-full max-w-[1400px] grid-cols-1 items-center gap-16 px-6 py-28 lg:grid-cols-[1fr_auto] lg:gap-20">
+
+    <!-- Left: content -->
+    <div class="max-w-2xl space-y-8">
+
+      <!-- System status labels -->
+      {eyebrow && (
+        <div class="hero-fade-in flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.2em] text-[rgba(255,255,255,0.25)]">
+          <span class="inline-flex items-center gap-2">
+            <span class="h-1.5 w-1.5 bg-red-500 animate-pulse"></span>
+            <span class="text-cyan-500/60">SYS</span>
+          </span>
+          <span class="text-[rgba(255,255,255,0.1)]">/////</span>
+          <span>{eyebrow}</span>
+        </div>
+      )}
+
+      <!-- H1 — Glitch effect -->
+      <div class="hero-slide-up relative">
+        <h1
+          class="glitch-text font-display text-5xl font-extrabold leading-[0.87] tracking-[-0.05em] text-[rgba(255,255,255,0.92)] md:text-6xl lg:text-[5.5rem]"
+          data-text={title}
+        >
+          {title}
+        </h1>
+      </div>
+
+      <!-- Red separator line -->
+      <div class="hero-slide-up hero-delay-1 h-px w-24 bg-red-500"></div>
+
+      <!-- Subtitle -->
+      <p class="hero-slide-up hero-delay-1 max-w-lg text-lg leading-relaxed text-[rgba(255,255,255,0.55)] font-light">
+        {subtitle}
+      </p>
+
+      <!-- CTA group -->
+      <div class="hero-slide-up hero-delay-2 flex flex-wrap items-center gap-4">
+        <!-- Primary CTA — solid red -->
+        <a
+          href={ctaHref}
+          class="group inline-flex items-center gap-2 bg-red-500 px-7 py-3.5 text-xs font-mono uppercase tracking-wider font-semibold text-[#000] transition-all duration-150 hover:bg-red-400 hover:shadow-[0_0_40px_rgba(255,45,0,0.25)] active:scale-[0.97]"
+        >
+          {ctaLabel}
+          <span class="transition-transform duration-200 group-hover:translate-x-1">&#8594;</span>
+        </a>
+
+        {ctaSecLabel && ctaSecHref && (
+          <a
+            href={ctaSecHref}
+            class="inline-flex items-center gap-2 border border-[rgba(255,255,255,0.18)] px-7 py-3.5 text-xs font-mono uppercase tracking-wider font-medium text-[rgba(255,255,255,0.55)] transition-all duration-150 hover:border-[rgba(255,255,255,0.35)] hover:text-[rgba(255,255,255,0.92)] active:scale-[0.97]"
+          >
+            {ctaSecLabel}
+          </a>
+        )}
+      </div>
+
+      <!-- Stats — neon glow border -->
+      <div class="hero-fade-in hero-delay-3 grid grid-cols-3 gap-px border border-[rgba(255,255,255,0.06)]" style="box-shadow: 0 0 20px rgba(0,255,209,0.06);">
+        <div class="bg-[#0D0D0D] p-5 text-center">
+          <p class="font-display text-2xl font-bold text-[rgba(255,255,255,0.92)]">+50</p>
+          <p class="text-[10px] font-mono uppercase tracking-widest text-[rgba(255,255,255,0.25)]">{lang === 'ca' ? "Projectes" : "Proyectos"}</p>
+        </div>
+        <div class="bg-[#0D0D0D] p-5 text-center border-x border-[rgba(255,255,255,0.06)]">
+          <p class="font-display text-2xl font-bold text-[rgba(255,255,255,0.92)]">98%</p>
+          <p class="text-[10px] font-mono uppercase tracking-widest text-[rgba(255,255,255,0.25)]">{lang === 'ca' ? "Satisfacció" : "Satisfacción"}</p>
+        </div>
+        <div class="bg-[#0D0D0D] p-5 text-center">
+          <p class="font-display text-2xl font-bold text-[rgba(255,255,255,0.92)]">5+</p>
+          <p class="text-[10px] font-mono uppercase tracking-widest text-[rgba(255,255,255,0.25)]">{lang === 'ca' ? "Anys" : "Años"}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: terminal widget -->
+    <div class="hero-terminal hidden lg:block">
+      <div
+        class="w-[420px] border border-[rgba(255,255,255,0.18)] bg-[#0D0D0D]"
+        style="box-shadow: 0 0 30px rgba(0,255,209,0.06);"
+        role="img"
+        aria-label="Terminal decorativo CIBAI Studio"
+      >
+        <!-- Title bar -->
+        <div class="flex items-center gap-2 border-b border-[rgba(255,255,255,0.06)] px-4 py-3">
+          <span class="h-2 w-2 bg-red-500"></span>
+          <span class="h-2 w-2 bg-[rgba(255,255,255,0.18)]"></span>
+          <span class="h-2 w-2 bg-cyan-500/40"></span>
+          <span class="ml-auto font-mono text-[10px] text-[rgba(255,255,255,0.10)] uppercase tracking-wider">cibai-studio ~ %</span>
+        </div>
+
+        <!-- Body -->
+        <div class="space-y-2 p-5 font-mono text-sm">
+          <p class="text-[rgba(255,255,255,0.25)]">
+            <span class="text-red-500">$</span> init cibai-studio
+          </p>
+          <p class="text-[rgba(255,255,255,0.10)] pl-4">Loading modules...</p>
+
+          <div class="my-3 border-t border-[rgba(255,255,255,0.06)]"></div>
+
+          {[
+            'web development',
+            'AI integration',
+            'automation',
+            'UX/UI design',
+          ].map((item) => (
+            <p class="text-[rgba(255,255,255,0.55)]">
+              <span class="text-cyan-500">&#10003;</span> {item}
+            </p>
+          ))}
+
+          <div class="my-3 border-t border-[rgba(255,255,255,0.06)]"></div>
+
+          <p class="text-[rgba(255,255,255,0.25)]">
+            <span class="text-red-500">$</span> status
+          </p>
+          <p class="text-[rgba(255,255,255,0.10)] pl-4">
+            <span class="text-cyan-500">&#9679;</span> ready for new projects
+          </p>
+
+          <!-- Prompt activo -->
+          <p class="mt-4 flex items-center gap-1 text-red-500">
+            <span>$</span>
+            <span class="cursor-blink !w-[9px] !h-[1em] bg-red-500/70"></span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Marquee strip — tech stack -->
+  <div class="absolute bottom-0 left-0 right-0 border-t border-[rgba(255,255,255,0.06)] bg-[#0D0D0D]/80 py-2 overflow-hidden">
+    <div class="marquee-track whitespace-nowrap font-mono text-[10px] uppercase tracking-[0.2em] text-[rgba(255,255,255,0.15)]">
+      {[...techStack, ...techStack].map((tech, i) => (
+        <span class="inline-block px-6">
+          {i > 0 && <span class="text-red-500/30 mr-6">/////</span>}
+          {tech}
+        </span>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-fade-in {
+    opacity: 0;
+    animation: heroFadeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .hero-slide-up {
+    opacity: 0;
+    transform: translateY(24px);
+    animation: heroSlideUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .hero-terminal {
+    opacity: 0;
+    transform: translateY(16px);
+    animation: heroSlideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+  }
+
+  .hero-delay-1 { animation-delay: 0.12s; }
+  .hero-delay-2 { animation-delay: 0.22s; }
+  .hero-delay-3 { animation-delay: 0.36s; }
+
+  @keyframes heroFadeIn {
+    to { opacity: 1; }
+  }
+
+  @keyframes heroSlideUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>

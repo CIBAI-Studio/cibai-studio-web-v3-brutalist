@@ -1,0 +1,697 @@
+/* ============================================================
+   CIBAI Studio — Design System v2.0 BRUTALIST CYBERPUNK
+   Tailwind CSS v4 · CSS-first configuration
+   Paleta: Digital Red #FF2D00 + Neon Cyan #00FFD1 + Violet #7B00FF
+   Fuentes: Space Grotesk (display) · JetBrains Mono (code/labels)
+   ============================================================ */
+
+@import 'tailwindcss';
+
+/* ============================================================
+   TEMA — Design Tokens CIBAI Studio · Brutalist Cyberpunk
+   ============================================================ */
+
+@theme {
+
+  /* ----------------------------------------------------------
+     TIPOGRAFÍA — Industrial/Mechanical
+     ---------------------------------------------------------- */
+
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-sans:    'Space Grotesk', system-ui, sans-serif;
+  --font-mono:    'JetBrains Mono', ui-monospace, 'Cascadia Code', monospace;
+
+  /* ----------------------------------------------------------
+     PALETA RED — Digital Red #FF2D00
+     ---------------------------------------------------------- */
+
+  --color-red-50:  #FFF0ED;
+  --color-red-100: #FFD9D1;
+  --color-red-200: #FFB3A3;
+  --color-red-300: #FF8D75;
+  --color-red-400: #FF5A38;
+  --color-red-500: #FF2D00;
+  --color-red-600: #CC2400;
+  --color-red-700: #991B00;
+  --color-red-800: #661200;
+  --color-red-900: #330900;
+  --color-red-950: #1A0500;
+
+  /* ----------------------------------------------------------
+     PALETA CYAN — Neon Teal #00FFD1
+     ---------------------------------------------------------- */
+
+  --color-cyan-50:  #E6FFF8;
+  --color-cyan-100: #CCFFF2;
+  --color-cyan-200: #99FFE5;
+  --color-cyan-300: #66FFD8;
+  --color-cyan-400: #33FFCC;
+  --color-cyan-500: #00FFD1;
+  --color-cyan-600: #00CCA7;
+  --color-cyan-700: #00997D;
+  --color-cyan-800: #006654;
+  --color-cyan-900: #00332A;
+  --color-cyan-950: #001A15;
+
+  /* ----------------------------------------------------------
+     PALETA VIOLET — #7B00FF
+     ---------------------------------------------------------- */
+
+  --color-violet-50:  #F2E6FF;
+  --color-violet-100: #E5CCFF;
+  --color-violet-200: #CB99FF;
+  --color-violet-300: #B166FF;
+  --color-violet-400: #9733FF;
+  --color-violet-500: #7B00FF;
+  --color-violet-600: #6200CC;
+  --color-violet-700: #4A0099;
+  --color-violet-800: #310066;
+  --color-violet-900: #190033;
+  --color-violet-950: #0D001A;
+
+  /* ----------------------------------------------------------
+     BASE — Pure black surfaces
+     ---------------------------------------------------------- */
+
+  --color-base-50:  #E8E8E8;
+  --color-base-100: #D0D0D0;
+  --color-base-200: #A0A0A0;
+  --color-base-300: #707070;
+  --color-base-400: #505050;
+  --color-base-500: #383838;
+  --color-base-600: #282828;
+  --color-base-700: #1A1A1A;
+  --color-base-800: #0D0D0D;
+  --color-base-900: #080808;
+  --color-base-950: #000000;
+
+  /* ----------------------------------------------------------
+     NEUTRAL
+     ---------------------------------------------------------- */
+
+  --color-neutral-50:  #F0F0F0;
+  --color-neutral-100: #E0E0E0;
+  --color-neutral-200: #C0C0C0;
+  --color-neutral-300: #909090;
+  --color-neutral-400: #707070;
+  --color-neutral-500: #505050;
+  --color-neutral-600: #383838;
+  --color-neutral-700: #282828;
+  --color-neutral-800: #1A1A1A;
+  --color-neutral-900: #0D0D0D;
+  --color-neutral-950: #050505;
+
+  /* ----------------------------------------------------------
+     SEMÁNTICOS
+     ---------------------------------------------------------- */
+
+  --color-success:      #00FF88;
+  --color-success-muted: #00CC70;
+  --color-success-bg:   oklch(from #00FF88 l c h / 0.1);
+
+  --color-warning:      #FFB800;
+  --color-warning-muted: #CC9200;
+  --color-warning-bg:   oklch(from #FFB800 l c h / 0.1);
+
+  --color-error:        #FF2D00;
+  --color-error-muted:  #CC2400;
+  --color-error-bg:     oklch(from #FF2D00 l c h / 0.1);
+
+  --color-info:         #00FFD1;
+  --color-info-muted:   #00CCA7;
+  --color-info-bg:      oklch(from #00FFD1 l c h / 0.1);
+
+  /* ----------------------------------------------------------
+     ALIASES DE MARCA — Brutalist Cyberpunk
+     ---------------------------------------------------------- */
+
+  --color-bg:              #000000;
+  --color-surface:         #0D0D0D;
+  --color-surface-elevated: #1A1A1A;
+  --color-surface-overlay: #282828;
+
+  --color-border:          rgba(255, 255, 255, 0.06);
+  --color-border-strong:   rgba(255, 255, 255, 0.18);
+  --color-border-accent:   var(--color-red-500);
+  --color-border-cyan:     rgba(0, 255, 209, 0.30);
+
+  --color-text:            rgba(255, 255, 255, 0.92);
+  --color-text-secondary:  rgba(255, 255, 255, 0.55);
+  --color-text-muted:      rgba(255, 255, 255, 0.25);
+  --color-text-disabled:   rgba(255, 255, 255, 0.10);
+
+  --color-accent:          var(--color-red-500);
+  --color-accent-hover:    var(--color-red-400);
+  --color-accent-secondary: var(--color-cyan-500);
+  --color-accent-secondary-hover: var(--color-cyan-400);
+
+  --color-interactive:     var(--color-cyan-500);
+  --color-interactive-hover: var(--color-cyan-400);
+  --color-interactive-active: var(--color-cyan-600);
+  --color-interactive-disabled: var(--color-neutral-700);
+
+  /* ----------------------------------------------------------
+     SOMBRAS — Neon glow
+     ---------------------------------------------------------- */
+
+  --shadow-sm:   0 1px 3px rgb(0 0 0 / 0.8);
+  --shadow-md:   0 4px 12px rgb(0 0 0 / 0.9);
+  --shadow-lg:   0 8px 24px rgb(0 0 0 / 0.9);
+  --shadow-xl:   0 16px 48px rgb(0 0 0 / 0.95);
+
+  --shadow-glow-red:             0 0 8px rgba(255, 45, 0, 0.35), 0 0 40px rgba(255, 45, 0, 0.12);
+  --shadow-glow-cyan:            0 0 8px rgba(0, 255, 209, 0.35), 0 0 30px rgba(0, 255, 209, 0.12);
+  --shadow-glow-violet:          0 0 8px rgba(123, 0, 255, 0.35), 0 0 30px rgba(123, 0, 255, 0.12);
+  --shadow-glow-red-strong:      0 0 40px rgba(255, 45, 0, 0.25), 0 0 80px rgba(255, 45, 0, 0.08);
+  --shadow-glow-cyan-strong:     0 0 20px rgba(0, 255, 209, 0.22), 0 0 40px rgba(0, 255, 209, 0.06);
+  --shadow-glow-dual:            0 0 20px rgba(255, 45, 0, 0.2), 0 0 40px rgba(0, 255, 209, 0.15);
+  --shadow-inner-red:            inset 0 0 12px rgba(255, 45, 0, 0.15);
+  --shadow-inner-cyan:           inset 0 0 12px rgba(0, 255, 209, 0.15);
+  --shadow-glow-magenta:         0 0 8px rgba(123, 0, 255, 0.35), 0 0 30px rgba(123, 0, 255, 0.12);
+  --shadow-glow-magenta-strong:  0 0 16px rgba(123, 0, 255, 0.55), 0 0 60px rgba(123, 0, 255, 0.2);
+  --shadow-glow-cyan-strong:     0 0 16px rgba(0, 255, 209, 0.55), 0 0 60px rgba(0, 255, 209, 0.2);
+
+  /* ----------------------------------------------------------
+     RADIOS DE BORDE — Sharp edges (brutalist)
+     ---------------------------------------------------------- */
+
+  --radius-none: 0px;
+  --radius-xs:   0px;
+  --radius-sm:   0px;
+  --radius-md:   0px;
+  --radius-lg:   2px;
+  --radius-xl:   2px;
+  --radius-2xl:  2px;
+  --radius-3xl:  2px;
+  --radius-full: 0px;
+
+  /* ----------------------------------------------------------
+     ANIMACIONES
+     ---------------------------------------------------------- */
+
+  --animate-blink:        blink 1s step-end infinite;
+  --animate-blink-smooth: blink-smooth 1.2s ease-in-out infinite;
+  --animate-pulse-glow:   pulse-glow-red 2.4s ease-in-out infinite;
+  --animate-scan:         scanline 3s linear infinite;
+  --animate-glitch:       glitch 0.3s steps(2) infinite;
+  --animate-flicker:      flicker 0.15s infinite linear;
+  --animate-terminal-in:  terminal-in 0.6s steps(1) forwards;
+  --animate-float:        float 3s ease-in-out infinite;
+  --animate-neon-pulse:   neon-pulse 2.4s ease-in-out infinite;
+
+  /* ----------------------------------------------------------
+     TRANSICIONES
+     ---------------------------------------------------------- */
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-expo:  cubic-bezier(0.7, 0, 0.84, 0);
+  --ease-spring:   cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* ----------------------------------------------------------
+     Z-INDEX
+     ---------------------------------------------------------- */
+
+  --z-base:       0;
+  --z-raised:     10;
+  --z-dropdown:   100;
+  --z-sticky:     200;
+  --z-overlay:    300;
+  --z-modal:      400;
+  --z-toast:      500;
+  --z-top:        9999;
+
+}
+
+/* ============================================================
+   KEYFRAMES — Brutalist Cyberpunk
+   ============================================================ */
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+@keyframes blink-smooth {
+  0%, 45%  { opacity: 1; }
+  55%, 100% { opacity: 0; }
+}
+
+@keyframes pulse-glow-red {
+  0%, 100% {
+    box-shadow: 0 0 8px rgba(255, 45, 0, 0.35), 0 0 30px rgba(255, 45, 0, 0.12);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 45, 0, 0.6), 0 0 60px rgba(255, 45, 0, 0.25);
+  }
+}
+
+@keyframes neon-pulse {
+  0%, 100% { box-shadow: 0 0 4px rgba(0, 255, 209, 0.2); }
+  50% { box-shadow: 0 0 10px rgba(0, 255, 209, 0.4), 0 0 20px rgba(0, 255, 209, 0.1); }
+}
+
+@keyframes scanline {
+  0%   { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+@keyframes glitch {
+  0%   { clip-path: inset(40% 0 61% 0); transform: translate(-2px, 0); filter: hue-rotate(0deg); }
+  20%  { clip-path: inset(92% 0 1%  0); transform: translate(2px,  0); filter: hue-rotate(90deg); }
+  40%  { clip-path: inset(43% 0 1%  0); transform: translate(-2px, 0); filter: hue-rotate(180deg); }
+  60%  { clip-path: inset(25% 0 58% 0); transform: translate(2px,  0); filter: hue-rotate(270deg); }
+  80%  { clip-path: inset(54% 0 7%  0); transform: translate(-2px, 0); filter: hue-rotate(0deg); }
+  100% { clip-path: inset(58% 0 43% 0); transform: translate(0,    0); }
+}
+
+@keyframes glitch-1 {
+  0%, 90%, 100% { clip-path: inset(0 0 100% 0); opacity: 0; }
+  91% { clip-path: inset(20% 0 60% 0); transform: translate(-4px, 0); opacity: 0.6; }
+  93% { clip-path: inset(50% 0 20% 0); transform: translate(3px, 0); opacity: 0.7; }
+  95% { clip-path: inset(10% 0 70% 0); transform: translate(-2px, 0); opacity: 0.5; }
+  97% { clip-path: inset(40% 0 30% 0); transform: translate(4px, 0); opacity: 0.8; }
+}
+
+@keyframes glitch-2 {
+  0%, 88%, 100% { clip-path: inset(0 0 100% 0); opacity: 0; }
+  89% { clip-path: inset(30% 0 50% 0); transform: translate(4px, 0); opacity: 0.5; }
+  91% { clip-path: inset(60% 0 10% 0); transform: translate(-3px, 0); opacity: 0.6; }
+  93% { clip-path: inset(15% 0 65% 0); transform: translate(2px, 0); opacity: 0.7; }
+  95% { clip-path: inset(45% 0 25% 0); transform: translate(-4px, 0); opacity: 0.8; }
+}
+
+@keyframes tag-flicker {
+  0%, 100% { opacity: 0.9; }
+  10% { opacity: 0.22; }
+  11% { opacity: 0.9; }
+  40% { opacity: 0.85; }
+  41% { opacity: 0.3; }
+  42% { opacity: 0.9; }
+}
+
+@keyframes flicker {
+  0%   { opacity: 1; }
+  92%  { opacity: 1; }
+  93%  { opacity: 0.9; }
+  94%  { opacity: 1; }
+  96%  { opacity: 0.95; }
+  100% { opacity: 1; }
+}
+
+@keyframes terminal-in {
+  from { width: 0; }
+  to   { width: 100%; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ============================================================
+   UTILIDADES DE IDENTIDAD VISUAL — BRUTALIST CYBERPUNK
+   ============================================================ */
+
+.cursor-blink {
+  display: inline-block;
+  width: 0.6em;
+  height: 1.1em;
+  background-color: var(--color-accent);
+  vertical-align: text-bottom;
+  animation: var(--animate-blink);
+}
+
+.cursor-pipe::after {
+  content: '|';
+  color: var(--color-cyan-500);
+  animation: var(--animate-blink-smooth);
+  margin-left: 1px;
+}
+
+.cursor-underscore::after {
+  content: '_';
+  color: var(--color-cyan-500);
+  animation: var(--animate-blink);
+}
+
+.terminal-prompt::before {
+  content: '$ ';
+  color: var(--color-red-500);
+  font-family: var(--font-mono);
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+.terminal-prompt-arrow::before {
+  content: '> ';
+  color: var(--color-cyan-500);
+  font-family: var(--font-mono);
+}
+
+.terminal-block {
+  font-family: var(--font-mono);
+  background-color: #000000;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 1.25rem 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.terminal-block::before {
+  content: '● ● ●';
+  position: absolute;
+  top: 0.625rem;
+  left: 1rem;
+  font-size: 0.5rem;
+  letter-spacing: 0.35em;
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.terminal-titlebar {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.terminal-dot {
+  width: 10px;
+  height: 10px;
+  flex-shrink: 0;
+}
+
+.bg-cibai-gradient {
+  background: linear-gradient(135deg, #FF2D00 0%, #00FFD1 100%);
+}
+
+.bg-cibai-gradient-radial {
+  background: radial-gradient(ellipse at center, rgba(255, 45, 0, 0.12) 0%, rgba(0, 255, 209, 0.06) 60%, transparent 100%);
+}
+
+.text-cibai-gradient {
+  background: linear-gradient(90deg, #FF2D00 0%, #00FFD1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-cibai-gradient-vertical {
+  background: linear-gradient(180deg, #FF2D00 0%, #00FFD1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.border-cibai-gradient {
+  border-image: linear-gradient(135deg, #FF2D00, #00FFD1) 1;
+}
+
+.glow-red {
+  box-shadow: var(--shadow-glow-red);
+}
+
+.glow-cyan {
+  box-shadow: var(--shadow-glow-cyan);
+}
+
+.glow-dual {
+  box-shadow: var(--shadow-glow-dual);
+}
+
+.glow-text-red {
+  text-shadow: 0 0 8px rgba(255, 45, 0, 0.7), 0 0 20px rgba(255, 45, 0, 0.4);
+}
+
+.glow-text-cyan {
+  text-shadow: 0 0 8px rgba(0, 255, 209, 0.7), 0 0 20px rgba(0, 255, 209, 0.4);
+}
+
+/* CRT overlay */
+.crt-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9998;
+}
+
+.crt-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.06) 2px,
+    rgba(0, 0, 0, 0.06) 4px
+  );
+}
+
+.crt-overlay::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: rgba(0, 255, 209, 0.08);
+  animation: scanline 3s linear infinite;
+}
+
+.crt-vignette {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9997;
+  background: radial-gradient(ellipse at center, transparent 60%, rgba(0, 0, 0, 0.4) 100%);
+  box-shadow: inset 0 0 120px rgba(0, 0, 0, 0.5);
+}
+
+.scanline-overlay {
+  position: relative;
+  overflow: hidden;
+}
+
+.scanline-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgb(0 0 0 / 0.03) 2px,
+    rgb(0 0 0 / 0.03) 4px
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.neon-line-red {
+  height: 1px;
+  background: var(--color-red-500);
+}
+
+.neon-line-cyan {
+  height: 1px;
+  background: var(--color-cyan-500);
+  box-shadow: 0 0 8px rgba(0, 255, 209, 0.5);
+}
+
+.neon-line-magenta,
+.neon-line-violet {
+  height: 1px;
+  background: var(--color-violet-500);
+  box-shadow: 0 0 8px rgba(123, 0, 255, 0.5);
+}
+
+.neon-line-dual {
+  height: 1px;
+  background: linear-gradient(90deg, #FF2D00, #00FFD1);
+  box-shadow: 0 0 12px rgba(255, 45, 0, 0.3), 0 0 24px rgba(0, 255, 209, 0.2);
+}
+
+.cta-pulse {
+  animation: var(--animate-pulse-glow);
+}
+
+.typewriter {
+  overflow: hidden;
+  white-space: nowrap;
+  animation: var(--animate-terminal-in);
+}
+
+.hover-glitch:hover {
+  animation: glitch 0.3s steps(2) forwards;
+}
+
+.marquee-track {
+  display: flex;
+  animation: marquee 28s linear infinite;
+  will-change: transform;
+}
+
+.glitch-text {
+  position: relative;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch-text::before {
+  color: var(--color-red-500);
+  animation: glitch-1 4s infinite;
+  mix-blend-mode: screen;
+}
+
+.glitch-text::after {
+  color: var(--color-cyan-500);
+  animation: glitch-2 4s infinite 0.2s;
+  mix-blend-mode: screen;
+}
+
+/* Status bar */
+.status-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 28px;
+  background: #0D0D0D;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.25);
+  text-transform: uppercase;
+}
+
+.status-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: var(--color-red-500);
+  animation: neon-pulse 2.4s ease-in-out infinite;
+  margin-right: 6px;
+}
+
+/* ============================================================
+   ESTILOS BASE GLOBALES — BRUTALIST
+   ============================================================ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  background-color: #000000;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100dvh;
+  line-height: 1.5;
+  padding-bottom: 28px;
+}
+
+::selection {
+  background-color: rgba(255, 45, 0, 0.3);
+  color: white;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-red-500);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-red-400);
+}
+
+:focus-visible {
+  outline: 1px solid var(--color-red-500);
+  outline-offset: 2px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  color: var(--color-text);
+  text-transform: uppercase;
+}
+
+h1 { font-size: clamp(2.5rem, 8vw, 6rem); letter-spacing: -0.05em; font-weight: 800; }
+h2 { font-size: clamp(1.75rem, 5vw, 3.5rem); letter-spacing: -0.04em; font-weight: 700; }
+h3 { font-size: clamp(1.25rem, 3vw, 2rem); letter-spacing: -0.03em; }
+h4 { font-size: clamp(1.125rem, 2vw, 1.5rem); }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1.125rem; }
+
+code, kbd, samp, pre {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+}
+
+code:not(pre code) {
+  background-color: var(--color-surface);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 0.1em 0.35em;
+  color: var(--color-cyan-400);
+  font-size: 0.875em;
+}
+
+pre {
+  background-color: #000000;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 1.25rem 1.5rem;
+  overflow-x: auto;
+  line-height: 1.7;
+}
+
+a {
+  color: var(--color-cyan-400);
+  text-decoration: none;
+  transition: color 0.15s linear;
+}
+
+a:hover {
+  color: var(--color-cyan-300);
+}
+
+/* ============================================================
+   FIN — CIBAI Studio Design System v2.0 BRUTALIST CYBERPUNK
+   ============================================================ */

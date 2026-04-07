@@ -1,0 +1,218 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Button from '../../../components/Button.astro';
+
+const serviceSchema = {
+"@context":"https://schema.org",
+"@type":"Service",
+"name":"Gestión de Redes Sociales",
+"provider": {"@type":"Organization","name":"CIBAI Studio","url":"https://cibai.studio"},
+"description":"Gestión profesional de redes sociales con estrategia, creatividad y datos. Contenido que conecta, comunidades que compran, métricas que importan.",
+"url":"https://cibai.studio/servicios/gestion-redes-sociales",
+"areaServed":"España",
+"serviceType":"Gestión de Redes Sociales"
+};
+
+const breadcrumbSchema = {
+"@context":"https://schema.org",
+"@type":"BreadcrumbList",
+"itemListElement": [
+ {"@type":"ListItem","position": 1,"name":"Inicio","item":"https://cibai.studio"},
+ {"@type":"ListItem","position": 2,"name":"Servicios","item":"https://cibai.studio/servicios"},
+ {"@type":"ListItem","position": 3,"name":"Gestión de Redes Sociales","item":"https://cibai.studio/servicios/gestion-redes-sociales"}
+ ]
+};
+
+const faqSchema = {
+"@context":"https://schema.org",
+"@type":"FAQPage",
+"mainEntity": [
+ {
+"@type":"Question",
+"name":"¿En qué redes sociales trabajáis?",
+"acceptedAnswer": {"@type":"Answer","text":"Gestionamos todas las plataformas relevantes: Instagram, LinkedIn, TikTok, Facebook, X (Twitter) y YouTube. Recomendamos focalizarse en las plataformas donde está tu audiencia, no en todas a la vez."}
+ },
+ {
+"@type":"Question",
+"name":"¿Con qué frecuencia publicáis contenido?",
+"acceptedAnswer": {"@type":"Answer","text":"Dependiendo del plan, publicamos entre 3 y 7 veces por semana por plataforma. La frecuencia óptima depende de tu audiencia, sector y objetivos. Siempre priorizamos calidad sobre cantidad."}
+ },
+ {
+"@type":"Question",
+"name":"¿Cómo medís el éxito de la gestión de redes?",
+"acceptedAnswer": {"@type":"Answer","text":"Definimos KPIs desde el inicio alineados con tus objetivos: alcance, engagement, clicks, leads generados o ventas. Cada mes recibes un informe detallado con los resultados y las acciones para el mes siguiente."}
+ }
+ ]
+};
+
+const benefits = [
+ 'Estrategia de contenido personalizada por plataforma y audiencia',
+ 'Diseño gráfico y copywriting orientado a engagement y conversión',
+ 'Gestión de comunidad y atención al cliente digital',
+ 'Calendario editorial + producción de contenido mensual',
+ 'Informes mensuales con KPIs alineados a tus objetivos de negocio',
+];
+
+const process = [
+ { num: '01', title: 'Auditoría', body: 'Analizamos el estado actual de tus redes, tu competencia y las oportunidades de tu sector en cada plataforma.' },
+ { num: '02', title: 'Estrategia', body: 'Definimos la estrategia de contenido, el tono de marca, los pilares editoriales y los KPIs que mediremos.' },
+ { num: '03', title: 'Calendario', body: 'Creamos el calendario editorial mensual con los temas, formatos y frecuencia de publicación acordados.' },
+ { num: '04', title: 'Producción', body: 'Diseñamos las piezas gráficas, redactamos los copies y preparamos el contenido listo para publicar.' },
+ { num: '05', title: 'Gestión', body: 'Publicamos, monitorizamos y gestionamos la comunidad: comentarios, mensajes directos y menciones.' },
+ { num: '06', title: 'Reporting', body: 'Cada mes recibes un informe con los resultados, aprendizajes y el plan de acción para el siguiente mes.' },
+];
+---
+
+<Layout
+ title="Gestión de Redes Sociales para Empresas"
+ description="Gestión profesional de redes sociales con estrategia, creatividad y datos. Contenido que conecta, comunidades que compran, métricas que importan."
+>
+ <script type="application/ld+json"set:html={JSON.stringify(serviceSchema)} />
+ <script type="application/ld+json"set:html={JSON.stringify(breadcrumbSchema)} />
+ <script type="application/ld+json"set:html={JSON.stringify(faqSchema)} />
+
+ <!-- Hero -->
+ <section class="border-b border-[rgba(255,255,255,0.18)] bg-[#000] pt-24 pb-16">
+ <div class="mx-auto max-w-[1400px] px-6">
+ <div class="page-fade-in max-w-3xl">
+ <nav class="mb-6 flex items-center gap-2 font-mono text-xs text-[rgba(255,255,255,0.25)]">
+ <a href="/"class="hover:text-[rgba(255,255,255,0.92)] transition-colors">Inicio</a>
+ <span>/</span>
+ <a href="/servicios"class="hover:text-[rgba(255,255,255,0.92)] transition-colors">Servicios</a>
+ <span>/</span>
+ <span class="text-red-500">Gestión de Redes Sociales</span>
+ </nav>
+ <p class="mb-4 font-mono text-xs font-medium uppercase tracking-widest text-red-500/60">Servicio</p>
+ <h1 class="font-display text-5xl font-bold leading-[1.05] tracking-[-0.03em] text-[rgba(255,255,255,0.92)] md:text-6xl">
+ Tu marca, presente y relevante donde están tus clientes.
+ </h1>
+ <p class="mt-6 max-w-xl text-lg leading-relaxed text-[rgba(255,255,255,0.55)]">
+ Las redes sociales no son un escaparate: son el primer contacto de tu cliente con tu marca. Gestionamos tu presencia digital con estrategia, creatividad y datos, creando contenido que conecta emocionalmente, construye comunidades que compran y genera métricas que importan a tu negocio.
+ </p>
+ <div class="mt-8 flex flex-wrap gap-4">
+ <Button href="/contacto"variant="primary"arrow>
+ Lleva tus redes al siguiente nivel
+ </Button>
+ <Button href="/servicios"variant="ghost">
+ Ver todos los servicios
+ </Button>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- Beneficios -->
+ <section class="border-b border-[rgba(255,255,255,0.18)] bg-[#0D0D0D] py-20">
+ <div class="mx-auto max-w-[1400px] px-6">
+ <div class="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_1fr]">
+ <div>
+ <p class="mb-4 font-mono text-xs font-medium uppercase tracking-widest text-red-500/60">Qué incluye</p>
+ <h2 class="font-display text-3xl font-bold tracking-tight text-[rgba(255,255,255,0.92)] md:text-4xl">
+ Gestión de redes profesional, estratégica y orientada a resultados.
+ </h2>
+ <p class="mt-4 text-[rgba(255,255,255,0.55)] leading-relaxed">
+ No publicamos por publicar. Cada pieza de contenido tiene un objetivo claro y está diseñada para hacer crecer tu negocio.
+ </p>
+ </div>
+ <ul class="space-y-4">
+ {benefits.map((b) => (
+ <li class="flex items-start gap-4">
+ <span class="mt-0.5 shrink-0 font-mono text-sm text-red-500">✦</span>
+ <span class="text-[rgba(255,255,255,0.55)]">{b}</span>
+ </li>
+ ))}
+ </ul>
+ </div>
+ </div>
+ </section>
+
+ <!-- Proceso -->
+ <section class="border-b border-[rgba(255,255,255,0.18)] bg-[#000] py-20">
+ <div class="mx-auto max-w-[1400px] px-6">
+ <div class="mb-12">
+ <p class="mb-4 font-mono text-xs font-medium uppercase tracking-widest text-red-500/60">Cómo trabajamos</p>
+ <h2 class="font-display text-3xl font-bold tracking-tight text-[rgba(255,255,255,0.92)] md:text-4xl">
+ De la auditoría al reporting — con estrategia en cada paso.
+ </h2>
+ </div>
+ <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+ {process.map((step) => (
+ <div class="process-step space-y-3 border-t border-[rgba(255,255,255,0.18)] pt-6">
+ <span class="font-mono text-xs text-red-500/60">{step.num}</span>
+ <h3 class="font-display text-base font-bold text-[rgba(255,255,255,0.92)]">{step.title}</h3>
+ <p class="text-sm leading-relaxed text-[rgba(255,255,255,0.55)]">{step.body}</p>
+ </div>
+ ))}
+ </div>
+ </div>
+ </section>
+
+ <!-- FAQ -->
+ <section class="border-b border-[rgba(255,255,255,0.18)] bg-[#0D0D0D] py-20">
+ <div class="mx-auto max-w-3xl px-6">
+ <p class="mb-4 font-mono text-xs font-medium uppercase tracking-widest text-red-500/60">FAQ</p>
+ <h2 class="mb-10 font-display text-3xl font-bold tracking-tight text-[rgba(255,255,255,0.92)] md:text-4xl">
+ Preguntas frecuentes
+ </h2>
+ <div class="space-y-8">
+ <div class="border-t border-[rgba(255,255,255,0.18)] pt-6">
+ <h3 class="font-display text-base font-bold text-[rgba(255,255,255,0.92)]">¿En qué redes sociales trabajáis?</h3>
+ <p class="mt-3 text-sm leading-relaxed text-[rgba(255,255,255,0.55)]">Gestionamos todas las plataformas relevantes: Instagram, LinkedIn, TikTok, Facebook, X (Twitter) y YouTube. Recomendamos focalizarse en las plataformas donde está tu audiencia, no en todas a la vez.</p>
+ </div>
+ <div class="border-t border-[rgba(255,255,255,0.18)] pt-6">
+ <h3 class="font-display text-base font-bold text-[rgba(255,255,255,0.92)]">¿Con qué frecuencia publicáis contenido?</h3>
+ <p class="mt-3 text-sm leading-relaxed text-[rgba(255,255,255,0.55)]">Dependiendo del plan, publicamos entre 3 y 7 veces por semana por plataforma. La frecuencia óptima depende de tu audiencia, sector y objetivos. Siempre priorizamos calidad sobre cantidad.</p>
+ </div>
+ <div class="border-t border-[rgba(255,255,255,0.18)] pt-6">
+ <h3 class="font-display text-base font-bold text-[rgba(255,255,255,0.92)]">¿Cómo medís el éxito de la gestión de redes?</h3>
+ <p class="mt-3 text-sm leading-relaxed text-[rgba(255,255,255,0.55)]">Definimos KPIs desde el inicio alineados con tus objetivos: alcance, engagement, clicks, leads generados o ventas. Cada mes recibes un informe detallado con los resultados y las acciones para el mes siguiente.</p>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- CTA -->
+ <section class="bg-[#000] py-24">
+ <div class="mx-auto max-w-[1400px] px-6">
+ <div class="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
+ <div class="max-w-xl">
+ <p class="font-mono text-xs font-medium uppercase tracking-widest text-red-500/60">¿Tienes un proyecto?</p>
+ <h2 class="mt-3 font-display text-3xl font-bold tracking-tight text-[rgba(255,255,255,0.92)] md:text-4xl">
+ Hablemos de tus redes sociales.
+ </h2>
+ <p class="mt-4 text-[rgba(255,255,255,0.55)]">
+ Primera consulta gratuita. Cuéntanos dónde estás y te decimos cómo llegar más lejos.
+ </p>
+ </div>
+ <Button href="/contacto"variant="primary"size="lg"arrow>
+ Lleva tus redes al siguiente nivel
+ </Button>
+ </div>
+ </div>
+ </section>
+</Layout>
+
+<style>
+ .page-fade-in {
+ opacity: 0;
+ transform: translateY(20px);
+ animation: pageIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+ }
+
+ .process-step {
+ opacity: 0;
+ transform: translateY(12px);
+ animation: pageIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+ }
+
+ .process-step:nth-child(1) { animation-delay: 0.10s; }
+ .process-step:nth-child(2) { animation-delay: 0.15s; }
+ .process-step:nth-child(3) { animation-delay: 0.20s; }
+ .process-step:nth-child(4) { animation-delay: 0.25s; }
+ .process-step:nth-child(5) { animation-delay: 0.30s; }
+ .process-step:nth-child(6) { animation-delay: 0.35s; }
+
+ @keyframes pageIn {
+ to { opacity: 1; transform: translateY(0); }
+ }
+</style>

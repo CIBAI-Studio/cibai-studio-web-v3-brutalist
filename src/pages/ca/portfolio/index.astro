@@ -1,0 +1,180 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Button from '../../../components/Button.astro';
+
+const portfolioSchema = {
+"@context":"https://schema.org",
+"@type":"CollectionPage",
+"name":"Portfolio — CIBAI Studio",
+"url":"https://cibai.studio/ca/portfolio",
+"description":"Projectes de disseny web, desenvolupament d'aplicacions i automatització amb IA. Casos d'èxit de CIBAI Studio.",
+"publisher": {
+"@type":"Organization",
+"name":"CIBAI Studio",
+"url":"https://cibai.studio"
+ }
+};
+
+const breadcrumbSchema = {
+"@context":"https://schema.org",
+"@type":"BreadcrumbList",
+"itemListElement": [
+ {"@type":"ListItem","position": 1,"name":"Inici","item":"https://cibai.studio/ca"},
+ {"@type":"ListItem","position": 2,"name":"Portfolio","item":"https://cibai.studio/ca/portfolio"}
+ ]
+};
+
+const projects = [
+ {
+ title: 'E-commerce Premium',
+ category: 'Disseny Web + SEO',
+ description: 'Botiga online de moda premium amb disseny a mida, optimització SEO i estratègia de conversió integrada.',
+ accent: 'cyan',
+ tags: ['Disseny Web', 'SEO', 'E-commerce'],
+ },
+ {
+ title: 'SaaS Dashboard',
+ category: 'Webapp + Automatització',
+ description: 'Plataforma de gestió empresarial amb automatitzacions de processos i dashboard analític en temps real.',
+ accent: 'magenta',
+ tags: ['Desenvolupament SaaS', 'Automatització', 'IA'],
+ },
+ {
+ title: 'Plataforma Educativa',
+ category: 'Desenvolupament Full-Stack',
+ description: 'LMS a mida amb gestió de cursos, pagaments integrats i comunitat d\'estudiants.',
+ accent: 'cyan',
+ tags: ['Full-Stack', 'UX/UI', 'Producte'],
+ },
+ {
+ title: 'Agència de Màrqueting',
+ category: 'Disseny Web + Copywriting',
+ description: 'Web corporativa amb copy d\'alt impacte, animacions premium i sistema de lead generation optimitzat.',
+ accent: 'magenta',
+ tags: ['Disseny Web', 'Copywriting', 'CRO'],
+ },
+ {
+ title: 'App d\'Automatització',
+ category: 'Automatització + IA',
+ description: 'Integració d\'agents d\'IA per automatitzar processos d\'atenció al client i generació d\'informes.',
+ accent: 'cyan',
+ tags: ['IA', 'Automatització', 'Integració'],
+ },
+ {
+ title: 'Startup Fintech',
+ category: 'Webapp + Disseny',
+ description: 'Producte digital per a gestió de pagaments amb onboarding optimitzat i disseny centrat en la confiança.',
+ accent: 'magenta',
+ tags: ['Fintech', 'UX/UI', 'Producte'],
+ },
+];
+---
+
+<Layout
+ title="Portfolio — Projectes Web, Apps i IA"
+ description="Descobreix els projectes de disseny web, desenvolupament d'aplicacions i automatització amb IA de CIBAI Studio. Casos d'èxit amb resultats mesurables."
+>
+ <script type="application/ld+json"set:html={JSON.stringify(portfolioSchema)} />
+ <script type="application/ld+json"set:html={JSON.stringify(breadcrumbSchema)} />
+
+ <!-- Hero de secció -->
+ <section class="border-b border-[rgba(255,255,255,0.18)] bg-[#000] pt-24 pb-16">
+ <div class="mx-auto max-w-[1400px] px-6">
+ <div class="page-fade-in max-w-3xl">
+ <p class="mb-4 font-mono text-xs font-medium uppercase tracking-widest text-red-500/60">Portfolio</p>
+ <h1 class="font-display text-5xl font-bold leading-[1.05] tracking-[-0.03em] text-[rgba(255,255,255,0.92)] md:text-6xl">
+ Projectes que parlen<br class="hidden md:block"/> per nosaltres.
+ </h1>
+ <p class="mt-6 max-w-xl text-lg leading-relaxed text-[rgba(255,255,255,0.55)]">
+ No et diem el bons que som. T'ho demostrem. Cada projecte és una història de transformació: d'una idea a un producte, d'un producte a un negoci.
+ </p>
+ </div>
+ </div>
+ </section>
+
+ <!-- Grid de projectes -->
+ <section class="bg-[#000] py-16">
+ <div class="mx-auto max-w-[1400px] px-6">
+ <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+ {projects.map((project, i) => (
+ <article
+ class="project-card group overflow-hidden border border-[rgba(255,255,255,0.18)] bg-[#0D0D0D] transition-all duration-300 hover:border-red-500/30 hover:shadow-lg"
+ style={`animation-delay: ${0.08 + i * 0.06}s`}
+ >
+ <div class="aspect-[16/10] w-full bg-[#000] relative overflow-hidden">
+ <div class:list={[
+ 'absolute inset-0',
+ project.accent === 'cyan'
+ ? 'bg-[radial-gradient(circle_at_30%_50%,rgba(0,240,255,0.06),transparent_70%)]'
+ : 'bg-[radial-gradient(circle_at_70%_50%,rgba(255,0,153,0.06),transparent_70%)]',
+ ]}></div>
+ <div class="absolute inset-0 flex items-center justify-center">
+ <div class="border border-[rgba(255,255,255,0.18)] bg-[#0D0D0D] px-6 py-3 font-mono text-xs text-[rgba(255,255,255,0.25)] transition-transform duration-300 group-hover:scale-105">
+ <span class={`mr-1.5 font-mono ${project.accent === 'cyan' ? 'text-red-500' : 'text-cyan-500'}`}>❯</span>
+ {project.title.toLowerCase().replaceAll(' ', '-').replaceAll("'", '')}
+ </div>
+ </div>
+ </div>
+
+ <div class="p-6 space-y-4">
+ <div>
+ <p class="font-mono text-xs text-[rgba(255,255,255,0.25)]">{project.category}</p>
+ <h2 class="mt-1 font-display text-lg font-bold text-[rgba(255,255,255,0.92)]">
+ {project.title}
+ </h2>
+ </div>
+ <p class="text-sm leading-relaxed text-[rgba(255,255,255,0.55)]">
+ {project.description}
+ </p>
+ <div class="flex flex-wrap gap-2">
+ {project.tags.map((tag) => (
+ <span class="border border-[rgba(255,255,255,0.18)] px-3 py-1 font-mono text-[10px] uppercase tracking-wider text-[rgba(255,255,255,0.25)]">
+ {tag}
+ </span>
+ ))}
+ </div>
+ </div>
+ </article>
+ ))}
+ </div>
+ </div>
+ </section>
+
+ <!-- CTA -->
+ <section class="border-t border-[rgba(255,255,255,0.18)] bg-[#0D0D0D] py-24">
+ <div class="mx-auto max-w-[1400px] px-6">
+ <div class="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
+ <div class="max-w-xl">
+ <p class="font-mono text-xs font-medium uppercase tracking-widest text-red-500/60">El teu podria ser el següent?</p>
+ <h2 class="mt-3 font-display text-3xl font-bold tracking-tight text-[rgba(255,255,255,0.92)] md:text-4xl">
+ Explica'ns el teu projecte.
+ </h2>
+ <p class="mt-4 text-[rgba(255,255,255,0.55)]">
+ Primera consulta gratuïta. Sense compromisos. Només una conversa honesta sobre com podem ajudar-te a créixer.
+ </p>
+ </div>
+ <Button href="/ca/contacte"variant="primary"size="lg"arrow>
+ Explica'ns el teu projecte
+ </Button>
+ </div>
+ </div>
+ </section>
+</Layout>
+
+<style>
+ .page-fade-in {
+ opacity: 0;
+ transform: translateY(20px);
+ animation: pageIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+ }
+
+ .project-card {
+ opacity: 0;
+ transform: translateY(16px);
+ animation: pageIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+ }
+
+ @keyframes pageIn {
+ to { opacity: 1; transform: translateY(0); }
+ }
+</style>

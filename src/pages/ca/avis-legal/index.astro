@@ -1,0 +1,112 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+---
+
+<Layout
+ title="Avís Legal — CIBAI Studio"
+ description="Avís legal de CIBAI Studio. Informació sobre el titular del lloc web, propietat intel·lectual i condicions d'ús."
+ noIndex={true}
+>
+ <section class="bg-[#000] pt-24 pb-24">
+ <div class="mx-auto max-w-3xl px-6">
+ <div class="page-fade-in">
+ <p class="mb-4 font-mono text-xs font-medium uppercase tracking-widest text-red-500/60">Legal</p>
+ <h1 class="font-display text-4xl font-bold tracking-tight text-[rgba(255,255,255,0.92)] md:text-5xl">
+ Avís Legal
+ </h1>
+ <p class="mt-4 font-mono text-xs text-[rgba(255,255,255,0.25)]">Darrera actualització: TODO: Inserir data</p>
+ </div>
+
+ <div class="legal-content mt-12 space-y-10">
+
+ <section>
+ <h2>Dades identificatives del titular</h2>
+ <p>En compliment de l'article 10 de la Llei 34/2002, d'11 de juliol, de Serveis de la Societat de la Informació i de Comerç Electrònic (LSSI-CE), s'informa que el titular del present lloc web és:</p>
+ <ul>
+ <li><strong>Denominació social:</strong> CIBAI Studio, S.L. <em>(o forma jurídica corresponent)</em></li>
+ <li><strong>CIF/NIF:</strong> TODO: Inserir</li>
+ <li><strong>Domicili social:</strong> TODO: Inserir adreça completa, Barcelona, Espanya</li>
+ <li><strong>Correu electrònic:</strong> <a href="mailto:hola@cibai.studio">hola@cibai.studio</a></li>
+ <li><strong>Lloc web:</strong> www.cibai.studio</li>
+ </ul>
+ </section>
+
+ <section>
+ <h2>Objecte i àmbit d'aplicació</h2>
+ <p>El present Avís Legal regula l'accés i ús del lloc web www.cibai.studio (d'ara endavant,"el Lloc Web") posat a disposició dels usuaris d'Internet per CIBAI Studio.</p>
+ <p>L'accés al Lloc Web i la utilització dels seus continguts implica l'acceptació plena i sense reserves dels termes i condicions recollits en el present Avís Legal. CIBAI Studio es reserva el dret a modificar unilateralment aquestes condicions, sense que aquesta modificació pugui afectar els béns o serveis adquirits prèviament.</p>
+ </section>
+
+ <section>
+ <h2>Propietat intel·lectual i industrial</h2>
+ <p>Tots els continguts del Lloc Web —incloent, sense caràcter limitatiu, textos, fotografies, gràfics, imatges, logotips, icones, tecnologia, programari, bases de dades, sons i qualsevol altre material— són titularitat de CIBAI Studio o de tercers que n'han autoritzat expressament l'ús.</p>
+ <p>Queda expressament prohibida la seva reproducció total o parcial, distribució, comunicació pública, transformació o qualsevol altra forma d'explotació sense el consentiment previ, exprés i per escrit de CIBAI Studio. L'incompliment d'aquesta prohibició constituirà una infracció dels drets de propietat intel·lectual i industrial sancionable conforme a la legislació vigent.</p>
+ </section>
+
+ <section>
+ <h2>Responsabilitat i exclusió de garanties</h2>
+ <p>CIBAI Studio no garanteix l'absència de virus o altres elements que puguin causar danys en el sistema informàtic de l'usuari. CIBAI Studio no es fa responsable dels danys i perjudicis de qualsevol naturalesa que puguin derivar-se de l'accés o ús del Lloc Web, inclosos els causats a sistemes informàtics o els derivats de la introducció de virus, tot i que es procurarà en tot moment la màxima disponibilitat i seguretat del mateix.</p>
+ <p>CIBAI Studio tampoc es responsabilitza dels continguts als quals es pugui accedir a través d'enllaços externs presents al Lloc Web.</p>
+ </section>
+
+ <section>
+ <h2>Legislació aplicable i jurisdicció</h2>
+ <p>Les presents condicions es regeixen en la seva totalitat per la legislació espanyola. Per a la resolució de qualsevol controvèrsia o conflicte derivat de l'accés o ús del Lloc Web, les parts se sotmeten expressament als Jutjats i Tribunals de la ciutat de Barcelona, amb renúncia expressa a qualsevol altre fur que pogués correspondre'ls.</p>
+ </section>
+
+ </div>
+ </div>
+ </section>
+</Layout>
+
+<style>
+ .page-fade-in {
+ opacity: 0;
+ transform: translateY(20px);
+ animation: pageIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+ }
+
+ @keyframes pageIn {
+ to { opacity: 1; transform: translateY(0); }
+ }
+
+ .legal-content h2 {
+ font-family: var(--font-display, sans-serif);
+ font-size: 1.25rem;
+ font-weight: 700;
+ color: var(--color-text);
+ margin-bottom: 0.75rem;
+ padding-bottom: 0.5rem;
+ border-bottom: 1px solid var(--color-border, rgba(255,255,255,0.1));
+ }
+
+ .legal-content p {
+ color: var(--color-text-secondary);
+ line-height: 1.75;
+ margin-bottom: 0.75rem;
+ }
+
+ .legal-content ul {
+ list-style: none;
+ padding: 0;
+ color: var(--color-text-secondary);
+ line-height: 1.75;
+ margin-bottom: 0.75rem;
+ }
+
+ .legal-content ul li {
+ padding: 0.25rem 0 0.25rem 1rem;
+ border-left: 2px solid rgba(0,240,255,0.3);
+ margin-bottom: 0.5rem;
+ }
+
+ .legal-content a {
+ color: var(--color-accent);
+ text-decoration: underline;
+ text-underline-offset: 3px;
+ }
+
+ .legal-content strong {
+ color: var(--color-text);
+ }
+</style>

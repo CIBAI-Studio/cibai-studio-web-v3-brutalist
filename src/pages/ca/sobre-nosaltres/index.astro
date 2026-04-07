@@ -1,0 +1,198 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Button from '../../../components/Button.astro';
+
+const values = [
+ {
+ title: 'Resultats primer',
+ body: 'Tot el que dissenyem, desenvolupem o redactem ha de moure mètriques de negoci. L\'estètica al servei de la conversió.',
+ accent: 'cyan',
+ },
+ {
+ title: 'Transparència radical',
+ body: 'Sense argot tècnic innecessari, sense lletra petita, sense sorpreses a la factura. Amb tu a cada pas del procés amb comunicació clara i honesta.',
+ accent: 'magenta',
+ },
+ {
+ title: 'Innovació pràctica',
+ body: 'Adoptem el millor de la tecnologia quan té sentit real per al teu negoci, no perquè estigui de moda. La IA i les últimes eines: només quan aporten valor mesurable.',
+ accent: 'cyan',
+ },
+ {
+ title: 'Col·laboració real',
+ body: 'Som una extensió del teu equip, no un proveïdor extern que t\'envia arxius per correu. El teu èxit és el nostre èxit, i ho sentim així.',
+ accent: 'magenta',
+ },
+];
+
+const processSteps = [
+ { num: '01', title: 'Descobriment', body: 'Comencem escoltant-te de debò. Una reunió on entenem el teu negoci, els teus objectius, la teva audiència i els reptes que vols resoldre.' },
+ { num: '02', title: 'Estratègia', body: 'Abans de dissenyar un píxel, dissenyem l\'estratègia. Objectius SMART, KPIs definits i pla de treball amb fites i terminis concrets.' },
+ { num: '03', title: 'Creació', body: 'Treballem en sprints àgils amb lliuraments regulars d\'avanços perquè sempre estiguis al corrent. El teu feedback és part integral del procés.' },
+ { num: '04', title: 'Revisió', body: 'Iterem amb tu fins que el resultat no només compleixi les teves expectatives, sinó que les superi. Rondes de revisió estructurades a cada fase clau.' },
+ { num: '05', title: 'Llançament', body: 'Executem el llançament amb un procés controlat: verificacions tècniques, proves de rendiment i posada en marxa sense imprevistos.' },
+ { num: '06', title: 'Creixement', body: 'El llançament és el principi, no el final. Monitoritzem el rendiment, analitzem les dades i optimitzem contínuament.' },
+];
+
+const aboutPageSchema = {
+"@context":"https://schema.org",
+"@type":"AboutPage",
+"name":"Sobre Nosaltres — CIBAI Studio",
+"url":"https://cibai.studio/ca/sobre-nosaltres",
+"description":"Coneix CIBAI Studio: l'equip de disseny web, desenvolupament i IA que treballa com una extensió de la teva empresa. Fundats a Barcelona, treballem amb clients a tot Espanya.",
+"mainEntity": {
+"@type":"Organization",
+"name":"CIBAI Studio",
+"url":"https://cibai.studio",
+"logo":"https://cibai.studio/logo.svg",
+"foundingLocation": {
+"@type":"Place",
+"name":"Barcelona",
+"addressCountry":"ES"
+ },
+"description":"Agència de disseny web, desenvolupament d'aplicacions i intel·ligència artificial per a empreses a Espanya.",
+"areaServed": {"@type":"Country","name":"España"},
+"sameAs": [
+"https://www.linkedin.com/company/cibai-studio",
+"https://twitter.com/cibai_studio",
+"https://instagram.com/cibai.studio"
+ ]
+ }
+};
+
+const breadcrumbSchema = {
+"@context":"https://schema.org",
+"@type":"BreadcrumbList",
+"itemListElement": [
+ {"@type":"ListItem","position": 1,"name":"Inici","item":"https://cibai.studio/ca"},
+ {"@type":"ListItem","position": 2,"name":"Sobre Nosaltres","item":"https://cibai.studio/ca/sobre-nosaltres"}
+ ]
+};
+---
+
+<Layout
+ title="Sobre Nosaltres — Equip Digital a Barcelona"
+ description="Coneix CIBAI Studio: l'equip de disseny web, desenvolupament i IA que treballa com una extensió de la teva empresa. Fundats a Barcelona, treballem amb clients a tot Espanya."
+>
+ <script type="application/ld+json"set:html={JSON.stringify(aboutPageSchema)} />
+ <script type="application/ld+json"set:html={JSON.stringify(breadcrumbSchema)} />
+
+ <section class="border-b border-[rgba(255,255,255,0.18)] bg-[#000] pt-24 pb-16">
+ <div class="mx-auto max-w-[1400px] px-6">
+ <div class="page-fade-in max-w-3xl">
+ <p class="mb-4 font-mono text-xs font-medium uppercase tracking-widest text-red-500/60">Sobre nosaltres</p>
+ <h1 class="font-display text-5xl font-bold leading-[1.05] tracking-[-0.03em] text-[rgba(255,255,255,0.92)] md:text-6xl">
+ No som una agència més.<br class="hidden md:block"/> Som el teu equip digital.
+ </h1>
+ </div>
+ </div>
+ </section>
+
+ <section class="bg-[#000] py-20">
+ <div class="mx-auto max-w-[1400px] px-6">
+ <div class="grid grid-cols-1 gap-16 lg:grid-cols-[1fr_1.4fr]">
+ <div class="page-fade-in">
+ <p class="font-mono text-xs font-medium uppercase tracking-widest text-red-500/60">La nostra història</p>
+ <div class="mt-8 hidden lg:block">
+ <div class="neon-line-dual w-full"></div>
+ <div class="mt-8 space-y-4 font-mono text-sm text-[rgba(255,255,255,0.25)]">
+ <p><span class="text-red-500">❯</span> Fundats a Barcelona</p>
+ <p><span class="text-red-500">❯</span> Equip multidisciplinari</p>
+ <p><span class="text-red-500">❯</span> Disseny · Desenvolupament · IA</p>
+ <p><span class="text-red-500">❯</span> Clients a Espanya i LATAM</p>
+ </div>
+ </div>
+ </div>
+ <div class="space-y-6 text-[rgba(255,255,255,0.55)] page-fade-in delay-100">
+ <p class="text-lg font-medium leading-relaxed text-[rgba(255,255,255,0.92)]">
+ Quan vàrem fundar CIBAI Studio, vàrem observar quelcom que ens va cridar l'atenció: les millors eines digitals estaven reservades gairebé en exclusiva per a les grans corporacions amb pressupostos milionaris.
+ </p>
+ <p class="leading-relaxed">
+ Les pimes, els emprenedors i les empreses que més necessiten créixer digitalment per sobreviure i prosperar eren les que menys accés tenien a equips realment capaços.
+ </p>
+ <p class="leading-relaxed">
+ Vàrem fundar CIBAI Studio a Barcelona amb una convicció clara: que el disseny d'alt impacte, el desenvolupament robust i el màrqueting digital intel·ligent no haurien de ser un privilegi. Haurien de ser una eina a l'abast de qualsevol empresa amb ambició de créixer.
+ </p>
+ <blockquote class="border-l-2 border-red-500 pl-5 text-[rgba(255,255,255,0.55)]">
+ <p class="text-base italic leading-relaxed">
+"No som consultors que et diuen què has de fer. Som l'equip que ho fa amb tu, des del briefing fins als resultats, amb total transparència i alineats al 100% amb els teus objectius."
+ </p>
+ </blockquote>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <section class="border-y border-[rgba(255,255,255,0.18)] bg-[#0D0D0D] py-20">
+ <div class="mx-auto max-w-[1400px] px-6">
+ <div class="page-fade-in max-w-3xl">
+ <p class="font-mono text-xs font-medium uppercase tracking-widest text-red-500/60">Missió</p>
+ <p class="mt-6 font-display text-2xl font-bold leading-snug text-[rgba(255,255,255,0.92)] md:text-3xl">
+ Empoderar empreses i emprenedors amb tecnologia i creativitat de primer nivell per transformar la seva presència en línia en el seu motor de creixement més potent.
+ </p>
+ </div>
+ </div>
+ </section>
+
+ <section class="bg-[#000] py-20">
+ <div class="mx-auto max-w-[1400px] px-6">
+ <div class="page-fade-in mb-12">
+ <p class="font-mono text-xs font-medium uppercase tracking-widest text-red-500/60">Valors</p>
+ <h2 class="mt-3 font-display text-3xl font-bold tracking-tight text-[rgba(255,255,255,0.92)] md:text-4xl">El que ens guia cada dia.</h2>
+ </div>
+ <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+ {values.map((v) => (
+ <div class="value-card border border-[rgba(255,255,255,0.18)] bg-[#0D0D0D] p-8 transition-colors duration-300 hover:border-red-500/30">
+ <div class:list={['mb-4 h-px w-12', v.accent === 'cyan' ? 'neon-line-cyan' : 'neon-line-magenta']}></div>
+ <h3 class="font-display text-lg font-bold text-[rgba(255,255,255,0.92)]">{v.title}</h3>
+ <p class="mt-3 text-sm leading-relaxed text-[rgba(255,255,255,0.55)]">{v.body}</p>
+ </div>
+ ))}
+ </div>
+ </div>
+ </section>
+
+ <section class="border-t border-[rgba(255,255,255,0.18)] bg-[#0D0D0D] py-20">
+ <div class="mx-auto max-w-[1400px] px-6">
+ <div class="page-fade-in mb-12 max-w-2xl">
+ <p class="font-mono text-xs font-medium uppercase tracking-widest text-red-500/60">Com treballem</p>
+ <h2 class="mt-3 font-display text-3xl font-bold tracking-tight text-[rgba(255,255,255,0.92)] md:text-4xl">Del briefing al lliurament — sense sorpreses.</h2>
+ <p class="mt-4 text-[rgba(255,255,255,0.55)]">El nostre procés és completament transparent, amb fites clares i orientat a resultats des del primer dia.</p>
+ </div>
+ <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+ {processSteps.map((step) => (
+ <div class="process-step space-y-3 border-t border-[rgba(255,255,255,0.18)] pt-6">
+ <span class="font-mono text-xs text-red-500/60">{step.num}</span>
+ <h3 class="font-display text-base font-bold text-[rgba(255,255,255,0.92)]">{step.title}</h3>
+ <p class="text-sm leading-relaxed text-[rgba(255,255,255,0.55)]">{step.body}</p>
+ </div>
+ ))}
+ </div>
+ </div>
+ </section>
+
+ <section class="border-t border-[rgba(255,255,255,0.18)] bg-[#000] py-24">
+ <div class="mx-auto max-w-[1400px] px-6">
+ <div class="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
+ <div class="max-w-xl">
+ <h2 class="font-display text-3xl font-bold tracking-tight text-[rgba(255,255,255,0.92)] md:text-4xl">Treballem junts?</h2>
+ <p class="mt-4 text-[rgba(255,255,255,0.55)]">Explica'ns el teu projecte. Primera consulta gratuïta, sense compromisos.</p>
+ </div>
+ <Button href="/ca/contacte"variant="primary"size="lg"arrow>Explica'ns el teu projecte</Button>
+ </div>
+ </div>
+ </section>
+</Layout>
+
+<style>
+ .page-fade-in { opacity: 0; transform: translateY(20px); animation: pageIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+ .delay-100 { animation-delay: 0.1s; }
+ .value-card, .process-step { opacity: 0; transform: translateY(12px); animation: pageIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+ .value-card:nth-child(1), .process-step:nth-child(1) { animation-delay: 0.10s; }
+ .value-card:nth-child(2), .process-step:nth-child(2) { animation-delay: 0.16s; }
+ .value-card:nth-child(3), .process-step:nth-child(3) { animation-delay: 0.22s; }
+ .value-card:nth-child(4), .process-step:nth-child(4) { animation-delay: 0.28s; }
+ .process-step:nth-child(5) { animation-delay: 0.34s; }
+ .process-step:nth-child(6) { animation-delay: 0.40s; }
+ @keyframes pageIn { to { opacity: 1; transform: translateY(0); } }
+</style>

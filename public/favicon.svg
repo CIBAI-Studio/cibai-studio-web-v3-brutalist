@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="512" height="512">
+  <defs>
+    <linearGradient id="lineGrad" x1="50" y1="10" x2="50" y2="70" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#00F0FF"/>
+      <stop offset="100%" stop-color="#FF0099"/>
+    </linearGradient>
+  <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+    <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur1"/>
+    <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur2"/>
+    <feMerge>
+      <feMergeNode in="blur2"/>
+      <feMergeNode in="blur1"/>
+      <feMergeNode in="SourceGraphic"/>
+    </feMerge>
+  </filter>
+  </defs>
+  <g filter="url(#glow)">
+    <line x1="50" y1="10" x2="15" y2="70" stroke="url(#lineGrad)" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="50" y1="10" x2="85" y2="70" stroke="url(#lineGrad)" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="15" y1="70" x2="85" y2="70" stroke="#FF0099" stroke-width="2.5" stroke-linecap="round"/>
+    <circle cx="50" cy="10" r="5.5" fill="#00F0FF"/>
+    <circle cx="15" cy="70" r="5.5" fill="#FF0099"/>
+    <circle cx="85" cy="70" r="5.5" fill="#FF0099"/>
+  </g>
+</svg>

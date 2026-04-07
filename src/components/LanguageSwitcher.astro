@@ -1,0 +1,26 @@
+---
+import { languages, type Lang } from '../i18n/ui';
+import { getLangFromUrl, getLocalizedPath, getRouteFromUrl } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const route = getRouteFromUrl(Astro.url);
+---
+
+<div class="flex items-center gap-0 font-mono text-[10px] uppercase tracking-widest">
+  {Object.entries(languages).map(([code, label], i) => (
+    <>
+      {i > 0 && <span class="text-red-500/40 mx-1">/</span>}
+      <a
+        href={getLocalizedPath(route || '/', code as Lang)}
+        class:list={[
+          'px-1.5 py-1 transition-colors duration-150',
+          lang === code
+            ? 'text-red-500 border-b border-red-500'
+            : 'text-[rgba(255,255,255,0.25)] hover:text-[rgba(255,255,255,0.55)]',
+        ]}
+      >
+        {code.toUpperCase()}
+      </a>
+    </>
+  ))}
+</div>

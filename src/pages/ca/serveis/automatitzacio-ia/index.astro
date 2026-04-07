@@ -1,0 +1,218 @@
+---
+import Layout from '../../../../layouts/Layout.astro';
+import Button from '../../../../components/Button.astro';
+
+const serviceSchema = {
+"@context":"https://schema.org",
+"@type":"Service",
+"name":"Automatització i Intel·ligència Artificial per a Empreses",
+"provider": {"@type":"Organization","name":"CIBAI Studio","url":"https://cibai.studio"},
+"description":"Automatització de processos i IA aplicada al teu negoci. Reduïm costos operatius fins al 70% i alliberem el teu equip per al que importa. Agents IA i automatitzacions.",
+"url":"https://cibai.studio/ca/serveis/automatitzacio-ia",
+"areaServed":"Catalunya",
+"serviceType":"Automatització i Intel·ligència Artificial"
+};
+
+const breadcrumbSchema = {
+"@context":"https://schema.org",
+"@type":"BreadcrumbList",
+"itemListElement": [
+ {"@type":"ListItem","position": 1,"name":"Inici","item":"https://cibai.studio/ca"},
+ {"@type":"ListItem","position": 2,"name":"Serveis","item":"https://cibai.studio/ca/serveis"},
+ {"@type":"ListItem","position": 3,"name":"Automatització i IA","item":"https://cibai.studio/ca/serveis/automatitzacio-ia"}
+ ]
+};
+
+const faqSchema = {
+"@context":"https://schema.org",
+"@type":"FAQPage",
+"mainEntity": [
+ {
+"@type":"Question",
+"name":"Quins processos de la meva empresa puc automatitzar amb IA?",
+"acceptedAnswer": {"@type":"Answer","text":"La majoria de processos repetitius són automatitzables: gestió de correus, generació d'informes, atenció al client inicial, processament de comandes i molt més. Fem una anàlisi de la teva operativa per identificar on hi ha el major retorn."}
+ },
+ {
+"@type":"Question",
+"name":"Necessito coneixements tècnics per usar les automatitzacions?",
+"acceptedAnswer": {"@type":"Answer","text":"No. Dissenyem les solucions perquè el teu equip les pugui operar sense coneixements tècnics. Incloem formació i documentació completa."}
+ },
+ {
+"@type":"Question",
+"name":"Quant temps tarda a veure's el retorn de la inversió?",
+"acceptedAnswer": {"@type":"Answer","text":"En la majoria de projectes el ROI és visible el primer mes: estalvi d'hores, reducció d'errors i major velocitat operativa."}
+ }
+ ]
+};
+
+const benefits = [
+ 'Automatització de fluxos de treball, correus, informes i processos repetitius',
+ 'Integració d\'IA en atenció al client, vendes i màrqueting',
+ 'Reducció de temps operatius de fins al 70%',
+ 'Solucions personalitzades sense necessitat de coneixements tècnics',
+ 'ROI mesurable des del primer mes',
+];
+
+const process = [
+ { num: '01', title: 'Anàlisi', body: 'Mapem els teus processos actuals per identificar on l\'automatització té major impacte i retorn.' },
+ { num: '02', title: 'Disseny', body: 'Dissenyem els fluxos automatitzats i els agents IA adaptats exactament a la teva operativa.' },
+ { num: '03', title: 'Desenvolupament', body: 'Construïm les automatitzacions i integrem les eines d\'IA al teu ecosistema tecnològic.' },
+ { num: '04', title: 'Testing', body: 'Provem cada flux amb dades reals per garantir fiabilitat, seguretat i robustesa.' },
+ { num: '05', title: 'Formació', body: 'Formem el teu equip perquè pugui operar i mantenir les automatitzacions de forma autònoma.' },
+ { num: '06', title: 'Seguiment', body: 'Monitorem el rendiment i optimitzem contínuament per maximitzar el retorn de la inversió.' },
+];
+---
+
+<Layout
+ title="Automatització amb IA per a Empreses"
+ description="Automatització de processos i IA aplicada al teu negoci. Reduïm costos operatius i alliberem el teu equip per al que importa. Agents IA i automatitzacions a mida."
+>
+ <script type="application/ld+json"set:html={JSON.stringify(serviceSchema)} />
+ <script type="application/ld+json"set:html={JSON.stringify(breadcrumbSchema)} />
+ <script type="application/ld+json"set:html={JSON.stringify(faqSchema)} />
+
+ <!-- Hero -->
+ <section class="border-b border-[rgba(255,255,255,0.18)] bg-[#000] pt-24 pb-16">
+ <div class="mx-auto max-w-[1400px] px-6">
+ <div class="page-fade-in max-w-3xl">
+ <nav class="mb-6 flex items-center gap-2 font-mono text-xs text-[rgba(255,255,255,0.25)]">
+ <a href="/ca"class="hover:text-[rgba(255,255,255,0.92)] transition-colors">Inici</a>
+ <span>/</span>
+ <a href="/ca/serveis"class="hover:text-[rgba(255,255,255,0.92)] transition-colors">Serveis</a>
+ <span>/</span>
+ <span class="text-red-500">Automatització i IA</span>
+ </nav>
+ <p class="mb-4 font-mono text-xs font-medium uppercase tracking-widest text-red-500/60">Servei</p>
+ <h1 class="font-display text-5xl font-bold leading-[1.05] tracking-[-0.03em] text-[rgba(255,255,255,0.92)] md:text-6xl">
+ Automatitza el que et roba temps — escala el que et dona diners.
+ </h1>
+ <p class="mt-6 max-w-xl text-lg leading-relaxed text-[rgba(255,255,255,0.55)]">
+ Cada hora que el teu equip dedica a tasques repetitives és una hora que no dedica a créixer. Implementem automatitzacions de processos i IA aplicada al teu negoci per reduir costos operatius, eliminar errors manuals i alliberar el teu equip per al que realment importa: pensar, crear i vendre.
+ </p>
+ <div class="mt-8 flex flex-wrap gap-4">
+ <Button href="/ca/contacte"variant="primary"arrow>
+ Automatitza el teu negoci ara
+ </Button>
+ <Button href="/ca/serveis"variant="ghost">
+ Veure tots els serveis
+ </Button>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- Beneficis -->
+ <section class="border-b border-[rgba(255,255,255,0.18)] bg-[#0D0D0D] py-20">
+ <div class="mx-auto max-w-[1400px] px-6">
+ <div class="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_1fr]">
+ <div>
+ <p class="mb-4 font-mono text-xs font-medium uppercase tracking-widest text-red-500/60">Què inclou</p>
+ <h2 class="font-display text-3xl font-bold tracking-tight text-[rgba(255,255,255,0.92)] md:text-4xl">
+ Automatització i IA que genera retorn mesurable des del primer mes.
+ </h2>
+ <p class="mt-4 text-[rgba(255,255,255,0.55)] leading-relaxed">
+ No implementem tecnologia per implementar-la. Cada automatització té un objectiu de negoci clar i un ROI mesurable.
+ </p>
+ </div>
+ <ul class="space-y-4">
+ {benefits.map((b) => (
+ <li class="flex items-start gap-4">
+ <span class="mt-0.5 shrink-0 font-mono text-sm text-red-500">✦</span>
+ <span class="text-[rgba(255,255,255,0.55)]">{b}</span>
+ </li>
+ ))}
+ </ul>
+ </div>
+ </div>
+ </section>
+
+ <!-- Procés -->
+ <section class="border-b border-[rgba(255,255,255,0.18)] bg-[#000] py-20">
+ <div class="mx-auto max-w-[1400px] px-6">
+ <div class="mb-12">
+ <p class="mb-4 font-mono text-xs font-medium uppercase tracking-widest text-red-500/60">Com treballem</p>
+ <h2 class="font-display text-3xl font-bold tracking-tight text-[rgba(255,255,255,0.92)] md:text-4xl">
+ De l'anàlisi al desplegament — amb resultats garantits.
+ </h2>
+ </div>
+ <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+ {process.map((step) => (
+ <div class="process-step space-y-3 border-t border-[rgba(255,255,255,0.18)] pt-6">
+ <span class="font-mono text-xs text-red-500/60">{step.num}</span>
+ <h3 class="font-display text-base font-bold text-[rgba(255,255,255,0.92)]">{step.title}</h3>
+ <p class="text-sm leading-relaxed text-[rgba(255,255,255,0.55)]">{step.body}</p>
+ </div>
+ ))}
+ </div>
+ </div>
+ </section>
+
+ <!-- FAQ -->
+ <section class="border-b border-[rgba(255,255,255,0.18)] bg-[#0D0D0D] py-20">
+ <div class="mx-auto max-w-3xl px-6">
+ <p class="mb-4 font-mono text-xs font-medium uppercase tracking-widest text-red-500/60">FAQ</p>
+ <h2 class="mb-10 font-display text-3xl font-bold tracking-tight text-[rgba(255,255,255,0.92)] md:text-4xl">
+ Preguntes freqüents
+ </h2>
+ <div class="space-y-8">
+ <div class="border-t border-[rgba(255,255,255,0.18)] pt-6">
+ <h3 class="font-display text-base font-bold text-[rgba(255,255,255,0.92)]">Quins processos de la meva empresa puc automatitzar amb IA?</h3>
+ <p class="mt-3 text-sm leading-relaxed text-[rgba(255,255,255,0.55)]">La majoria de processos repetitius són automatitzables: gestió de correus, generació d'informes, atenció al client inicial, processament de comandes i molt més. Fem una anàlisi de la teva operativa per identificar on hi ha el major retorn.</p>
+ </div>
+ <div class="border-t border-[rgba(255,255,255,0.18)] pt-6">
+ <h3 class="font-display text-base font-bold text-[rgba(255,255,255,0.92)]">Necessito coneixements tècnics per usar les automatitzacions?</h3>
+ <p class="mt-3 text-sm leading-relaxed text-[rgba(255,255,255,0.55)]">No. Dissenyem les solucions perquè el teu equip les pugui operar sense coneixements tècnics. Incloem formació i documentació completa.</p>
+ </div>
+ <div class="border-t border-[rgba(255,255,255,0.18)] pt-6">
+ <h3 class="font-display text-base font-bold text-[rgba(255,255,255,0.92)]">Quant temps tarda a veure's el retorn de la inversió?</h3>
+ <p class="mt-3 text-sm leading-relaxed text-[rgba(255,255,255,0.55)]">En la majoria de projectes el ROI és visible el primer mes: estalvi d'hores, reducció d'errors i major velocitat operativa.</p>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- CTA -->
+ <section class="bg-[#000] py-24">
+ <div class="mx-auto max-w-[1400px] px-6">
+ <div class="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
+ <div class="max-w-xl">
+ <p class="font-mono text-xs font-medium uppercase tracking-widest text-red-500/60">Tens un projecte?</p>
+ <h2 class="mt-3 font-display text-3xl font-bold tracking-tight text-[rgba(255,255,255,0.92)] md:text-4xl">
+ Parlem de com automatitzar el teu negoci.
+ </h2>
+ <p class="mt-4 text-[rgba(255,255,255,0.55)]">
+ Primera consulta gratuïta. Analitzem els teus processos i et proposem on pots guanyar més temps i diners.
+ </p>
+ </div>
+ <Button href="/ca/contacte"variant="primary"size="lg"arrow>
+ Automatitza el teu negoci ara
+ </Button>
+ </div>
+ </div>
+ </section>
+</Layout>
+
+<style>
+ .page-fade-in {
+ opacity: 0;
+ transform: translateY(20px);
+ animation: pageIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+ }
+
+ .process-step {
+ opacity: 0;
+ transform: translateY(12px);
+ animation: pageIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+ }
+
+ .process-step:nth-child(1) { animation-delay: 0.10s; }
+ .process-step:nth-child(2) { animation-delay: 0.15s; }
+ .process-step:nth-child(3) { animation-delay: 0.20s; }
+ .process-step:nth-child(4) { animation-delay: 0.25s; }
+ .process-step:nth-child(5) { animation-delay: 0.30s; }
+ .process-step:nth-child(6) { animation-delay: 0.35s; }
+
+ @keyframes pageIn {
+ to { opacity: 1; transform: translateY(0); }
+ }
+</style>

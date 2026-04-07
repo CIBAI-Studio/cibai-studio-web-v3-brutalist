@@ -1,0 +1,185 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+---
+
+<Layout
+ title="Política de Privacitat — CIBAI Studio"
+ description="Política de privacitat de CIBAI Studio. Informació sobre el tractament de dades personals conforme al RGPD i la LOPDGDD."
+ noIndex={true}
+>
+ <section class="bg-[#000] pt-24 pb-24">
+ <div class="mx-auto max-w-3xl px-6">
+ <div class="page-fade-in">
+ <p class="mb-4 font-mono text-xs font-medium uppercase tracking-widest text-red-500/60">Legal</p>
+ <h1 class="font-display text-4xl font-bold tracking-tight text-[rgba(255,255,255,0.92)] md:text-5xl">
+ Política de Privacitat
+ </h1>
+ <p class="mt-4 font-mono text-xs text-[rgba(255,255,255,0.25)]">Darrera actualització: TODO: Inserir data</p>
+ </div>
+
+ <div class="legal-content mt-12 space-y-10">
+
+ <section>
+ <h2>Responsable del tractament</h2>
+ <ul>
+ <li><strong>Responsable:</strong> CIBAI Studio, S.L.</li>
+ <li><strong>Adreça:</strong> TODO: Inserir adreça, Barcelona, Espanya</li>
+ <li><strong>Correu electrònic:</strong> <a href="mailto:hola@cibai.studio">hola@cibai.studio</a></li>
+ <li><strong>Lloc web:</strong> www.cibai.studio</li>
+ </ul>
+ </section>
+
+ <section>
+ <h2>Dades personals que recollim</h2>
+ <p>CIBAI Studio recull dades personals únicament quan l'usuari les proporciona voluntàriament a través dels formularis disponibles al Lloc Web. Les dades que es poden recollir inclouen:</p>
+ <ul>
+ <li>Nom i cognoms</li>
+ <li>Adreça de correu electrònic</li>
+ <li>Número de telèfon (quan es proporciona voluntàriament)</li>
+ <li>Informació sobre el projecte o consulta inclosa al missatge lliure</li>
+ </ul>
+ <p>No es recullen dades especialment protegides ni dades de menors de 14 anys.</p>
+ </section>
+
+ <section>
+ <h2>Finalitat i base jurídica del tractament</h2>
+ <div class="overflow-x-auto">
+ <table>
+ <thead>
+ <tr>
+ <th>Finalitat</th>
+ <th>Base jurídica</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td>Gestió i resposta a consultes i informació sobre serveis</td>
+ <td>Interès legítim del responsable (art. 6.1.f RGPD)</td>
+ </tr>
+ <tr>
+ <td>Enviament de comunicacions comercials sobre serveis de CIBAI Studio</td>
+ <td>Consentiment de l'interessat (art. 6.1.a RGPD)</td>
+ </tr>
+ <tr>
+ <td>Compliment d'obligacions legals</td>
+ <td>Obligació legal (art. 6.1.c RGPD)</td>
+ </tr>
+ </tbody>
+ </table>
+ </div>
+ </section>
+
+ <section>
+ <h2>Conservació de les dades</h2>
+ <p>Les dades personals es conservaran durant el temps estrictament necessari per atendre la sol·licitud formulada i, en cas d'establir-se una relació comercial, durant tota la vigència d'aquesta relació més els terminis de prescripció legals aplicables.</p>
+ </section>
+
+ <section>
+ <h2>Drets de l'interessat</h2>
+ <p>L'usuari pot exercir en qualsevol moment els drets següents sobre les seves dades personals, adreçant-se per escrit a <a href="mailto:hola@cibai.studio">hola@cibai.studio</a>:</p>
+ <ul>
+ <li><strong>Accés:</strong> Conèixer quines dades personals tracta CIBAI Studio sobre vostè.</li>
+ <li><strong>Rectificació:</strong> Sol·licitar la correcció de dades inexactes o incompletes.</li>
+ <li><strong>Supressió ("dret a l'oblit"):</strong> Sol·licitar l'eliminació de les seves dades quan ja no siguin necessàries.</li>
+ <li><strong>Oposició:</strong> Oposar-se al tractament de les seves dades en determinades circumstàncies.</li>
+ <li><strong>Limitació del tractament:</strong> Sol·licitar la restricció del tractament en certs casos.</li>
+ <li><strong>Portabilitat:</strong> Rebre les seves dades en un format estructurat i d'ús comú.</li>
+ </ul>
+ <p>Així mateix, l'interessat té dret a presentar una reclamació davant l'Agència Espanyola de Protecció de Dades (AEPD) a través de <a href="https://www.aepd.es"target="_blank"rel="noopener noreferrer">www.aepd.es</a>.</p>
+ </section>
+
+ <section>
+ <h2>Comunicació de dades a tercers</h2>
+ <p>Les dades personals no seran comunicades a tercers, excepte en els supòsits següents:</p>
+ <ul>
+ <li>Quan existeixi obligació legal.</li>
+ <li>A proveïdors de serveis (encarregats del tractament) que actuïn en nom de CIBAI Studio i comptin amb les garanties adequades conforme al RGPD.</li>
+ </ul>
+ </section>
+
+ <section>
+ <h2>Seguretat</h2>
+ <p>CIBAI Studio aplica les mesures tècniques i organitzatives apropiades per garantir un nivell de seguretat adequat al risc, conforme a l'article 32 del RGPD.</p>
+ </section>
+
+ </div>
+ </div>
+ </section>
+</Layout>
+
+<style>
+ .page-fade-in {
+ opacity: 0;
+ transform: translateY(20px);
+ animation: pageIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+ }
+
+ @keyframes pageIn {
+ to { opacity: 1; transform: translateY(0); }
+ }
+
+ .legal-content h2 {
+ font-family: var(--font-display, sans-serif);
+ font-size: 1.25rem;
+ font-weight: 700;
+ color: var(--color-text);
+ margin-bottom: 0.75rem;
+ padding-bottom: 0.5rem;
+ border-bottom: 1px solid var(--color-border, rgba(255,255,255,0.1));
+ }
+
+ .legal-content p {
+ color: var(--color-text-secondary);
+ line-height: 1.75;
+ margin-bottom: 0.75rem;
+ }
+
+ .legal-content ul {
+ list-style: none;
+ padding: 0;
+ color: var(--color-text-secondary);
+ line-height: 1.75;
+ margin-bottom: 0.75rem;
+ }
+
+ .legal-content ul li {
+ padding: 0.25rem 0 0.25rem 1rem;
+ border-left: 2px solid rgba(0,240,255,0.3);
+ margin-bottom: 0.5rem;
+ }
+
+ .legal-content a {
+ color: var(--color-accent);
+ text-decoration: underline;
+ text-underline-offset: 3px;
+ }
+
+ .legal-content strong {
+ color: var(--color-text);
+ }
+
+ .legal-content table {
+ width: 100%;
+ border-collapse: collapse;
+ font-size: 0.875rem;
+ color: var(--color-text-secondary);
+ }
+
+ .legal-content th {
+ text-align: left;
+ padding: 0.75rem 1rem;
+ background: rgba(255,255,255,0.03);
+ color: var(--color-text);
+ font-family: var(--font-mono, monospace);
+ font-size: 0.75rem;
+ text-transform: uppercase;
+ letter-spacing: 0.05em;
+ border-bottom: 1px solid rgba(255,255,255,0.1);
+ }
+
+ .legal-content td {
+ padding: 0.75rem 1rem;
+ border-bottom: 1px solid rgba(255,255,255,0.05);
+ vertical-align: top;
+ }
+</style>

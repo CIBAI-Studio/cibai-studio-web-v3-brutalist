@@ -1,0 +1,208 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Button from '../../../components/Button.astro';
+
+const serviceSchema = {
+"@context":"https://schema.org",
+"@type":"Service",
+"name":"Automatizaciones e Inteligencia Artificial para Empresas",
+"provider": {"@type":"Organization","name":"CIBAI Studio","url":"https://cibai.studio"},
+"description":"Automatización de procesos e IA aplicada a empresas. Reducimos costes operativos y liberamos a tu equipo para lo que realmente importa.",
+"url":"https://cibai.studio/servicios/automatizacion-ia",
+"areaServed":"España",
+"serviceType":"Automatización e Inteligencia Artificial"
+};
+
+const breadcrumbSchema = {
+"@context":"https://schema.org",
+"@type":"BreadcrumbList",
+"itemListElement": [
+ {"@type":"ListItem","position": 1,"name":"Inicio","item":"https://cibai.studio"},
+ {"@type":"ListItem","position": 2,"name":"Servicios","item":"https://cibai.studio/servicios"},
+ {"@type":"ListItem","position": 3,"name":"Automatización e IA","item":"https://cibai.studio/servicios/automatizacion-ia"}
+ ]
+};
+
+const faqSchema = {
+"@context":"https://schema.org",
+"@type":"FAQPage",
+"mainEntity": [
+ {
+"@type":"Question",
+"name":"¿Qué procesos de mi empresa puedo automatizar con IA?",
+"acceptedAnswer": {"@type":"Answer","text":"La mayoría de procesos repetitivos son automatizables: gestión de emails, generación de reportes, atención al cliente inicial, procesamiento de pedidos, seguimiento de leads, facturación y más. Hacemos un análisis de tu operativa para identificar dónde está el mayor retorno."}
+ },
+ {
+"@type":"Question",
+"name":"¿Necesito conocimientos técnicos para usar las automatizaciones?",
+"acceptedAnswer": {"@type":"Answer","text":"No. Diseñamos las soluciones para que tu equipo pueda operarlas sin conocimientos técnicos. Incluimos formación y documentación completa para que seas autónomo desde el primer día."}
+ },
+ {
+"@type":"Question",
+"name":"¿Cuánto tiempo tarda en verse el retorno de la inversión?",
+"acceptedAnswer": {"@type":"Answer","text":"En la mayoría de proyectos el ROI es visible en el primer mes: ahorro de horas, reducción de errores y mayor velocidad operativa. Medimos los resultados con KPIs concretos definidos desde el inicio del proyecto."}
+ }
+ ]
+};
+
+const benefits = [
+ 'Automatización de flujos de trabajo, emails, reportes y procesos repetitivos',
+ 'Integración de IA en atención al cliente, ventas y marketing',
+ 'Reducción de tiempos operativos de hasta el 70%',
+ 'Soluciones personalizadas sin necesidad de conocimientos técnicos',
+ 'ROI medible desde el primer mes',
+];
+
+const useCases = [
+ { title: 'Atención al cliente', body: 'Agentes IA que responden el 80% de consultas automáticamente, 24/7, con escalado inteligente a tu equipo.', accent: 'cyan' },
+ { title: 'Gestión de leads', body: 'Captura, cualificación y nutrición automática de leads con seguimientos personalizados a escala.', accent: 'magenta' },
+ { title: 'Reportes y análisis', body: 'Generación automática de informes periódicos desde múltiples fuentes de datos, sin trabajo manual.', accent: 'cyan' },
+ { title: 'Flujos de trabajo internos', body: 'Automatización de aprobaciones, notificaciones, asignaciones y procesos repetitivos de tu equipo.', accent: 'magenta' },
+];
+---
+
+<Layout
+ title="Automatización con IA para Empresas"
+ description="Automatización de procesos e IA aplicada a tu negocio. Reducimos costes operativos y liberamos a tu equipo. Agentes IA, workflows y automatizaciones a medida."
+>
+ <script type="application/ld+json"set:html={JSON.stringify(serviceSchema)} />
+ <script type="application/ld+json"set:html={JSON.stringify(breadcrumbSchema)} />
+ <script type="application/ld+json"set:html={JSON.stringify(faqSchema)} />
+
+ <!-- Hero -->
+ <section class="border-b border-[rgba(255,255,255,0.18)] bg-[#000] pt-24 pb-16">
+ <div class="mx-auto max-w-[1400px] px-6">
+ <div class="page-fade-in max-w-3xl">
+ <nav class="mb-6 flex items-center gap-2 font-mono text-xs text-[rgba(255,255,255,0.25)]">
+ <a href="/"class="hover:text-[rgba(255,255,255,0.92)] transition-colors">Inicio</a>
+ <span>/</span>
+ <a href="/servicios"class="hover:text-[rgba(255,255,255,0.92)] transition-colors">Servicios</a>
+ <span>/</span>
+ <span class="text-red-500">Automatización + IA</span>
+ </nav>
+ <p class="mb-4 font-mono text-xs font-medium uppercase tracking-widest text-red-500/60">Servicio</p>
+ <h1 class="font-display text-5xl font-bold leading-[1.05] tracking-[-0.03em] text-[rgba(255,255,255,0.92)] md:text-6xl">
+ Automatiza lo que te roba tiempo — escala lo que te da dinero.
+ </h1>
+ <p class="mt-6 max-w-xl text-lg leading-relaxed text-[rgba(255,255,255,0.55)]">
+ Cada hora que tu equipo dedica a tareas repetitivas es una hora que no dedica a crecer. Implementamos automatizaciones de procesos e IA aplicada a tu negocio para reducir costes operativos, eliminar errores manuales y liberar a tu equipo para lo que realmente importa: pensar, crear y vender.
+ </p>
+ <div class="mt-8 flex flex-wrap gap-4">
+ <Button href="/contacto"variant="primary"arrow>
+ Automatiza tu negocio ahora
+ </Button>
+ <Button href="/servicios"variant="ghost">
+ Ver todos los servicios
+ </Button>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- Casos de uso -->
+ <section class="border-b border-[rgba(255,255,255,0.18)] bg-[#0D0D0D] py-20">
+ <div class="mx-auto max-w-[1400px] px-6">
+ <div class="mb-12">
+ <p class="mb-4 font-mono text-xs font-medium uppercase tracking-widest text-red-500/60">Casos de uso</p>
+ <h2 class="font-display text-3xl font-bold tracking-tight text-[rgba(255,255,255,0.92)] md:text-4xl">
+ ¿Qué puedes automatizar en tu empresa?
+ </h2>
+ <p class="mt-4 max-w-xl text-[rgba(255,255,255,0.55)]">
+ Casi todo proceso repetitivo tiene potencial de automatización. Estos son los casos donde más ROI generamos:
+ </p>
+ </div>
+ <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+ {useCases.map((uc) => (
+ <div class:list={[
+ ' border p-8 transition-all duration-300',
+ uc.accent === 'cyan' ? 'border-red-500/20 bg-red-500/[0.03]' : 'border-red-500-secondary/20 bg-red-500-secondary/[0.03]',
+ ]}>
+ <h3 class="font-display text-lg font-bold text-[rgba(255,255,255,0.92)]">{uc.title}</h3>
+ <p class="mt-3 text-sm leading-relaxed text-[rgba(255,255,255,0.55)]">{uc.body}</p>
+ </div>
+ ))}
+ </div>
+ </div>
+ </section>
+
+ <!-- Beneficios -->
+ <section class="border-b border-[rgba(255,255,255,0.18)] bg-[#000] py-20">
+ <div class="mx-auto max-w-[1400px] px-6">
+ <div class="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_1fr]">
+ <div>
+ <p class="mb-4 font-mono text-xs font-medium uppercase tracking-widest text-red-500/60">Por qué funciona</p>
+ <h2 class="font-display text-3xl font-bold tracking-tight text-[rgba(255,255,255,0.92)] md:text-4xl">
+ Resultados reales, medibles desde el primer mes.
+ </h2>
+ <p class="mt-4 text-[rgba(255,255,255,0.55)] leading-relaxed">
+ No implementamos tecnología por moda. Cada automatización que diseñamos tiene un objetivo de negocio claro y métricas de éxito definidas antes de empezar.
+ </p>
+ </div>
+ <ul class="space-y-4">
+ {benefits.map((b) => (
+ <li class="flex items-start gap-4">
+ <span class="mt-0.5 shrink-0 font-mono text-sm text-red-500">✦</span>
+ <span class="text-[rgba(255,255,255,0.55)]">{b}</span>
+ </li>
+ ))}
+ </ul>
+ </div>
+ </div>
+ </section>
+
+ <!-- FAQ -->
+ <section class="border-b border-[rgba(255,255,255,0.18)] bg-[#0D0D0D] py-20">
+ <div class="mx-auto max-w-3xl px-6">
+ <p class="mb-4 font-mono text-xs font-medium uppercase tracking-widest text-red-500/60">FAQ</p>
+ <h2 class="mb-10 font-display text-3xl font-bold tracking-tight text-[rgba(255,255,255,0.92)] md:text-4xl">
+ Preguntas frecuentes
+ </h2>
+ <div class="space-y-8">
+ <div class="border-t border-[rgba(255,255,255,0.18)] pt-6">
+ <h3 class="font-display text-base font-bold text-[rgba(255,255,255,0.92)]">¿Qué procesos de mi empresa puedo automatizar con IA?</h3>
+ <p class="mt-3 text-sm leading-relaxed text-[rgba(255,255,255,0.55)]">La mayoría de procesos repetitivos son automatizables: gestión de emails, generación de reportes, atención al cliente inicial, procesamiento de pedidos, seguimiento de leads, facturación y más. Hacemos un análisis de tu operativa para identificar dónde está el mayor retorno.</p>
+ </div>
+ <div class="border-t border-[rgba(255,255,255,0.18)] pt-6">
+ <h3 class="font-display text-base font-bold text-[rgba(255,255,255,0.92)]">¿Necesito conocimientos técnicos para usar las automatizaciones?</h3>
+ <p class="mt-3 text-sm leading-relaxed text-[rgba(255,255,255,0.55)]">No. Diseñamos las soluciones para que tu equipo pueda operarlas sin conocimientos técnicos. Incluimos formación y documentación completa para que seas autónomo desde el primer día.</p>
+ </div>
+ <div class="border-t border-[rgba(255,255,255,0.18)] pt-6">
+ <h3 class="font-display text-base font-bold text-[rgba(255,255,255,0.92)]">¿Cuánto tiempo tarda en verse el retorno de la inversión?</h3>
+ <p class="mt-3 text-sm leading-relaxed text-[rgba(255,255,255,0.55)]">En la mayoría de proyectos el ROI es visible en el primer mes: ahorro de horas, reducción de errores y mayor velocidad operativa. Medimos los resultados con KPIs concretos definidos desde el inicio del proyecto.</p>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- CTA -->
+ <section class="bg-[#000] py-24">
+ <div class="mx-auto max-w-[1400px] px-6">
+ <div class="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
+ <div class="max-w-xl">
+ <p class="font-mono text-xs font-medium uppercase tracking-widest text-red-500/60">¿Listo para automatizar?</p>
+ <h2 class="mt-3 font-display text-3xl font-bold tracking-tight text-[rgba(255,255,255,0.92)] md:text-4xl">
+ Cuéntanos dónde pierdes más tiempo.
+ </h2>
+ <p class="mt-4 text-[rgba(255,255,255,0.55)]">
+ Primera consulta gratuita. Analizamos tu operativa y te mostramos qué puedes automatizar y cuánto puedes ahorrar.
+ </p>
+ </div>
+ <Button href="/contacto"variant="primary"size="lg"arrow>
+ Automatiza tu negocio
+ </Button>
+ </div>
+ </div>
+ </section>
+</Layout>
+
+<style>
+ .page-fade-in {
+ opacity: 0;
+ transform: translateY(20px);
+ animation: pageIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+ }
+
+ @keyframes pageIn {
+ to { opacity: 1; transform: translateY(0); }
+ }
+</style>

@@ -1,0 +1,128 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { getLangFromUrl, getLocalizedPath } from '../i18n/utils';
+
+interface Props {
+  title: string;
+  description?: string;
+  ogImage?: string;
+  ogType?: string;
+  canonical?: string;
+  noIndex?: boolean;
+}
+
+const {
+  title,
+  description = 'CIBAI Studio — Agencia de diseño web, desarrollo de aplicaciones e inteligencia artificial para empresas en España.',
+  ogImage = '/og-default.jpg',
+  ogType = 'website',
+  canonical,
+  noIndex = false,
+} = Astro.props;
+
+const lang = getLangFromUrl(Astro.url);
+const siteOrigin = Astro.url.origin;
+
+// Canonical: prop explícito o URL actual (sin trailing slash excepto raíz)
+const canonicalUrl = canonical ?? (Astro.url.href.replace(/\/$/, '') || siteOrigin);
+
+// hreflang: calcular URL alternativa en el otro idioma
+const currentRoute = getLocalizedPath(Astro.url.pathname, 'es');
+const esUrl = siteOrigin + getLocalizedPath(currentRoute, 'es');
+const caUrl = siteOrigin + getLocalizedPath(currentRoute, 'ca');
+
+// OG image: asegurar URL absoluta
+const ogImageUrl = ogImage.startsWith('http') ? ogImage : `${siteOrigin}${ogImage}`;
+const ogTitle = `${title} | CIBAI Studio`;
+---
+
+<!DOCTYPE html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- SEO: title + description -->
+    <title>{title} | CIBAI Studio</title>
+    <meta name="description" content={description} />
+
+    <!-- SEO: canonical -->
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- SEO: noindex para páginas legales -->
+    {noIndex && <meta name="robots" content="noindex, nofollow" />}
+
+    <!-- SEO: hreflang multiidioma (es-ES / ca-ES) -->
+    <link rel="alternate" hreflang="es-ES" href={esUrl} />
+    <link rel="alternate" hreflang="ca-ES" href={caUrl} />
+    <link rel="alternate" hreflang="x-default" href={esUrl} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={ogTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="CIBAI Studio" />
+    <meta property="og:locale" content={lang === 'ca' ? 'ca_ES' : 'es_ES'} />
+
+    <!-- Twitter / X Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={ogTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <!-- Google Fonts: Space Grotesk + JetBrains Mono (Brutalist Cyberpunk) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap"
+    />
+  </head>
+  <body class="min-h-[100dvh] bg-bg text-text font-sans antialiased">
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+
+    <!-- CRT Overlay — scanlines + beam -->
+    <div class="crt-overlay" aria-hidden="true"></div>
+    <!-- Vignette — edge darkening -->
+    <div class="crt-vignette" aria-hidden="true"></div>
+
+    <!-- Status Bar — OS-style fixed bottom -->
+    <div class="status-bar" aria-hidden="true">
+      <div class="flex items-center gap-4">
+        <span><span class="status-dot"></span>CIBAI-OS v2.1</span>
+        <span class="hidden sm:inline">SYS: ONLINE</span>
+        <span class="hidden sm:inline">AVAILABLE</span>
+      </div>
+      <div class="flex items-center gap-4">
+        <span class="hidden sm:inline">BCN / ESP</span>
+        <span id="status-clock">00:00:00</span>
+      </div>
+    </div>
+
+    <script>
+      function updateClock() {
+        const el = document.getElementById('status-clock');
+        if (el) {
+          const now = new Date();
+          el.textContent = now.toLocaleTimeString('es-ES', { hour12: false });
+        }
+      }
+      updateClock();
+      setInterval(updateClock, 1000);
+    </script>
+  </body>
+</html>
