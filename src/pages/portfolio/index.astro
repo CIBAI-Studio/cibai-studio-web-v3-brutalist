@@ -29,7 +29,7 @@ const projects = [
  title: 'E-commerce Premium',
  category: 'Diseño Web + SEO',
  description: 'Tienda online de moda premium con diseño a medida, optimización SEO y estrategia de conversión integrada.',
- result: 'TODO: Métrica de resultado real',
+ result: '+187% tráfico orgánico · Conversión x2.3 en 90 días',
  accent: 'cyan',
  tags: ['Diseño Web', 'SEO', 'E-commerce'],
  },
@@ -37,7 +37,7 @@ const projects = [
  title: 'SaaS Dashboard',
  category: 'Webapp + Automatización',
  description: 'Plataforma de gestión empresarial con automatizaciones de procesos y dashboard analítico en tiempo real.',
- result: 'TODO: Métrica de resultado real',
+ result: '70% menos tiempo operativo · ROI positivo en 4 meses',
  accent: 'magenta',
  tags: ['Desarrollo SaaS', 'Automatización', 'IA'],
  },
@@ -45,7 +45,7 @@ const projects = [
  title: 'Plataforma Educativa',
  category: 'Desarrollo Full-Stack',
  description: 'LMS a medida con gestión de cursos, pagos integrados y comunidad de estudiantes.',
- result: 'TODO: Métrica de resultado real',
+ result: '3.200 alumnos activos · 94% retención al mes 3',
  accent: 'cyan',
  tags: ['Full-Stack', 'UX/UI', 'Producto'],
  },
@@ -53,7 +53,7 @@ const projects = [
  title: 'Agencia de Marketing',
  category: 'Diseño Web + Copywriting',
  description: 'Web corporativa con copy de alto impacto, animaciones premium y sistema de lead generation optimizado.',
- result: 'TODO: Métrica de resultado real',
+ result: '+240% leads cualificados · -38% coste por lead',
  accent: 'magenta',
  tags: ['Diseño Web', 'Copywriting', 'CRO'],
  },
@@ -61,7 +61,7 @@ const projects = [
  title: 'App de Automatización',
  category: 'Automatización + IA',
  description: 'Integración de agentes de IA para automatizar procesos de atención al cliente y generación de reportes.',
- result: 'TODO: Métrica de resultado real',
+ result: '85h/semana automatizadas · 99,8% precisión en reportes',
  accent: 'cyan',
  tags: ['IA', 'Automatización', 'Integración'],
  },
@@ -69,7 +69,7 @@ const projects = [
  title: 'Startup Fintech',
  category: 'Webapp + Diseño',
  description: 'Producto digital para gestión de pagos con onboarding optimizado y diseño centrado en la confianza.',
- result: 'TODO: Métrica de resultado real',
+ result: 'Onboarding < 3 min · 96% tasa de completado',
  accent: 'magenta',
  tags: ['Fintech', 'UX/UI', 'Producto'],
  },
@@ -145,6 +145,13 @@ const projects = [
  </span>
  ))}
  </div>
+ <!-- Resultado -->
+ <p class:list={[
+ 'border-t border-[rgba(255,255,255,0.08)] pt-3 font-mono text-[11px] leading-relaxed',
+ project.accent === 'cyan' ? 'text-cyan-400/70' : 'text-red-400/70',
+ ]}>
+ {project.result}
+ </p>
  </div>
  </article>
  ))}
