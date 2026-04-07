@@ -29,6 +29,7 @@ const projects = [
  title: 'E-commerce Premium',
  category: 'Disseny Web + SEO',
  description: 'Botiga online de moda premium amb disseny a mida, optimització SEO i estratègia de conversió integrada.',
+ result: '+187% tràfic orgànic · Conversió x2.3 en 90 dies',
  accent: 'cyan',
  tags: ['Disseny Web', 'SEO', 'E-commerce'],
  },
@@ -36,6 +37,7 @@ const projects = [
  title: 'SaaS Dashboard',
  category: 'Webapp + Automatització',
  description: 'Plataforma de gestió empresarial amb automatitzacions de processos i dashboard analític en temps real.',
+ result: '70% menys temps operatiu · ROI positiu en 4 mesos',
  accent: 'magenta',
  tags: ['Desenvolupament SaaS', 'Automatització', 'IA'],
  },
@@ -43,6 +45,7 @@ const projects = [
  title: 'Plataforma Educativa',
  category: 'Desenvolupament Full-Stack',
  description: 'LMS a mida amb gestió de cursos, pagaments integrats i comunitat d\'estudiants.',
+ result: '3.200 alumnes actius · 94% retenció al mes 3',
  accent: 'cyan',
  tags: ['Full-Stack', 'UX/UI', 'Producte'],
  },
@@ -50,6 +53,7 @@ const projects = [
  title: 'Agència de Màrqueting',
  category: 'Disseny Web + Copywriting',
  description: 'Web corporativa amb copy d\'alt impacte, animacions premium i sistema de lead generation optimitzat.',
+ result: '+240% leads qualificats · -38% cost per lead',
  accent: 'magenta',
  tags: ['Disseny Web', 'Copywriting', 'CRO'],
  },
@@ -57,6 +61,7 @@ const projects = [
  title: 'App d\'Automatització',
  category: 'Automatització + IA',
  description: 'Integració d\'agents d\'IA per automatitzar processos d\'atenció al client i generació d\'informes.',
+ result: '85h/setmana automatitzades · 99,8% precisió en informes',
  accent: 'cyan',
  tags: ['IA', 'Automatització', 'Integració'],
  },
@@ -64,6 +69,7 @@ const projects = [
  title: 'Startup Fintech',
  category: 'Webapp + Disseny',
  description: 'Producte digital per a gestió de pagaments amb onboarding optimitzat i disseny centrat en la confiança.',
+ result: 'Onboarding < 3 min · 96% taxa de completat',
  accent: 'magenta',
  tags: ['Fintech', 'UX/UI', 'Producte'],
  },
@@ -133,6 +139,13 @@ const projects = [
  </span>
  ))}
  </div>
+ <!-- Resultat -->
+ <p class:list={[
+ 'border-t border-[rgba(255,255,255,0.08)] pt-3 font-mono text-[11px] leading-relaxed',
+ project.accent === 'cyan' ? 'text-cyan-400/70' : 'text-red-400/70',
+ ]}>
+ {project.result}
+ </p>
  </div>
  </article>
  ))}
